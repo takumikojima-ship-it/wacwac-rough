@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご利用の流れ | 株式会社ワック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.flow-section { padding: 80px 0; background: var(--blue-light); }
+
+.flow-timeline { max-width: 800px; margin: 0 auto; position: relative; }
+.flow-timeline::before {
+  content: ''; position: absolute; left: 52px; top: 0; bottom: 0;
+  width: 4px; background: linear-gradient(to bottom, var(--yellow), var(--blue), var(--green));
+  border-radius: 4px;
+}
+.flow-step-item {
+  display: flex; gap: 32px; align-items: flex-start;
+  margin-bottom: 48px; position: relative;
+}
+.flow-step-item:last-child { margin-bottom: 0; }
+.flow-step-circle {
+  width: 108px; height: 108px; border-radius: 50%; flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: var(--shadow); border: 4px solid #fff; position: relative; z-index: 1;
+}
+.flow-step-circle.s1 { background: var(--yellow); color: var(--navy); }
+.flow-step-circle.s2 { background: #93C5FD; color: #1e3a8a; }
+.flow-step-circle.s3 { background: var(--blue); color: #fff; }
+.flow-step-circle.s4 { background: var(--green); color: #fff; }
+.flow-step-circle.s5 { background: var(--orange); color: #fff; }
+.flow-step-num { font-family: 'Nunito', sans-serif; font-size: .7rem; font-weight: 900; letter-spacing: .08em; }
+.flow-step-icon { font-size: 2rem; }
+.flow-step-body {
+  flex: 1; background: #fff; border-radius: 20px; padding: 28px 32px;
+  box-shadow: var(--shadow); margin-top: 10px;
+}
+.flow-step-title { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.flow-step-desc { font-size: .92rem; color: var(--gray); margin-bottom: 16px; }
+.flow-step-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.flow-step-points li {
+  font-size: .85rem; color: var(--navy); display: flex; align-items: center; gap: 8px;
+}
+.flow-step-points li::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--yellow); flex-shrink: 0;
+}
+.flow-step-note {
+  margin-top: 12px; padding: 10px 14px; background: var(--yellow-light);
+  border-radius: 10px; font-size: .8rem; color: var(--navy); font-weight: 600;
+}
+
+/* POINT BOXES -->
+.points-section { padding: 72px 0; background: #fff; }
+.points-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.point-card {
+  background: var(--bg-section); border-radius: var(--radius-card);
+  padding: 32px 24px; text-align: center; box-shadow: var(--shadow);
+  border-top: 4px solid var(--yellow);
+}
+.point-icon { font-size: 2.8rem; margin-bottom: 12px; }
+.point-title { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.point-desc { font-size: .85rem; color: var(--gray); }
+
+@media(max-width:768px) {
+  .flow-timeline::before { left: 40px; }
+  .flow-step-circle { width: 84px; height: 84px; }
+  .flow-step-icon { font-size: 1.6rem; }
+  .points-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
+    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
+    <nav>
+      <a href="items.html"   class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
+      <a href="cases.html"   class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
+      <a href="why.html"     class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
+      <a href="flow.html"    class="nav-link active"><span class="en">Flow</span><span>ご利用の流れ</span></a>
+      <a href="faq.html"     class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-outline-blue btn-sm">資料請求</a>
+      <a href="contact.html" class="btn btn-yellow btn-sm">無料相談する</a>
+    </div>
+  </div>
+</header>
+
+<div class="float-cta">
+  <a href="contact.html" class="float-btn">無料<br>見積り</a>
+  <a href="contact.html" class="float-btn blue">資料<br>請求</a>
+</div>
+
+<div class="page-hero">
+  <span class="page-hero-en">How It Works</span>
+  <h1>ご利用の流れ</h1>
+  <p>お問い合わせからイベント当日まで、ワックがすべてサポートします</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a><span>/</span><span>ご利用の流れ</span>
+  </div>
+</div>
+
+<!-- POINTS -->
+<section class="points-section">
+  <div class="container">
+    <span class="badge-en">WACWAC Promise</span>
+    <h2 class="section-title">ワックが約束する<span>3つのこと</span></h2>
+    <p class="section-sub">はじめてのお客様でも安心してお任せいただけます</p>
+    <div class="points-grid">
+      <div class="point-card">
+        <div class="point-icon">📞</div>
+        <div class="point-title">最短翌日にご提案</div>
+        <div class="point-desc">お問い合わせいただいた内容をもとに、最短翌営業日に企画案と概算見積をご提案します。</div>
+      </div>
+      <div class="point-card">
+        <div class="point-icon">💰</div>
+        <div class="point-title">追加費用なし・明確な料金体系</div>
+        <div class="point-desc">搬入・設営・運営・撤去まですべて含んだ明確な料金をご提示。後から費用が増えることはありません。</div>
+      </div>
+      <div class="point-card">
+        <div class="point-icon">🔄</div>
+        <div class="point-title">何度でも無料で再提案</div>
+        <div class="point-desc">「もう少し規模を小さくしたい」「別のアイテムに変えたい」など、ご要望に合わせて何度でも再提案します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow-section">
+  <div class="container">
+    <span class="badge-en">Step by Step</span>
+    <h2 class="section-title">お問い合わせから<span>当日まで</span></h2>
+    <p class="section-sub">初めてのご依頼でも安心の5ステップ</p>
+
+    <div class="flow-timeline">
+
+      <div class="flow-step-item">
+        <div class="flow-step-circle s1">
+          <div class="flow-step-num">STEP 1</div>
+          <div class="flow-step-icon">📞</div>
+        </div>
+        <div class="flow-step-body">
+          <div class="flow-step-title">お問い合わせ・ご相談</div>
+          <p class="flow-step-desc">フォームまたはお電話で、イベントの概要をお聞かせください。この段階では詳細が決まっていなくても問題ありません。</p>
+          <ul class="flow-step-points">
+            <li>開催予定日（未定でも可）</li>
+            <li>会場の場所・広さ（未定でも可）</li>
+            <li>ご予算の目安</li>
+            <li>参加予定人数</li>
+          </ul>
+          <div class="flow-step-note">💡 「まだ検討段階」でもお気軽にご相談ください。情報が少なくても対応します。</div>
+        </div>
+      </div>
+
+      <div class="flow-step-item">
+        <div class="flow-step-circle s2">
+          <div class="flow-step-num">STEP 2</div>
+          <div class="flow-step-icon">💡</div>
+        </div>
+        <div class="flow-step-body">
+          <div class="flow-step-title">企画提案・お見積り（無料）</div>
+          <p class="flow-step-desc">担当スタッフがご要望をヒアリングし、最適なプランを複数ご提案します。お見積りはすべて無料です。</p>
+          <ul class="flow-step-points">
+            <li>おすすめアイテムのご提案</li>
+            <li>レイアウト案の作成</li>
+            <li>必要スタッフ数の算出</li>
+            <li>概算見積書の提出</li>
+          </ul>
+          <div class="flow-step-note">📅 通常、お問い合わせから1〜3営業日以内にご提案します。</div>
+        </div>
+      </div>
+
+      <div class="flow-step-item">
+        <div class="flow-step-circle s3">
+          <div class="flow-step-num">STEP 3</div>
+          <div class="flow-step-icon">📝</div>
+        </div>
+        <div class="flow-step-body">
+          <div class="flow-step-title">内容確定・ご契約</div>
+          <p class="flow-step-desc">提案内容にご納得いただいたらご契約。詳細な設営計画と運営スケジュールを作成します。</p>
+          <ul class="flow-step-points">
+            <li>正式な見積書・契約書の発行</li>
+            <li>現地調査の実施（必要に応じて）</li>
+            <li>詳細レイアウト図の作成</li>
+            <li>当日の運営スケジュール策定</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-step-item">
+        <div class="flow-step-circle s4">
+          <div class="flow-step-num">STEP 4</div>
+          <div class="flow-step-icon">🏗️</div>
+        </div>
+        <div class="flow-step-body">
+          <div class="flow-step-title">搬入・設営</div>
+          <p class="flow-step-desc">経験豊富なスタッフがすべての設営を担当します。ご担当者様は立ち会うだけでOK。</p>
+          <ul class="flow-step-points">
+            <li>アイテムの搬入・組み立て</li>
+            <li>安全確認・動作テスト</li>
+            <li>スタッフへのオペレーション説明</li>
+            <li>設営完了の確認・引き継ぎ</li>
+          </ul>
+          <div class="flow-step-note">🚚 搬入は前日〜当日早朝に行います。ご担当者様の負担はほぼゼロです。</div>
+        </div>
+      </div>
+
+      <div class="flow-step-item">
+        <div class="flow-step-circle s5">
+          <div class="flow-step-num">STEP 5</div>
+          <div class="flow-step-icon">🎉</div>
+        </div>
+        <div class="flow-step-body">
+          <div class="flow-step-title">イベント当日・運営・撤去</div>
+          <p class="flow-step-desc">ワックスタッフが終日サポート。イベント終了後の撤去・清掃まですべてお任せください。</p>
+          <ul class="flow-step-points">
+            <li>専任スタッフによる安全運営</li>
+            <li>トラブル時の即時対応</li>
+            <li>来場者への丁寧な案内・誘導</li>
+            <li>終了後の撤去・原状復帰</li>
+          </ul>
+          <div class="flow-step-note">✨ 終了後は「また来年もお願いしたい」というご連絡を多数いただいています。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ PREVIEW -->
+<section style="padding:72px 0;background:#fff;">
+  <div class="container">
+    <span class="badge-en">FAQ</span>
+    <h2 class="section-title">よくある<span>ご質問</span></h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q"><span class="faq-icon q">Q</span>どのくらい前から相談すればいいですか？<span class="faq-toggle">+</span></div>
+        <div class="faq-a">開催の1〜3ヶ月前を目安にご相談ください。繁忙期（夏・冬）は早めにご連絡いただくと確実です。もちろん急ぎの場合もご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-icon q">Q</span>当日ご担当者は何をすればいいですか？<span class="faq-toggle">+</span></div>
+        <div class="faq-a">基本的に立ち会っていただくだけで結構です。運営・誘導・安全管理はすべてワックスタッフが担当します。何かあればすぐにご連絡できる体制を取っています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-icon q">Q</span>何度も打ち合わせは必要ですか？<span class="faq-toggle">+</span></div>
+        <div class="faq-a">多くの場合、オンラインまたはお電話での打ち合わせ2〜3回で完結します。遠方の場合も現地出張が必要ない場合がほとんどです。</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;">
+      <a href="faq.html" class="btn btn-outline-blue">FAQ をすべて見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <span class="cta-label">📣 まずはお気軽に</span>
+    <h2 class="cta-h2">企画から撤去まで<br>すべてワックにお任せください</h2>
+    <p class="cta-desc">「何から始めればいい？」という段階でも大丈夫です。<br>担当スタッフが丁寧にサポートします。</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">✉ 無料で相談する</a>
+      <a href="contact.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">📄 資料を請求する</a>
+    </div>
+    <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-mark">WAC</div>
+        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
+        <span class="footer-tel-num">0120-18-7801</span>
+        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
+      </div>
+      <div class="footer-col"><h4>サービス</h4><ul>
+        <li><a href="items.html#train">トレイン</a></li>
+        <li><a href="items.html#air">エア遊具</a></li>
+        <li><a href="items.html#dino">わくわく恐竜王国</a></li>
+        <li><a href="items.html#skate">スケートイベント</a></li>
+        <li><a href="items.html#activity">アクティビティイベント</a></li>
+        <li><a href="items.html#attract">アトラクションイベント</a></li>
+        <li><a href="items.html#digital">デジタルイベント</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>会社情報</h4><ul>
+        <li><a href="why.html">ワックとは・選ばれる理由</a></li>
+        <li><a href="cases.html">イベント事例</a></li>
+        <li><a href="flow.html">ご利用の流れ</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>お問い合わせ</h4><ul>
+        <li><a href="contact.html">お問い合わせ・ご相談</a></li>
+        <li><a href="contact.html">資料請求</a></li>
+        <li><a href="contact.html">無料見積り</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
+      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+});
+</script>
+</body>
+</html>

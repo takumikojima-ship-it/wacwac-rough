@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>選ばれる理由 | 株式会社ワック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.why-section  { padding: 80px 0; }
+.why-section.alt { background: var(--bg-section); }
+.reason-block {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  margin-bottom: 80px;
+}
+.reason-block.reverse { direction: rtl; }
+.reason-block.reverse > * { direction: ltr; }
+.reason-photo {
+  border-radius: 24px; overflow: hidden; background: #dbeafe;
+  aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; color: var(--gray); text-align: center; padding: 20px;
+  box-shadow: var(--shadow);
+}
+.reason-photo.g { background: #dcfce7; }
+.reason-photo.y { background: #fef9c3; }
+.reason-num {
+  font-family: 'Nunito', sans-serif; font-size: 4rem; font-weight: 900;
+  line-height: 1; margin-bottom: 8px;
+}
+.reason-num.y { color: var(--yellow); }
+.reason-num.b { color: var(--blue); }
+.reason-num.g { color: var(--green); }
+.reason-title { font-size: 1.6rem; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+.reason-desc  { font-size: .95rem; color: var(--gray); margin-bottom: 24px; }
+.check-list   { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.check-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: .92rem; color: var(--navy); font-weight: 500;
+}
+.check-list li::before {
+  content: '✓'; flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--yellow); color: var(--navy); font-weight: 900; font-size: .85rem;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+/* STATS */
+.stats-section { background: var(--navy); padding: 72px 0; }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; text-align: center;
+}
+.stat-num {
+  font-family: 'Nunito', sans-serif; font-size: 3.5rem; font-weight: 900;
+  color: var(--yellow); line-height: 1;
+}
+.stat-unit { font-size: 1rem; color: var(--yellow); font-weight: 700; }
+.stat-label { font-size: .82rem; color: rgba(255,255,255,.6); margin-top: 8px; }
+
+/* VOICE -->
+.voice-section { padding: 80px 0; background: #fff; }
+.voice-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.voice-card {
+  background: var(--bg-section); border-radius: var(--radius-card);
+  padding: 28px 24px; box-shadow: var(--shadow);
+}
+.voice-stars { color: var(--yellow); font-size: 1.1rem; margin-bottom: 12px; }
+.voice-text { font-size: .9rem; color: var(--navy); margin-bottom: 16px; line-height: 1.8; }
+.voice-from { font-size: .78rem; color: var(--gray); font-weight: 700; }
+
+@media(max-width:1024px) {
+  .reason-block { grid-template-columns: 1fr; gap: 32px; }
+  .reason-block.reverse { direction: ltr; }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .voice-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:768px) {
+  .voice-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
+    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
+    <nav>
+      <a href="items.html"   class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
+      <a href="cases.html"   class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
+      <a href="why.html"     class="nav-link active"><span class="en">About</span><span>ワックとは</span></a>
+      <a href="flow.html"    class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
+      <a href="faq.html"     class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-outline-blue btn-sm">資料請求</a>
+      <a href="contact.html" class="btn btn-yellow btn-sm">無料相談する</a>
+    </div>
+  </div>
+</header>
+
+<div class="float-cta">
+  <a href="contact.html" class="float-btn">無料<br>見積り</a>
+  <a href="contact.html" class="float-btn blue">資料<br>請求</a>
+</div>
+
+<div class="page-hero">
+  <span class="page-hero-en">Why WACWAC</span>
+  <h1>選ばれる理由</h1>
+  <p>年間200件以上の実績が、ワックへの信頼の証です</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a><span>/</span><span>選ばれる理由</span>
+  </div>
+</div>
+
+<!-- REASONS -->
+<section class="why-section">
+  <div class="container">
+
+    <!-- 01 -->
+    <div class="reason-block">
+      <div class="reason-photo">【写真】安全管理・スタッフ研修の様子<br>メンテナンスや点検シーン</div>
+      <div>
+        <div class="reason-num y">01</div>
+        <div class="reason-title">子どもの命を守る<br>徹底した安全管理</div>
+        <p class="reason-desc">
+          ワックでは「楽しさ」と同じくらい「安全」を最重要視しています。すべてのアイテムは定期的に専門スタッフが点検・メンテナンスを実施。万が一の際も対応できる保険体制を整えています。
+        </p>
+        <ul class="check-list">
+          <li>全アイテムに損害賠償保険を付帯</li>
+          <li>スタッフ全員が安全研修修了済み</li>
+          <li>定期メンテナンスと使用前点検を徹底</li>
+          <li>緊急時対応マニュアルを完備</li>
+          <li>現場責任者を必ず配置</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="reason-block reverse" style="border-top:1px dashed #e2e8f0;padding-top:80px;">
+      <div class="reason-photo g">【写真】企画提案・打ち合わせのシーン<br>スタッフと担当者の打ち合わせ</div>
+      <div>
+        <div class="reason-num b">02</div>
+        <div class="reason-title">企画からのワンストップ対応で<br>担当者の手間ゼロ</div>
+        <p class="reason-desc">
+          「何から始めればいいかわからない」というご担当者様でも安心。ワックがすべての工程をリードします。ご予算・スペース・日程をお伝えいただくだけで、最適なプランを複数ご提案します。
+        </p>
+        <ul class="check-list">
+          <li>現地調査・会場確認を無料で実施</li>
+          <li>企画書・見積書を無料作成</li>
+          <li>搬入・設営はすべてワックスタッフが対応</li>
+          <li>当日運営も安心の専任スタッフ配置</li>
+          <li>イベント終了後の撤去・清掃まで完結</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="reason-block" style="border-top:1px dashed #e2e8f0;padding-top:80px;margin-bottom:0;">
+      <div class="reason-photo y">【写真】全国イベント開催マップ<br>日本全国対応のイメージ</div>
+      <div>
+        <div class="reason-num g">03</div>
+        <div class="reason-title">北海道から沖縄まで<br>全国どこでも対応</div>
+        <p class="reason-desc">
+          ワックは全国ネットワークを活かし、どこの会場でも同じクオリティでイベントを実施します。地方での開催でも、経験豊富なスタッフが現地に伺い、万全の体制でサポートします。
+        </p>
+        <ul class="check-list">
+          <li>47都道府県への対応実績あり</li>
+          <li>地方・離島への遠征も対応可能</li>
+          <li>小規模50㎡〜大規模会場まで対応</li>
+          <li>屋内・屋外どちらも対応</li>
+          <li>短期1日〜長期1ヶ月以上まで柔軟対応</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div><div class="stat-num">1,500<span class="stat-unit">+</span></div><div class="stat-label">累計イベント実績</div></div>
+      <div><div class="stat-num">30<span class="stat-unit">年</span></div><div class="stat-label">の豊富な経験</div></div>
+      <div><div class="stat-num">85<span class="stat-unit">%</span></div><div class="stat-label">リピート率</div></div>
+      <div><div class="stat-num">47<span class="stat-unit">都道府県</span></div><div class="stat-label">全国対応実績</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section class="voice-section">
+  <div class="container">
+    <span class="badge-en">Voice</span>
+    <h2 class="section-title">ご担当者様の<span>声</span></h2>
+    <p class="section-sub">ワックをご利用いただいたお客様からのご感想です</p>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">「相談から当日まで担当者が親身に対応してくれ、初めてのイベント開催でも不安がありませんでした。子どもたちの笑顔が忘れられません。」</p>
+        <div class="voice-from">🏬 関東・ショッピングセンター 販促担当者様</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">「予算が限られていたのに、それ以上のクオリティで提案いただきました。来場者数が前年比で大きく伸び、上層部からも大好評でした。」</p>
+        <div class="voice-from">🏛️ 中部・自治体 イベント担当者様</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-text">「設営から撤去まですべてお任せできたので、当日は子どもたちと一緒に楽しめました。毎年お願いしています。」</p>
+        <div class="voice-from">🏫 近畿・小学校 PTA役員様</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <span class="cta-label">📣 まずはお気軽に</span>
+    <h2 class="cta-h2">企画から設置・運営・撤去まで<br>すべてワックにお任せください</h2>
+    <p class="cta-desc">ご予算やスペース・開催時期に合わせて、経験豊富なスタッフが最適なプランをご提案します。</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">✉ 無料で相談する</a>
+      <a href="cases.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">📋 事例を見る</a>
+    </div>
+    <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-mark">WAC</div>
+        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
+        <span class="footer-tel-num">0120-18-7801</span>
+        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
+      </div>
+      <div class="footer-col"><h4>サービス</h4><ul>
+        <li><a href="items.html#train">トレイン</a></li>
+        <li><a href="items.html#air">エア遊具</a></li>
+        <li><a href="items.html#dino">わくわく恐竜王国</a></li>
+        <li><a href="items.html#skate">スケートイベント</a></li>
+        <li><a href="items.html#activity">アクティビティイベント</a></li>
+        <li><a href="items.html#attract">アトラクションイベント</a></li>
+        <li><a href="items.html#digital">デジタルイベント</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>会社情報</h4><ul>
+        <li><a href="why.html">ワックとは・選ばれる理由</a></li>
+        <li><a href="cases.html">イベント事例</a></li>
+        <li><a href="flow.html">ご利用の流れ</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>お問い合わせ</h4><ul>
+        <li><a href="contact.html">お問い合わせ・ご相談</a></li>
+        <li><a href="contact.html">資料請求</a></li>
+        <li><a href="contact.html">無料見積り</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
+      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

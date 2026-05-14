@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ・見積り依頼 | 株式会社ワック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-section { padding: 80px 0; background: var(--bg-section); }
+.contact-grid { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+
+/* FORM */
+.form-card { background: #fff; border-radius: 24px; padding: 48px; box-shadow: var(--shadow); }
+.form-title { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.form-subtitle { font-size: .88rem; color: var(--gray); margin-bottom: 32px; }
+.form-group { margin-bottom: 24px; }
+.form-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .88rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+}
+.required-badge {
+  background: #EF4444; color: #fff; font-size: .65rem; font-weight: 800;
+  padding: 2px 7px; border-radius: 4px;
+}
+.optional-badge {
+  background: #94a3b8; color: #fff; font-size: .65rem; font-weight: 800;
+  padding: 2px 7px; border-radius: 4px;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 14px 16px; border-radius: 12px;
+  border: 2px solid #e2e8f0; font-size: .92rem; font-family: inherit;
+  color: var(--navy); transition: border-color .2s, box-shadow .2s;
+  background: #fff;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37,99,235,.08);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-hint { font-size: .75rem; color: var(--gray); margin-top: 6px; }
+.form-check-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.form-check {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--blue-light); border-radius: 50px;
+  padding: 8px 16px; cursor: pointer; font-size: .85rem; font-weight: 600;
+  color: var(--navy); border: 2px solid transparent; transition: all .2s;
+}
+.form-check input { display: none; }
+.form-check:has(input:checked) { background: var(--blue); color: #fff; border-color: var(--blue); }
+.form-check:hover { border-color: var(--blue); }
+.submit-btn {
+  width: 100%; padding: 18px; border-radius: var(--radius-btn);
+  background: var(--yellow); color: var(--navy); font-size: 1.1rem; font-weight: 800;
+  border: none; cursor: pointer; transition: transform .2s, box-shadow .2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: inherit;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.form-notice { font-size: .78rem; color: var(--gray); text-align: center; margin-top: 12px; }
+
+/* SIDEBAR -->
+.contact-sidebar { display: flex; flex-direction: column; gap: 20px; }
+.sidebar-card { background: #fff; border-radius: 20px; padding: 28px; box-shadow: var(--shadow); }
+.sidebar-card-title {
+  font-size: .95rem; font-weight: 800; color: var(--navy);
+  margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--yellow);
+}
+.tel-big {
+  font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 900;
+  color: var(--navy); display: block; margin-bottom: 4px;
+}
+.tel-free { font-size: .72rem; color: var(--blue); font-weight: 700; }
+.tel-hours { font-size: .78rem; color: var(--gray); margin-top: 6px; }
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.feature-list li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: .85rem; color: var(--navy);
+}
+.feature-list li::before {
+  content: '✓'; flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--green); color: #fff; font-size: .7rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+
+@media(max-width:1024px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
+    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
+    <nav>
+      <a href="items.html"   class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
+      <a href="cases.html"   class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
+      <a href="why.html"     class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
+      <a href="flow.html"    class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
+      <a href="faq.html"     class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-yellow btn-sm">✉ お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <span class="page-hero-en">Contact</span>
+  <h1>お問い合わせ・見積り依頼</h1>
+  <p>まずはお気軽にご相談ください。最短翌営業日にご提案します。</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a><span>/</span><span>お問い合わせ</span>
+  </div>
+</div>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="form-card">
+        <div class="form-title">✉ お問い合わせ・無料見積りフォーム</div>
+        <p class="form-subtitle">「必須」項目をご入力いただくと、より精度の高いご提案が可能です。未定の項目は「未定」とご記入ください。</p>
+
+        <form action="#" method="post">
+
+          <!-- 会社名 -->
+          <div class="form-group">
+            <label class="form-label"><span class="required-badge">必須</span>会社名・団体名</label>
+            <input type="text" class="form-input" placeholder="例：株式会社〇〇 / 〇〇市役所 / 〇〇小学校PTA">
+          </div>
+
+          <!-- 担当者名 -->
+          <div class="form-group">
+            <div class="form-row">
+              <div>
+                <label class="form-label"><span class="required-badge">必須</span>担当者名</label>
+                <input type="text" class="form-input" placeholder="例：山田 太郎">
+              </div>
+              <div>
+                <label class="form-label"><span class="required-badge">必須</span>役職・部署</label>
+                <input type="text" class="form-input" placeholder="例：販促部 / 総務担当">
+              </div>
+            </div>
+          </div>
+
+          <!-- 連絡先 -->
+          <div class="form-group">
+            <div class="form-row">
+              <div>
+                <label class="form-label"><span class="required-badge">必須</span>メールアドレス</label>
+                <input type="email" class="form-input" placeholder="例：taro@example.co.jp">
+              </div>
+              <div>
+                <label class="form-label"><span class="required-badge">必須</span>電話番号</label>
+                <input type="tel" class="form-input" placeholder="例：03-XXXX-XXXX">
+              </div>
+            </div>
+          </div>
+
+          <!-- イベント予定日 -->
+          <div class="form-group">
+            <div class="form-row">
+              <div>
+                <label class="form-label"><span class="required-badge">必須</span>イベント予定日</label>
+                <input type="text" class="form-input" placeholder="例：2025年8月10日〜12日（未定でも可）">
+              </div>
+              <div>
+                <label class="form-label"><span class="required-badge">必須</span>開催場所（都道府県）</label>
+                <select class="form-select">
+                  <option value="">都道府県を選択</option>
+                  <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option>
+                  <option>秋田県</option><option>山形県</option><option>福島県</option><option>茨城県</option>
+                  <option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option>
+                  <option>東京都</option><option>神奈川県</option><option>新潟県</option><option>富山県</option>
+                  <option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
+                  <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                  <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option>
+                  <option>奈良県</option><option>和歌山県</option><option>鳥取県</option><option>島根県</option>
+                  <option>岡山県</option><option>広島県</option><option>山口県</option><option>徳島県</option>
+                  <option>香川県</option><option>愛媛県</option><option>高知県</option><option>福岡県</option>
+                  <option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option>
+                  <option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option><option>未定</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- 会場の広さ -->
+          <div class="form-group">
+            <label class="form-label"><span class="required-badge">必須</span>会場の広さ（イベントスペース）</label>
+            <select class="form-select">
+              <option value="">広さを選択してください</option>
+              <option>〜50㎡（小規模・室内催事スペース）</option>
+              <option>50〜100㎡（中規模・コンコース等）</option>
+              <option>100〜300㎡（大型スペース・ホール）</option>
+              <option>300㎡以上（野外・大型施設）</option>
+              <option>未定・わからない</option>
+            </select>
+            <div class="form-hint">※ 会場の図面・資料がある場合は、後ほどメールで送付いただけると助かります。</div>
+          </div>
+
+          <!-- 予算感 -->
+          <div class="form-group">
+            <label class="form-label"><span class="required-badge">必須</span>ご予算の目安</label>
+            <select class="form-select">
+              <option value="">予算感を選択してください</option>
+              <option>〜30万円</option>
+              <option>30〜50万円</option>
+              <option>50〜100万円</option>
+              <option>100〜300万円</option>
+              <option>300万円以上</option>
+              <option>未定・応相談</option>
+            </select>
+          </div>
+
+          <!-- 興味のあるアイテム -->
+          <div class="form-group">
+            <label class="form-label"><span class="optional-badge">任意</span>興味のあるアイテム（複数選択可）</label>
+            <div class="form-check-group">
+              <label class="form-check"><input type="checkbox" name="item" value="train">🚂 トレイン</label>
+              <label class="form-check"><input type="checkbox" name="item" value="air">🎈 エア遊具</label>
+              <label class="form-check"><input type="checkbox" name="item" value="dino">🦕 恐竜イベント</label>
+              <label class="form-check"><input type="checkbox" name="item" value="skate">⛸️ スケート</label>
+              <label class="form-check"><input type="checkbox" name="item" value="activity">🎯 アクティビティ</label>
+              <label class="form-check"><input type="checkbox" name="item" value="attract">🎡 アトラクション</label>
+              <label class="form-check"><input type="checkbox" name="item" value="digital">📱 デジタル</label>
+              <label class="form-check"><input type="checkbox" name="item" value="unknown">まだ決まっていない</label>
+            </div>
+          </div>
+
+          <!-- 参加予定人数 -->
+          <div class="form-group">
+            <label class="form-label"><span class="optional-badge">任意</span>参加予定人数</label>
+            <select class="form-select">
+              <option value="">人数を選択してください</option>
+              <option>〜300名</option>
+              <option>300〜1,000名</option>
+              <option>1,000〜5,000名</option>
+              <option>5,000名以上</option>
+              <option>未定</option>
+            </select>
+          </div>
+
+          <!-- お問い合わせ種別 -->
+          <div class="form-group">
+            <label class="form-label"><span class="required-badge">必須</span>お問い合わせ種別</label>
+            <select class="form-select">
+              <option value="">選択してください</option>
+              <option>無料見積り・プラン提案を希望</option>
+              <option>資料請求</option>
+              <option>詳細について聞きたい</option>
+              <option>その他</option>
+            </select>
+          </div>
+
+          <!-- メッセージ -->
+          <div class="form-group">
+            <label class="form-label"><span class="optional-badge">任意</span>ご要望・ご質問など</label>
+            <textarea class="form-textarea" placeholder="例：子ども向けのトレインイベントを夏休みに開催したい。予算は〇〇万円で、できれば複数のアイテムを組み合わせたい。"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">✉ 送信する（無料）</button>
+          <p class="form-notice">送信後、通常1〜2営業日以内にご連絡いたします。</p>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar">
+
+        <div class="sidebar-card" style="background:var(--navy);color:#fff;">
+          <div class="sidebar-card-title" style="color:var(--yellow);border-color:rgba(255,255,255,.2);">📞 お電話でのご相談</div>
+          <span class="tel-big" style="color:var(--yellow);">0120-18-7801</span>
+          <span class="tel-free">フリーコール（通話無料）</span>
+          <div class="tel-hours" style="color:rgba(255,255,255,.6);">平日 9:00〜18:00（土日祝休）</div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">✅ ワックに頼むと</div>
+          <ul class="feature-list">
+            <li>見積り・プラン提案は無料</li>
+            <li>最短翌営業日にご提案</li>
+            <li>何度でも再提案・修正OK</li>
+            <li>搬入・設営・運営・撤去まで一括対応</li>
+            <li>全国47都道府県に対応</li>
+            <li>損害賠償保険加入済み</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card" style="background:var(--yellow-light);border:2px solid var(--yellow);">
+          <div class="sidebar-card-title" style="border-color:var(--yellow);">🎯 こんな方におすすめ</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li style="font-size:.85rem;color:var(--navy);">🏬 商業施設の集客を強化したい</li>
+            <li style="font-size:.85rem;color:var(--navy);">🏛️ 地域のお祭りを盛り上げたい</li>
+            <li style="font-size:.85rem;color:var(--navy);">🏫 学校行事を特別な体験にしたい</li>
+            <li style="font-size:.85rem;color:var(--navy);">🏢 企業ファミリーデーを開催したい</li>
+            <li style="font-size:.85rem;color:var(--navy);">🤔 何から始めればいいかわからない</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-mark">WAC</div>
+        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
+        <span class="footer-tel-num">0120-18-7801</span>
+        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
+      </div>
+      <div class="footer-col"><h4>サービス</h4><ul>
+        <li><a href="items.html#train">トレイン</a></li>
+        <li><a href="items.html#air">エア遊具</a></li>
+        <li><a href="items.html#dino">わくわく恐竜王国</a></li>
+        <li><a href="items.html#skate">スケートイベント</a></li>
+        <li><a href="items.html#activity">アクティビティイベント</a></li>
+        <li><a href="items.html#attract">アトラクションイベント</a></li>
+        <li><a href="items.html#digital">デジタルイベント</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>会社情報</h4><ul>
+        <li><a href="why.html">ワックとは・選ばれる理由</a></li>
+        <li><a href="cases.html">イベント事例</a></li>
+        <li><a href="flow.html">ご利用の流れ</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>お問い合わせ</h4><ul>
+        <li><a href="contact.html">お問い合わせ・ご相談</a></li>
+        <li><a href="contact.html">資料請求</a></li>
+        <li><a href="contact.html">無料見積り</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
+      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
