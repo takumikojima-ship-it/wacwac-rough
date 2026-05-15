@@ -49,47 +49,92 @@
 .featured-meta { font-size: .78rem; color: var(--gray); margin-bottom: 12px; }
 .featured-excerpt { font-size: .88rem; color: var(--gray); margin-bottom: 20px; }
 
-/* ARTICLE GRID -->
-.article-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+/* ARTICLE LIST (横並びカード) */
+.article-grid { display: flex; flex-direction: column; gap: 16px; }
+
 .article-card {
-  border-radius: var(--radius-card); overflow: hidden;
+  border-radius: 16px; overflow: hidden;
   background: #fff; box-shadow: var(--shadow);
-  transition: transform .2s, box-shadow .2s; text-decoration: none; display: block;
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  display: flex; flex-direction: row;
+  align-items: stretch;
 }
-.article-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.article-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+/* 左：アイキャッチ 16:9 固定幅 */
+.article-thumb-wrap {
+  width: 260px; flex-shrink: 0; position: relative;
+  overflow: hidden;
+}
+.article-thumb-wrap::before {
+  content: ''; display: block; padding-top: 56.25%; /* 16:9 */
+}
 .article-thumb {
-  height: 180px; background: #fef3c7; position: relative;
+  position: absolute; inset: 0;
+  background: #fef3c7;
   display: flex; align-items: center; justify-content: center;
-  font-size: .82rem; color: var(--gray); text-align: center; padding: 16px;
+  font-size: .78rem; color: var(--gray); text-align: center; padding: 12px;
+  transition: transform .3s;
 }
+.article-card:hover .article-thumb { transform: scale(1.04); }
 .article-thumb.b { background: #dbeafe; }
 .article-thumb.g { background: #dcfce7; }
 .article-thumb.p { background: #ede9fe; }
-.article-thumb.n { background: #1a2c5b; color: rgba(255,255,255,.6); }
-.article-thumb .play-icon {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  width: 44px; height: 44px; border-radius: 50%;
-  background: rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
-}
+.article-thumb.n { background: #1a2c5b; color: rgba(255,255,255,.55); }
+
+/* ジャンルバッジ（画像内・左上） */
 .article-cat {
-  position: absolute; top: 10px; left: 10px;
-  font-size: .65rem; font-weight: 700; padding: 3px 10px; border-radius: 50px;
-  color: #fff;
+  position: absolute; top: 10px; left: 10px; z-index: 1;
+  font-size: .63rem; font-weight: 800; padding: 3px 10px; border-radius: 50px;
+  color: #fff; letter-spacing: .04em;
+  backdrop-filter: blur(4px);
 }
 .article-cat.report  { background: var(--blue); }
 .article-cat.case    { background: var(--green); }
 .article-cat.tips    { background: var(--orange); }
 .article-cat.news    { background: #8B5CF6; }
 .article-cat.video   { background: #DC2626; }
-.article-body { padding: 18px; }
-.article-date { font-size: .72rem; color: var(--gray); margin-bottom: 6px; }
-.article-title { font-size: .95rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; line-height: 1.5; }
-.article-excerpt { font-size: .8rem; color: var(--gray); }
+
+/* 動画アイコン */
+.article-thumb .play-icon {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,.88); display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+/* 右：テキストエリア */
+.article-body {
+  flex: 1; padding: 20px 24px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-width: 0; /* テキスト折り返し保証 */
+}
+.article-body-top { flex: 1; }
+.article-title {
+  font-size: 1.05rem; font-weight: 800; color: var(--navy);
+  margin-bottom: 10px; line-height: 1.55;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.article-card:hover .article-title { color: var(--blue); }
+.article-excerpt {
+  font-size: .82rem; color: var(--gray); line-height: 1.75;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* 下：日付 右寄せ */
+.article-body-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px dashed #e8ecf0;
+}
+.article-date {
+  font-family: 'Nunito', sans-serif; font-size: .78rem;
+  color: var(--gray); font-weight: 700;
+}
 .article-read-more {
   display: inline-flex; align-items: center; gap: 4px;
-  font-size: .78rem; font-weight: 700; color: var(--blue);
-  margin-top: 10px;
+  font-size: .78rem; font-weight: 800; color: var(--blue);
 }
 .article-read-more::after { content: ' →'; }
 
@@ -194,7 +239,11 @@
   .featured-card { grid-template-columns: 1fr; }
   .sidebar { display: none; }
 }
-@media(max-width:768px) { .article-grid { grid-template-columns: 1fr; } }
+@media(max-width:768px) {
+  .article-card { flex-direction: column; }
+  .article-thumb-wrap { width: 100%; }
+  .article-thumb-wrap::before { padding-top: 56.25%; }
+}
 </style>
 </head>
 <body>
@@ -272,112 +321,160 @@
           </div>
         </div>
 
-        <!-- ARTICLE GRID -->
+        <!-- ARTICLE LIST (横並びカード) -->
         <div class="article-grid" id="articleGrid">
 
           <a href="blog-single.html" class="article-card" data-cat="report">
-            <div class="article-thumb b">
-              <span class="article-cat report">イベントレポート</span>
-              【写真】スケートリンク設置レポート
+            <div class="article-thumb-wrap">
+              <div class="article-thumb b">
+                <span class="article-cat report">🎉 イベントレポート</span>
+                【写真】スケートリンク設置レポート
+              </div>
             </div>
             <div class="article-body">
-              <div class="article-date">2025.07.20</div>
-              <div class="article-title">冬の百貨店にスケートリンクを設置！設営から初日オープンまでの2日間に密着</div>
-              <div class="article-excerpt">搬入開始から設営完了まで、スタッフが舞台裏をレポート。意外と知られていない設置工程を大公開。</div>
-              <span class="article-read-more">続きを読む</span>
+              <div class="article-body-top">
+                <div class="article-title">冬の百貨店にスケートリンクを設置！設営から初日オープンまでの2日間に密着</div>
+                <div class="article-excerpt">搬入開始から設営完了まで、スタッフが舞台裏をレポート。意外と知られていない設置工程を大公開します。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.07.20</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
             </div>
           </a>
 
           <a href="blog-single.html" class="article-card" data-cat="video">
-            <div class="article-thumb n">
-              <span class="article-cat video">動画</span>
-              【動画サムネイル】恐竜ゾーン設置タイムラプス
-              <div class="play-icon">▶</div>
+            <div class="article-thumb-wrap">
+              <div class="article-thumb n">
+                <span class="article-cat video">🎬 動画</span>
+                【動画サムネイル】恐竜ゾーン設置タイムラプス
+                <div class="play-icon">▶</div>
+              </div>
             </div>
             <div class="article-body">
-              <div class="article-date">2025.07.05</div>
-              <div class="article-title">【タイムラプス動画】恐竜ゾーンの設営が8時間でどう変わる？圧巻の早送り映像</div>
-              <div class="article-excerpt">空のフロアが恐竜だらけに。設営過程をタイムラプスで撮影しました。ぜひご覧ください。</div>
-              <span class="article-read-more">続きを読む</span>
+              <div class="article-body-top">
+                <div class="article-title">【タイムラプス動画】恐竜ゾーンの設営が8時間でどう変わる？圧巻の早送り映像</div>
+                <div class="article-excerpt">空のフロアが恐竜だらけに変わる設営過程をタイムラプスで撮影しました。ぜひご覧ください。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.07.05</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
             </div>
           </a>
 
           <a href="blog-single.html" class="article-card" data-cat="tips">
-            <div class="article-thumb g">
-              <span class="article-cat tips">企画のヒント</span>
-              【写真】イベント企画打ち合わせのシーン
+            <div class="article-thumb-wrap">
+              <div class="article-thumb g">
+                <span class="article-cat tips">💡 企画のヒント</span>
+                【写真】イベント企画打ち合わせのシーン
+              </div>
             </div>
             <div class="article-body">
-              <div class="article-date">2025.06.18</div>
-              <div class="article-title">夏休みイベントを成功させる5つのポイント ― 商業施設担当者向けチェックリスト</div>
-              <div class="article-excerpt">集客・安全・コスト・SNS拡散…担当者が押さえるべき5つのポイントを解説します。</div>
-              <span class="article-read-more">続きを読む</span>
+              <div class="article-body-top">
+                <div class="article-title">夏休みイベントを成功させる5つのポイント ― 商業施設担当者向けチェックリスト</div>
+                <div class="article-excerpt">集客・安全・コスト・SNS拡散…担当者が押さえるべき5つのポイントをわかりやすく解説します。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.06.18</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
             </div>
           </a>
 
           <a href="blog-single.html" class="article-card" data-cat="case">
-            <div class="article-thumb p">
-              <span class="article-cat case">事例紹介</span>
-              【写真】自治体イベント事例の写真
+            <div class="article-thumb-wrap">
+              <div class="article-thumb p">
+                <span class="article-cat case">📋 事例紹介</span>
+                【写真】自治体イベント事例の写真
+              </div>
             </div>
             <div class="article-body">
-              <div class="article-date">2025.06.01</div>
-              <div class="article-title">自治体の夏まつりにエア遊具を導入。予算100万円で来場者8,000人を達成した事例</div>
-              <div class="article-excerpt">「予算が限られている」という自治体担当者様向けに、費用対効果の高い構成をご紹介します。</div>
-              <span class="article-read-more">続きを読む</span>
+              <div class="article-body-top">
+                <div class="article-title">自治体の夏まつりにエア遊具を導入。予算100万円で来場者8,000人を達成した事例</div>
+                <div class="article-excerpt">「予算が限られている」という自治体担当者様向けに、費用対効果の高い構成をご紹介します。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.06.01</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
             </div>
           </a>
 
           <a href="blog-single.html" class="article-card" data-cat="tips">
-            <div class="article-thumb">
-              <span class="article-cat tips">企画のヒント</span>
-              【写真】SNSに映えるフォトスポット
+            <div class="article-thumb-wrap">
+              <div class="article-thumb">
+                <span class="article-cat tips">💡 企画のヒント</span>
+                【写真】SNSに映えるフォトスポット
+              </div>
             </div>
             <div class="article-body">
-              <div class="article-date">2025.05.20</div>
-              <div class="article-title">SNS拡散でイベントを盛り上げるフォトスポットの作り方3選</div>
-              <div class="article-excerpt">インスタやXでシェアされやすいフォトスポットのレイアウトと演出のコツを伝授します。</div>
-              <span class="article-read-more">続きを読む</span>
+              <div class="article-body-top">
+                <div class="article-title">SNS拡散でイベントを盛り上げるフォトスポットの作り方3選</div>
+                <div class="article-excerpt">インスタやXでシェアされやすいフォトスポットのレイアウトと演出のコツを伝授します。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.05.20</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
             </div>
           </a>
 
           <a href="blog-single.html" class="article-card" data-cat="video">
-            <div class="article-thumb n">
-              <span class="article-cat video">動画</span>
-              【動画】子どもたちがトレインに乗る様子
-              <div class="play-icon">▶</div>
+            <div class="article-thumb-wrap">
+              <div class="article-thumb n">
+                <span class="article-cat video">🎬 動画</span>
+                【動画】子どもたちがトレインに乗る様子
+                <div class="play-icon">▶</div>
+              </div>
             </div>
             <div class="article-body">
-              <div class="article-date">2025.05.10</div>
-              <div class="article-title">【現場動画】GWのトレインイベント、子どもたちの笑顔がすごかった件</div>
-              <div class="article-excerpt">GW期間中に開催したトレインイベントの現場動画をお届け。子どもたちの反応が最高でした。</div>
-              <span class="article-read-more">続きを読む</span>
+              <div class="article-body-top">
+                <div class="article-title">【現場動画】GWのトレインイベント、子どもたちの笑顔がすごかった件</div>
+                <div class="article-excerpt">GW期間中に開催したトレインイベントの現場動画をお届け。子どもたちの反応が最高でした。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.05.10</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
             </div>
           </a>
 
           <a href="blog-single.html" class="article-card" data-cat="news">
-            <div class="article-thumb b">
-              <span class="article-cat news">お知らせ</span>
-              【写真】新サービス・デジタルイベント
+            <div class="article-thumb-wrap">
+              <div class="article-thumb b">
+                <span class="article-cat news">📢 お知らせ</span>
+                【写真】新サービス・デジタルイベント
+              </div>
             </div>
             <div class="article-body">
-              <div class="article-date">2025.04.01</div>
-              <div class="article-title">新サービス「ARスタンプラリー」の提供を開始しました</div>
-              <div class="article-excerpt">スマートフォンで館内を巡るAR体験型スタンプラリーをリリース。商業施設の回遊性向上に。</div>
-              <span class="article-read-more">続きを読む</span>
+              <div class="article-body-top">
+                <div class="article-title">新サービス「ARスタンプラリー」の提供を開始しました</div>
+                <div class="article-excerpt">スマートフォンで館内を巡るAR体験型スタンプラリーをリリース。商業施設の回遊性向上に活用いただけます。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.04.01</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
             </div>
           </a>
 
           <a href="blog-single.html" class="article-card" data-cat="report">
-            <div class="article-thumb g">
-              <span class="article-cat report">イベントレポート</span>
-              【写真】春まつりアクティビティ
+            <div class="article-thumb-wrap">
+              <div class="article-thumb g">
+                <span class="article-cat report">🎉 イベントレポート</span>
+                【写真】春まつりアクティビティ
+              </div>
             </div>
             <div class="article-body">
-              <div class="article-date">2025.03.25</div>
-              <div class="article-title">春まつりに縁日コーナー5種類を設置。3日間で4,500名が来場した賑わいレポート</div>
-              <div class="article-excerpt">射的・輪投げ・ヨーヨー釣りなど懐かしの縁日を現代のイベントに融合。大人も子どもも大興奮。</div>
-              <span class="article-read-more">続きを読む</span>
+              <div class="article-body-top">
+                <div class="article-title">春まつりに縁日コーナー5種類を設置。3日間で4,500名が来場した賑わいレポート</div>
+                <div class="article-excerpt">射的・輪投げ・ヨーヨー釣りなど懐かしの縁日を現代のイベントに融合。大人も子どもも大興奮。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.03.25</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
             </div>
           </a>
 
@@ -538,7 +635,7 @@ document.querySelectorAll('.cat-filter .filter-btn').forEach(btn => {
     btn.classList.add('active');
     const cat = btn.dataset.cat;
     document.querySelectorAll('#articleGrid .article-card').forEach(card => {
-      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
     });
   });
 });
