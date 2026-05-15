@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お知らせ | 株式会社ワック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== NEWS PAGE ===== */
+.news-page-section { padding: 80px 0; background: var(--bg-section); }
+.news-page-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+
+/* FILTER */
+.news-cat-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+
+/* NEWS LIST */
+.news-list-wrap { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+.news-list-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 24px 28px; border-bottom: 1px solid #f0f4f8;
+  text-decoration: none; transition: background .2s; position: relative;
+}
+.news-list-item:last-child { border-bottom: none; }
+.news-list-item:hover { background: var(--bg-section); }
+.news-list-date {
+  font-family: 'Nunito', sans-serif; font-size: .85rem; font-weight: 700;
+  color: var(--gray); white-space: nowrap; padding-top: 2px; min-width: 90px;
+}
+.news-tag-wrap { min-width: 80px; }
+.news-list-tag {
+  display: inline-block; font-size: .65rem; font-weight: 800;
+  padding: 3px 10px; border-radius: 50px; white-space: nowrap;
+  color: #fff;
+}
+.news-list-tag.t-info    { background: var(--blue); }
+.news-list-tag.t-case    { background: var(--green); }
+.news-list-tag.t-media   { background: #8B5CF6; }
+.news-list-tag.t-service { background: var(--orange); }
+.news-list-tag.t-season  { background: #DC2626; }
+.news-list-title {
+  font-size: .95rem; font-weight: 700; color: var(--navy); line-height: 1.6;
+  flex: 1;
+}
+.news-list-item:hover .news-list-title { color: var(--blue); }
+.news-list-arrow {
+  color: var(--blue); font-size: .85rem; font-weight: 700;
+  align-self: center; flex-shrink: 0; opacity: 0; transition: opacity .2s;
+}
+.news-list-item:hover .news-list-arrow { opacity: 1; }
+
+/* YEAR SEPARATOR */
+.news-year-sep {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 28px 8px; font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem; font-weight: 900; color: var(--navy);
+  background: #f8fafc; border-bottom: 1px solid #f0f4f8;
+}
+.news-year-sep::after {
+  content: ''; flex: 1; height: 2px; background: var(--yellow);
+}
+
+/* PAGINATION */
+.news-pagination { display: flex; gap: 8px; justify-content: center; margin-top: 40px; }
+.news-page-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .88rem; font-weight: 700; cursor: pointer;
+  border: 2px solid #e2e8f0; background: #fff; color: var(--gray);
+  text-decoration: none; transition: all .2s;
+}
+.news-page-btn:hover, .news-page-btn.active {
+  background: var(--blue); color: #fff; border-color: var(--blue);
+}
+
+/* SIDEBAR */
+.news-sidebar { display: flex; flex-direction: column; gap: 24px; }
+.news-sidebar-box {
+  background: #fff; border-radius: 18px; padding: 24px; box-shadow: var(--shadow);
+}
+.news-sidebar-title {
+  font-size: .9rem; font-weight: 800; color: var(--navy);
+  padding-bottom: 10px; margin-bottom: 14px;
+  border-bottom: 3px solid var(--yellow);
+}
+.news-cat-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.news-cat-list li a {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px; border-radius: 8px; text-decoration: none;
+  color: var(--navy); font-size: .85rem; font-weight: 600;
+  transition: background .2s;
+}
+.news-cat-list li a:hover { background: var(--yellow-light); }
+.news-cat-list li a span { font-size: .72rem; color: var(--gray); }
+
+/* FEATURED NEWS (pickup) */
+.news-pickup {
+  background: linear-gradient(135deg, var(--navy) 0%, #2563EB 100%);
+  border-radius: 20px; padding: 28px; margin-bottom: 32px; box-shadow: var(--shadow);
+}
+.news-pickup-label {
+  font-size: .72rem; font-weight: 800; letter-spacing: .1em;
+  color: var(--yellow); margin-bottom: 12px; text-transform: uppercase;
+}
+.news-pickup-title {
+  font-size: 1.05rem; font-weight: 800; color: #fff; line-height: 1.5; margin-bottom: 12px;
+}
+.news-pickup-date { font-size: .75rem; color: rgba(255,255,255,.6); }
+
+@media(max-width:1024px) {
+  .news-page-layout { grid-template-columns: 1fr; }
+  .news-sidebar { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
+    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
+    <nav>
+      <a href="items.html"   class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
+      <a href="cases.html"   class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
+      <a href="why.html"     class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
+      <a href="flow.html"    class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
+      <a href="faq.html"     class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
+      <a href="blog.html"    class="nav-link"><span class="en">Blog</span><span>ブログ</span></a>
+      <a href="news.html"    class="nav-link active"><span class="en">News</span><span>お知らせ</span></a>
+    </nav>
+    <div class="nav-cta">
+      <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a>
+      <a href="contact.html"   class="btn btn-yellow btn-sm">お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<div class="float-cta">
+  <a href="documents.html" class="float-btn">資料<br>請求</a>
+  <a href="contact.html"   class="float-btn blue">相談<br>する</a>
+</div>
+
+<div class="page-hero">
+  <span class="page-hero-en">News</span>
+  <h1>お知らせ</h1>
+  <p>ワックからの最新情報・イベント情報をお届けします</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a><span>/</span><span>お知らせ</span>
+  </div>
+</div>
+
+<section class="news-page-section">
+  <div class="container">
+    <div class="news-page-layout">
+
+      <!-- MAIN -->
+      <div>
+
+        <!-- ピックアップ -->
+        <div class="news-pickup">
+          <div class="news-pickup-label">📌 PickUp</div>
+          <div class="news-pickup-title">【重要】2025年夏シーズンのご予約受付を開始しました。7〜8月は例年早期満席のため、お早めにご相談ください。</div>
+          <div class="news-pickup-date">2025年5月1日</div>
+        </div>
+
+        <!-- カテゴリフィルター -->
+        <div class="news-cat-filter" id="newsCatFilter">
+          <button class="filter-btn active" data-cat="all">すべて</button>
+          <button class="filter-btn" data-cat="info">📢 お知らせ</button>
+          <button class="filter-btn" data-cat="case">📋 事例公開</button>
+          <button class="filter-btn" data-cat="service">🆕 サービス</button>
+          <button class="filter-btn" data-cat="media">📺 メディア</button>
+          <button class="filter-btn" data-cat="season">🗓️ シーズン</button>
+        </div>
+
+        <!-- ニュースリスト -->
+        <div class="news-list-wrap" id="newsListWrap">
+
+          <!-- 2025年 -->
+          <div class="news-year-sep">2025</div>
+
+          <a href="#" class="news-list-item" data-cat="season">
+            <span class="news-list-date">2025.05.01</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-season">シーズン</span></span>
+            <span class="news-list-title">2025年夏シーズン（7月・8月）のイベント受付を開始しました。夏休みのイベント企画はお早めにご相談ください。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="service">
+            <span class="news-list-date">2025.04.01</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-service">サービス</span></span>
+            <span class="news-list-title">新サービス「ARスタンプラリー」の提供を開始しました。スマートフォンで館内を巡るAR体験型イベントです。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="case">
+            <span class="news-list-date">2025.04.15</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-case">事例公開</span></span>
+            <span class="news-list-title">○○ショッピングセンター様のGWイベント事例を公開しました。トレイン3台＋恐竜ゾーンの大規模設置レポートです。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="media">
+            <span class="news-list-date">2025.03.20</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-media">メディア</span></span>
+            <span class="news-list-title">テレビ○○番組にてワックのイベントが特集されました。子どもたちの笑顔があふれる現場の様子をぜひご覧ください。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="info">
+            <span class="news-list-date">2025.03.01</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-info">お知らせ</span></span>
+            <span class="news-list-title">ウェブサイトをリニューアルしました。アイテム情報・事例ページをより見やすくアップデートしています。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="season">
+            <span class="news-list-date">2025.01.15</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-season">シーズン</span></span>
+            <span class="news-list-title">2025年春シーズン（3月・4月）のイベント受付を開始しました。卒業・入学シーズンのイベントはワックにお任せください。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="info">
+            <span class="news-list-date">2025.01.06</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-info">お知らせ</span></span>
+            <span class="news-list-title">新年のご挨拶。2025年もワックをよろしくお願いいたします。本年も全国のイベントを全力でサポートします。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <!-- 2024年 -->
+          <div class="news-year-sep">2024</div>
+
+          <a href="#" class="news-list-item" data-cat="case">
+            <span class="news-list-date">2024.12.10</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-case">事例公開</span></span>
+            <span class="news-list-title">冬の百貨店スケートリンク設置事例を公開しました。2,000㎡の大型リンクで3週間・来場者5万人を達成した事例です。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="info">
+            <span class="news-list-date">2024.11.01</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-info">お知らせ</span></span>
+            <span class="news-list-title">【冬季休業のお知らせ】2024年12月28日（土）〜2025年1月5日（日）は休業となります。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="service">
+            <span class="news-list-date">2024.09.01</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-service">サービス</span></span>
+            <span class="news-list-title">「デジタルイベント」カテゴリを新設しました。プロジェクションマッピング・インタラクティブゲームなど最新デジタル体験を提供します。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="media">
+            <span class="news-list-date">2024.08.22</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-media">メディア</span></span>
+            <span class="news-list-title">業界専門誌「イベント産業」8月号にワックの取り組みが掲載されました。子ども向けイベントの安全管理について特集されています。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+          <a href="#" class="news-list-item" data-cat="case">
+            <span class="news-list-date">2024.07.05</span>
+            <span class="news-tag-wrap"><span class="news-list-tag t-case">事例公開</span></span>
+            <span class="news-list-title">自治体の夏まつりにエア遊具を導入した事例を公開。予算100万円で来場者8,000人を達成した費用対効果の高い構成をご紹介します。</span>
+            <span class="news-list-arrow">→</span>
+          </a>
+
+        </div><!-- /news-list-wrap -->
+
+        <!-- PAGINATION -->
+        <div class="news-pagination">
+          <a href="#" class="news-page-btn active">1</a>
+          <a href="#" class="news-page-btn">2</a>
+          <a href="#" class="news-page-btn">3</a>
+          <a href="#" class="news-page-btn" style="width:auto;padding:0 16px;border-radius:50px;">次へ →</a>
+        </div>
+
+      </div><!-- /main -->
+
+      <!-- SIDEBAR -->
+      <aside class="news-sidebar">
+
+        <!-- カテゴリ -->
+        <div class="news-sidebar-box">
+          <div class="news-sidebar-title">📂 カテゴリ</div>
+          <ul class="news-cat-list">
+            <li><a href="#">📢 お知らせ <span>18件</span></a></li>
+            <li><a href="#">📋 事例公開 <span>12件</span></a></li>
+            <li><a href="#">🆕 サービス <span>6件</span></a></li>
+            <li><a href="#">📺 メディア <span>8件</span></a></li>
+            <li><a href="#">🗓️ シーズン <span>10件</span></a></li>
+          </ul>
+        </div>
+
+        <!-- 過去のアーカイブ -->
+        <div class="news-sidebar-box">
+          <div class="news-sidebar-title">📅 アーカイブ</div>
+          <ul class="news-cat-list">
+            <li><a href="#">2025年 <span>7件</span></a></li>
+            <li><a href="#">2024年 <span>18件</span></a></li>
+            <li><a href="#">2023年 <span>22件</span></a></li>
+            <li><a href="#">2022年 <span>15件</span></a></li>
+            <li><a href="#">2021年 <span>11件</span></a></li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="news-sidebar-box" style="background:var(--navy);text-align:center;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">📣</div>
+          <div style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:8px;">イベントのご相談は<br>お気軽に</div>
+          <a href="contact.html" class="btn btn-yellow btn-sm" style="width:100%;margin-bottom:8px;">✉ お問い合わせ</a>
+          <a href="documents.html" class="btn btn-sm" style="width:100%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);">📄 資料請求</a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <span class="cta-label">📣 まずはお気軽に</span>
+    <h2 class="cta-h2">企画から設置・運営・撤去まで<br>すべてワックにお任せください</h2>
+    <p class="cta-desc">ご予算やスペース・開催時期に合わせて、経験豊富なスタッフが最適なプランをご提案します。</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">✉ 無料で相談する</a>
+      <a href="documents.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">📄 資料を請求する</a>
+    </div>
+    <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-mark">WAC</div>
+        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
+        <span class="footer-tel-num">0120-18-7801</span>
+        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
+      </div>
+      <div class="footer-col"><h4>サービス</h4><ul>
+        <li><a href="items.html#train">トレイン</a></li>
+        <li><a href="items.html#air">エア遊具</a></li>
+        <li><a href="items.html#dino">わくわく恐竜王国</a></li>
+        <li><a href="items.html#skate">スケートイベント</a></li>
+        <li><a href="items.html#activity">アクティビティイベント</a></li>
+        <li><a href="items.html#attract">アトラクションイベント</a></li>
+        <li><a href="items.html#digital">デジタルイベント</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>会社情報</h4><ul>
+        <li><a href="why.html">ワックとは・選ばれる理由</a></li>
+        <li><a href="cases.html">イベント事例</a></li>
+        <li><a href="flow.html">ご利用の流れ</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="news.html">お知らせ</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>お問い合わせ</h4><ul>
+        <li><a href="contact.html">お問い合わせ・ご相談</a></li>
+        <li><a href="documents.html">資料請求</a></li>
+        <li><a href="contact.html">無料見積り</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
+      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// カテゴリフィルター
+document.querySelectorAll('#newsCatFilter .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#newsCatFilter .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#newsListWrap .news-list-item').forEach(item => {
+      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'flex' : 'none';
+    });
+    // 年区切りは常に表示
+    document.querySelectorAll('#newsListWrap .news-year-sep').forEach(sep => {
+      sep.style.display = '';
+    });
+  });
+});
+</script>
+</body>
+</html>

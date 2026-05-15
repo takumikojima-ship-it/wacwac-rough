@@ -56,7 +56,7 @@
 .stat-unit { font-size: 1rem; color: var(--yellow); font-weight: 700; }
 .stat-label { font-size: .82rem; color: rgba(255,255,255,.6); margin-top: 8px; }
 
-/* VOICE -->
+/* VOICE */
 .voice-section { padding: 80px 0; background: #fff; }
 .voice-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
 .voice-card {
@@ -67,14 +67,132 @@
 .voice-text { font-size: .9rem; color: var(--navy); margin-bottom: 16px; line-height: 1.8; }
 .voice-from { font-size: .78rem; color: var(--gray); font-weight: 700; }
 
+/* COMPANY OVERVIEW */
+.overview-grid {
+  display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center;
+  margin-bottom: 48px;
+}
+.overview-catch {
+  background: var(--yellow); border-radius: 24px; padding: 36px 24px;
+  text-align: center; box-shadow: var(--shadow);
+}
+.overview-catch-icon { font-size: 3rem; margin-bottom: 12px; }
+.overview-catch-text {
+  font-size: 1.2rem; font-weight: 800; color: var(--navy); line-height: 1.6;
+}
+.overview-text { font-size: .95rem; color: var(--gray); line-height: 1.9; }
+.company-table-wrap {
+  background: #fff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);
+}
+.company-table { width: 100%; border-collapse: collapse; }
+.company-table th {
+  width: 180px; background: var(--navy); color: #fff;
+  font-size: .88rem; font-weight: 700; padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.1); vertical-align: top;
+}
+.company-table td {
+  font-size: .9rem; color: var(--navy); padding: 16px 24px;
+  border-bottom: 1px solid #f0f4f8;
+}
+.company-table tr:last-child th,
+.company-table tr:last-child td { border-bottom: none; }
+
+/* MISSION & VISION */
+.mv-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px;
+}
+.mv-card {
+  border-radius: 24px; padding: 40px 36px; box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.mv-card.mission { background: linear-gradient(135deg, var(--navy) 0%, #2563EB 100%); }
+.mv-card.vision  { background: linear-gradient(135deg, #FF8C00 0%, var(--yellow) 100%); }
+.mv-en {
+  font-family: 'Nunito', sans-serif; font-size: 3.5rem; font-weight: 900;
+  opacity: .12; position: absolute; top: 10px; right: 20px; line-height: 1;
+  color: #fff;
+}
+.mv-card.vision .mv-en { color: var(--navy); }
+.mv-label {
+  font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.7); margin-bottom: 16px;
+}
+.mv-card.vision .mv-label { color: rgba(26,44,91,.6); }
+.mv-text {
+  font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.5; margin-bottom: 20px;
+}
+.mv-card.vision .mv-text { color: var(--navy); }
+.mv-desc { font-size: .88rem; color: rgba(255,255,255,.8); line-height: 1.8; }
+.mv-card.vision .mv-desc { color: rgba(26,44,91,.7); }
+
+/* VALUES */
+.values-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+}
+.value-card {
+  background: #fff; border-radius: 20px; padding: 32px 24px;
+  box-shadow: var(--shadow); text-align: center;
+  border-top: 4px solid var(--yellow);
+}
+.value-icon { font-size: 2.5rem; margin-bottom: 14px; }
+.value-title { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+.value-desc { font-size: .85rem; color: var(--gray); line-height: 1.8; }
+
+/* PRINCIPLES */
+.principles-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+}
+.principle-item {
+  background: #fff; border-radius: 20px; padding: 28px 24px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.principle-num {
+  font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 900;
+  color: var(--yellow); line-height: 1;
+}
+.principle-title { font-size: .95rem; font-weight: 800; color: var(--navy); }
+.principle-desc { font-size: .84rem; color: var(--gray); line-height: 1.8; }
+
+/* MEMBERS */
+.members-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+}
+.member-card {
+  background: #fff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);
+  text-align: center;
+}
+.member-photo {
+  height: 200px; background: #dbeafe;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .82rem; color: var(--gray); text-align: center; padding: 16px;
+}
+.member-photo.g { background: #dcfce7; }
+.member-photo.y { background: #fef9c3; }
+.member-photo.p { background: #ede9fe; }
+.member-body { padding: 20px 16px; }
+.member-name { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+.member-title {
+  font-size: .75rem; font-weight: 700; color: var(--blue);
+  background: var(--blue-light); padding: 3px 10px; border-radius: 50px;
+  display: inline-block; margin-bottom: 12px;
+}
+.member-msg { font-size: .8rem; color: var(--gray); line-height: 1.7; text-align: left; }
+
 @media(max-width:1024px) {
   .reason-block { grid-template-columns: 1fr; gap: 32px; }
   .reason-block.reverse { direction: ltr; }
   .stats-grid { grid-template-columns: repeat(2,1fr); }
   .voice-grid { grid-template-columns: 1fr 1fr; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .mv-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .principles-grid { grid-template-columns: 1fr 1fr; }
+  .members-grid { grid-template-columns: 1fr 1fr; }
 }
 @media(max-width:768px) {
   .voice-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .principles-grid { grid-template-columns: 1fr; }
+  .members-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -97,6 +215,7 @@
       <a href="flow.html"    class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
       <a href="faq.html"      class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
       <a href="blog.html"      class="nav-link"><span class="en">Blog</span><span>ブログ</span></a>
+      <a href="news.html"      class="nav-link"><span class="en">News</span><span>お知らせ</span></a>
     </nav>
     <div class="nav-cta">
       <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a>
@@ -216,6 +335,163 @@
         <div class="voice-stars">★★★★★</div>
         <p class="voice-text">「設営から撤去まですべてお任せできたので、当日は子どもたちと一緒に楽しめました。毎年お願いしています。」</p>
         <div class="voice-from">🏫 近畿・小学校 PTA役員様</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY OVERVIEW -->
+<section class="why-section alt">
+  <div class="container">
+    <span class="badge-en">Company</span>
+    <h2 class="section-title">株式会社ワックに<span>ついて</span></h2>
+    <p class="section-sub">1996年の創業以来、子どもたちの笑顔のために走り続けてきた会社です</p>
+
+    <div class="overview-grid">
+      <div class="overview-catch">
+        <div class="overview-catch-icon">👋</div>
+        <p class="overview-catch-text">「こんにちは、<br>ワクワクのワックです！」</p>
+      </div>
+      <div class="overview-text">
+        <p>株式会社ワックは1996年の創業以来、遊園地・テーマパーク・大型複合商業施設・スケートイベントなど、幅広いエンターテイメント事業を通じて、年間200件以上のイベントを全国で手がけてきました。</p>
+        <p style="margin-top:16px;">私たちが大切にしているのは「ワクワク」という感情。子どもが初めて体験する乗り物に目を輝かせる瞬間、家族みんなが笑顔になる瞬間――その一つひとつがワックの原動力です。30年近い経験と1,500件超の実績で、今日も全国のイベント現場で走り続けています。</p>
+      </div>
+    </div>
+
+    <div class="company-table-wrap">
+      <table class="company-table">
+        <tr><th>会社名</th><td>株式会社ワック（WAC Corporation）</td></tr>
+        <tr><th>設立</th><td>1996年</td></tr>
+        <tr><th>事業内容</th><td>子ども向けイベント企画・運営、乗り物・遊具・アトラクションの設置・運営代行、スケートリンク設置運営</td></tr>
+        <tr><th>対応エリア</th><td>北海道〜沖縄 全国47都道府県（離島・遠方も対応可）</td></tr>
+        <tr><th>お問い合わせ</th><td>0120-18-7801（平日 9:00〜18:00 / 土日祝休）</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="why-section">
+  <div class="container">
+    <span class="badge-en">Mission & Vision</span>
+    <h2 class="section-title">経営<span>ビジョン</span></h2>
+    <p class="section-sub">ワックが目指す姿と、その先にある世界</p>
+
+    <div class="mv-grid">
+      <div class="mv-card mission">
+        <div class="mv-en">Mission</div>
+        <div class="mv-label">ミッション</div>
+        <div class="mv-text">一人でも多くのお客様に<br>ワクワクをお届けする</div>
+        <p class="mv-desc">設立以来変わらぬ私たちの使命。子どもの「はじめて」の体験を最高の笑顔に変えること。それがワックのすべての活動の原点です。</p>
+      </div>
+      <div class="mv-card vision">
+        <div class="mv-en">Vision</div>
+        <div class="mv-label">ビジョン</div>
+        <div class="mv-text">私たちは世界一の<br>感動空間をお届けします</div>
+        <p class="mv-desc">どこの会場でも、どんな規模でも、「ここに来てよかった」と思える感動空間を創ることがワックの目指す高みです。</p>
+      </div>
+    </div>
+
+    <h3 style="text-align:center;font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:32px;">私たちが大切にしている3つの価値観</h3>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">😊</div>
+        <div class="value-title">幼いときの笑顔</div>
+        <p class="value-desc">子どもが笑顔になる瞬間を何よりも大切に。その笑顔が親の笑顔になり、地域の活力になると信じています。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🚀</div>
+        <div class="value-title">未知の体験へのチャレンジ</div>
+        <p class="value-desc">「やったことがない」にこそ価値がある。新しいアイテムや演出に挑戦し続けることで、業界をリードします。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🏆</div>
+        <div class="value-title">達成感の共有</div>
+        <p class="value-desc">イベントが成功したとき、担当者様と一緒に喜べる関係を大切に。ワックはパートナーとして伴走します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 行動指針 -->
+<section class="why-section alt">
+  <div class="container">
+    <span class="badge-en">Principles</span>
+    <h2 class="section-title">行動<span>指針</span></h2>
+    <p class="section-sub">ワックのスタッフが現場で大切にしている6つの行動原則</p>
+    <div class="principles-grid">
+      <div class="principle-item">
+        <div class="principle-num">01</div>
+        <div class="principle-title">安全を最優先に行動する</div>
+        <p class="principle-desc">子どもたちの命を預かる責任を忘れず、いかなる状況でも安全を最優先に判断・行動します。</p>
+      </div>
+      <div class="principle-item">
+        <div class="principle-num">02</div>
+        <div class="principle-title">期待を超える提案をする</div>
+        <p class="principle-desc">「言われたことをこなす」ではなく、担当者様の成功のために一歩踏み込んだ提案を続けます。</p>
+      </div>
+      <div class="principle-item">
+        <div class="principle-num">03</div>
+        <div class="principle-title">現場に誠実に、笑顔で向き合う</div>
+        <p class="principle-desc">どんな状況でも笑顔と誠実さを忘れない。私たちの笑顔が、会場全体の雰囲気を作ります。</p>
+      </div>
+      <div class="principle-item">
+        <div class="principle-num">04</div>
+        <div class="principle-title">チームで連携し、全員で完成させる</div>
+        <p class="principle-desc">企画・搬入・運営・撤去まで、チーム全員が同じゴールを目指してコミュニケーションを密に取ります。</p>
+      </div>
+      <div class="principle-item">
+        <div class="principle-num">05</div>
+        <div class="principle-title">失敗から学び、常に改善する</div>
+        <p class="principle-desc">毎回のイベントを振り返り次につなげる。改善を続けることでサービス品質を高め続けます。</p>
+      </div>
+      <div class="principle-item">
+        <div class="principle-num">06</div>
+        <div class="principle-title">地域社会への貢献を意識する</div>
+        <p class="principle-desc">イベントは地域を元気にする力を持っています。社会に価値を届ける存在であることを誇りとします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 運営メンバー -->
+<section class="why-section">
+  <div class="container">
+    <span class="badge-en">Members</span>
+    <h2 class="section-title">運営<span>メンバー</span></h2>
+    <p class="section-sub">経験豊富なスタッフがイベントを全力サポートします</p>
+    <div class="members-grid">
+      <div class="member-card">
+        <div class="member-photo">【写真】代表</div>
+        <div class="member-body">
+          <div class="member-name">山田 太郎</div>
+          <div class="member-title">代表取締役</div>
+          <p class="member-msg">「30年間、子どもたちの笑顔のために走り続けてきました。これからも全国の皆様に最高のワクワクをお届けします。」</p>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-photo g">【写真】営業部長</div>
+        <div class="member-body">
+          <div class="member-name">佐藤 花子</div>
+          <div class="member-title">営業部長</div>
+          <p class="member-msg">「お客様のご要望をしっかりお聞きし、最適なプランをご提案します。ご相談はお気軽にどうぞ。」</p>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-photo y">【写真】運営マネージャー</div>
+        <div class="member-body">
+          <div class="member-name">鈴木 一郎</div>
+          <div class="member-title">運営マネージャー</div>
+          <p class="member-msg">「現場の安全と笑顔を守るのが私の仕事です。搬入から撤去まで、責任を持って対応します。」</p>
+        </div>
+      </div>
+      <div class="member-card">
+        <div class="member-photo p">【写真】企画担当</div>
+        <div class="member-body">
+          <div class="member-name">田中 美咲</div>
+          <div class="member-title">企画・クリエイティブ</div>
+          <p class="member-msg">「イベントの世界観づくりを担当しています。子どもたちが目を輝かせる空間を、一緒に考えましょう。」</p>
+        </div>
       </div>
     </div>
   </div>
