@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>資料請求 | 株式会社ワック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.docs-section { padding: 80px 0; background: var(--bg-section); }
+
+/* ===== DOCUMENT CARDS ===== */
+.docs-intro { text-align: center; max-width: 680px; margin: 0 auto 48px; }
+.docs-intro p { font-size: .95rem; color: var(--gray); }
+
+.docs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 60px; }
+
+.doc-card {
+  background: #fff; border-radius: var(--radius-card); overflow: hidden;
+  box-shadow: var(--shadow); display: flex; flex-direction: column;
+  border: 2.5px solid transparent; transition: border-color .2s, box-shadow .2s, transform .2s;
+  cursor: pointer;
+}
+.doc-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.doc-card.selected { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37,99,235,.12); }
+
+.doc-cover {
+  height: 180px; background: linear-gradient(135deg, #dbeafe, #eff6ff);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative; padding: 20px;
+}
+.doc-cover.y { background: linear-gradient(135deg, #fef9c3, #fffbeb); }
+.doc-cover.g { background: linear-gradient(135deg, #dcfce7, #f0fdf4); }
+.doc-cover.p { background: linear-gradient(135deg, #ede9fe, #f5f3ff); }
+.doc-cover-icon { font-size: 3.5rem; margin-bottom: 8px; }
+.doc-cover-label {
+  position: absolute; top: 10px; right: 10px;
+  background: var(--blue); color: #fff;
+  font-size: .65rem; font-weight: 800; padding: 3px 10px; border-radius: 50px;
+}
+.doc-cover-label.pdf { background: #DC2626; }
+.doc-check {
+  position: absolute; top: 10px; left: 10px;
+  width: 28px; height: 28px; border-radius: 50%; border: 2.5px solid #cbd5e1;
+  background: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; transition: all .2s;
+}
+.doc-card.selected .doc-check { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+.doc-body { padding: 20px 22px; flex: 1; display: flex; flex-direction: column; }
+.doc-title { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+.doc-desc { font-size: .82rem; color: var(--gray); flex: 1; margin-bottom: 12px; }
+.doc-meta { display: flex; gap: 14px; font-size: .72rem; color: var(--gray); }
+.doc-meta span { display: flex; align-items: center; gap: 4px; }
+
+/* ===== FORM ===== */
+.request-form-wrap {
+  background: #fff; border-radius: 24px; padding: 48px; box-shadow: var(--shadow);
+  max-width: 800px; margin: 0 auto;
+}
+.request-form-title {
+  font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 6px;
+}
+.request-form-sub { font-size: .88rem; color: var(--gray); margin-bottom: 8px; }
+.selected-docs-preview {
+  background: var(--blue-light); border-radius: 12px; padding: 14px 18px;
+  margin-bottom: 28px; font-size: .85rem; color: var(--navy); font-weight: 600;
+  min-height: 48px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.selected-doc-tag {
+  background: var(--blue); color: #fff; border-radius: 50px;
+  padding: 4px 12px; font-size: .75rem; font-weight: 700;
+}
+.no-selection { color: var(--gray); font-weight: 400; }
+
+.form-group { margin-bottom: 22px; }
+.form-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .88rem; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+}
+.required-badge { background: #EF4444; color: #fff; font-size: .65rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; }
+.optional-badge { background: #94a3b8; color: #fff; font-size: .65rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; }
+.form-input, .form-select {
+  width: 100%; padding: 14px 16px; border-radius: 12px;
+  border: 2px solid #e2e8f0; font-size: .92rem; font-family: inherit;
+  color: var(--navy); transition: border-color .2s, box-shadow .2s; background: #fff;
+}
+.form-input:focus, .form-select:focus {
+  outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37,99,235,.08);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-hint { font-size: .75rem; color: var(--gray); margin-top: 6px; }
+
+/* PRIVACY AGREE -->
+.privacy-agree {
+  background: var(--bg-section); border-radius: 12px; padding: 14px 18px;
+  margin-bottom: 24px; font-size: .82rem; color: var(--gray);
+}
+.privacy-agree a { color: var(--blue); }
+.privacy-check { display: flex; align-items: center; gap: 10px; margin-top: 10px; cursor: pointer; font-size: .88rem; font-weight: 700; color: var(--navy); }
+.privacy-check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--blue); cursor: pointer; }
+
+.submit-btn {
+  width: 100%; padding: 18px; border-radius: var(--radius-btn);
+  background: var(--yellow); color: var(--navy); font-size: 1.1rem; font-weight: 800;
+  border: none; cursor: pointer; transition: transform .2s, box-shadow .2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.submit-btn:disabled { background: #e2e8f0; color: var(--gray); cursor: not-allowed; transform: none; }
+.form-notice { font-size: .78rem; color: var(--gray); text-align: center; margin-top: 12px; }
+
+/* WP IMPLEMENTATION NOTE -->
+.wp-note {
+  background: var(--navy); border-radius: 16px; padding: 24px 28px; margin-top: 40px;
+  font-size: .82rem; color: rgba(255,255,255,.7);
+}
+.wp-note h3 { color: var(--yellow); font-size: .9rem; margin-bottom: 10px; }
+.wp-note ul { padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+.wp-note code { background: rgba(255,255,255,.1); padding: 1px 6px; border-radius: 4px; font-size: .78rem; }
+
+@media(max-width:768px) { .docs-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
+    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
+    <nav>
+      <a href="items.html"     class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
+      <a href="cases.html"     class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
+      <a href="why.html"       class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
+      <a href="flow.html"      class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
+      <a href="faq.html"       class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
+      <a href="blog.html"      class="nav-link"><span class="en">Blog</span><span>ブログ</span></a>
+    </nav>
+    <div class="nav-cta">
+      <a href="documents.html" class="btn btn-outline-blue btn-sm active" style="background:var(--blue-light);">資料請求</a>
+      <a href="contact.html"   class="btn btn-yellow btn-sm">お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<div class="float-cta">
+  <a href="documents.html" class="float-btn">資料<br>請求</a>
+  <a href="contact.html"   class="float-btn blue">相談<br>する</a>
+</div>
+
+<div class="page-hero">
+  <span class="page-hero-en">Documents</span>
+  <h1>資料請求</h1>
+  <p>ご希望の資料を選択してフォームにご入力いただくと、メールで自動的にお送りします</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a><span>/</span><span>資料請求</span>
+  </div>
+</div>
+
+<section class="docs-section">
+  <div class="container">
+
+    <!-- STEP 1: 資料選択 -->
+    <div style="margin-bottom:48px;">
+      <span class="badge-en">STEP 1</span>
+      <h2 class="section-title">ご希望の資料を<span>選択</span>してください</h2>
+      <p class="section-sub">複数選択可能です。選択後、下のフォームにご入力ください。</p>
+
+      <div class="docs-grid" id="docsGrid">
+
+        <!-- 資料1 -->
+        <div class="doc-card" data-doc="catalog" onclick="toggleDoc(this)">
+          <div class="doc-cover">
+            <span class="doc-check" id="check-catalog">✓</span>
+            <span class="doc-cover-label pdf">PDF</span>
+            <div class="doc-cover-icon">📋</div>
+          </div>
+          <div class="doc-body">
+            <div class="doc-title">サービス総合カタログ</div>
+            <div class="doc-desc">ワックが提供するすべてのイベントアイテム・サービスを網羅した総合カタログ。初めてご検討の方はまずこちらをご覧ください。</div>
+            <div class="doc-meta">
+              <span>📄 PDF / 全32ページ</span>
+              <span>🆓 無料</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 資料2 -->
+        <div class="doc-card" data-doc="items" onclick="toggleDoc(this)">
+          <div class="doc-cover y">
+            <span class="doc-check" id="check-items">✓</span>
+            <span class="doc-cover-label pdf">PDF</span>
+            <div class="doc-cover-icon">🚂</div>
+          </div>
+          <div class="doc-body">
+            <div class="doc-title">アイテム別仕様書（全7カテゴリ）</div>
+            <div class="doc-desc">各アイテムの必要スペース・電源仕様・設置条件・定員など、詳細スペックを記載した仕様書。導入検討時にご活用ください。</div>
+            <div class="doc-meta">
+              <span>📄 PDF / 全48ページ</span>
+              <span>🆓 無料</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 資料3 -->
+        <div class="doc-card" data-doc="casebook" onclick="toggleDoc(this)">
+          <div class="doc-cover g">
+            <span class="doc-check" id="check-casebook">✓</span>
+            <span class="doc-cover-label pdf">PDF</span>
+            <div class="doc-cover-icon">📸</div>
+          </div>
+          <div class="doc-body">
+            <div class="doc-title">イベント事例集 2025年版</div>
+            <div class="doc-desc">全国で開催した代表的なイベント事例を写真付きで紹介。業種・規模・予算感別に参考にしていただけます。</div>
+            <div class="doc-meta">
+              <span>📄 PDF / 全56ページ</span>
+              <span>🆓 無料</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 資料4 -->
+        <div class="doc-card" data-doc="price" onclick="toggleDoc(this)">
+          <div class="doc-cover p">
+            <span class="doc-check" id="check-price">✓</span>
+            <span class="doc-cover-label pdf">PDF</span>
+            <div class="doc-cover-icon">💰</div>
+          </div>
+          <div class="doc-body">
+            <div class="doc-title">料金・プラン一覧表</div>
+            <div class="doc-desc">各アイテムの標準的な料金帯・プラン例をまとめた資料。「予算感を知りたい」という担当者様向けです。※あくまで目安です。</div>
+            <div class="doc-meta">
+              <span>📄 PDF / 全12ページ</span>
+              <span>🆓 無料</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STEP 2: フォーム入力 -->
+    <div>
+      <span class="badge-en">STEP 2</span>
+      <h2 class="section-title">送付先情報を<span>ご入力</span>ください</h2>
+      <p class="section-sub">ご入力いただいたメールアドレス宛に、選択した資料を自動送信します</p>
+
+      <div class="request-form-wrap">
+        <div class="request-form-title">📄 資料請求フォーム</div>
+        <p class="request-form-sub" style="margin-bottom:20px;">選択中の資料：</p>
+        <div class="selected-docs-preview" id="selectedPreview">
+          <span class="no-selection">資料が選択されていません。上の資料カードをクリックして選択してください。</span>
+        </div>
+
+        <form id="docRequestForm" onsubmit="return false;">
+
+          <div class="form-group">
+            <div class="form-row">
+              <div>
+                <label class="form-label"><span class="required-badge">必須</span>お名前</label>
+                <input type="text" class="form-input" placeholder="例：山田 太郎" required>
+              </div>
+              <div>
+                <label class="form-label"><span class="required-badge">必須</span>会社名・団体名</label>
+                <input type="text" class="form-input" placeholder="例：株式会社〇〇" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><span class="required-badge">必須</span>メールアドレス（資料の送付先）</label>
+            <input type="email" class="form-input" placeholder="例：taro@example.co.jp" required>
+            <div class="form-hint">⚠️ 入力されたメールアドレスに資料のダウンロードリンクが自動送信されます。</div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div>
+                <label class="form-label"><span class="optional-badge">任意</span>電話番号</label>
+                <input type="tel" class="form-input" placeholder="例：03-XXXX-XXXX">
+              </div>
+              <div>
+                <label class="form-label"><span class="optional-badge">任意</span>役職・部署</label>
+                <input type="text" class="form-input" placeholder="例：販促部 担当">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><span class="optional-badge">任意</span>イベント検討の状況</label>
+            <select class="form-select">
+              <option value="">選択してください（任意）</option>
+              <option>具体的に検討中（開催予定あり）</option>
+              <option>情報収集・比較検討中</option>
+              <option>来期・来年以降の検討</option>
+              <option>その他</option>
+            </select>
+          </div>
+
+          <div class="privacy-agree">
+            <a href="#">プライバシーポリシー</a>をお読みいただき、内容に同意の上でお申し込みください。入力いただいた個人情報は、資料送付および当社サービスのご案内にのみ使用します。
+            <label class="privacy-check">
+              <input type="checkbox" id="privacyCheck" onchange="checkSubmitReady()">
+              プライバシーポリシーに同意する
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn" disabled>
+            📧 選択した資料を無料で受け取る
+          </button>
+          <p class="form-notice">送信後、数分以内に登録いただいたメールアドレスに資料が届きます。</p>
+          <p class="form-notice" style="margin-top:6px;">届かない場合は迷惑メールフォルダをご確認ください。</p>
+
+        </form>
+
+        <!-- WP実装メモ -->
+        <div class="wp-note">
+          <h3>⚙️ WordPress実装時の技術メモ</h3>
+          <ul>
+            <li>フォームプラグイン：<code>WPForms</code> または <code>Contact Form 7</code> を使用</li>
+            <li>自動メール送信：<code>WP Mail SMTP</code> でSMTP設定（Gmail / SendGrid 等）</li>
+            <li>資料PDFの配布：送信後メールにPDFダウンロードリンクを自動添付（<code>WPForms File Upload Addon</code> 等）</li>
+            <li>資料管理：WordPress メディアライブラリにPDFをアップロードし、非公開URLを発行</li>
+            <li>リード管理：送信データは <code>Flamingo</code> または <code>WPForms Entry</code> でDB保存</li>
+            <li>選択資料の連動：各資料のチェックをhidden fieldでフォームに渡す（JS実装済み）</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner" style="padding:60px 0;">
+  <div class="cta-inner">
+    <h2 class="cta-h2" style="font-size:1.6rem;">すぐに相談したい方は<br>お問い合わせフォームへ</h2>
+    <p class="cta-desc">見積り・プラン提案のご相談は<a href="contact.html" style="color:var(--yellow);font-weight:700;">お問い合わせフォーム</a>からどうぞ。</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-yellow">✉ お問い合わせ・見積り相談</a>
+    </div>
+    <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-mark">WAC</div>
+        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
+        <span class="footer-tel-num">0120-18-7801</span>
+        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
+      </div>
+      <div class="footer-col"><h4>サービス</h4><ul>
+        <li><a href="items.html#train">トレイン</a></li>
+        <li><a href="items.html#air">エア遊具</a></li>
+        <li><a href="items.html#dino">わくわく恐竜王国</a></li>
+        <li><a href="items.html#skate">スケートイベント</a></li>
+        <li><a href="items.html#activity">アクティビティイベント</a></li>
+        <li><a href="items.html#attract">アトラクションイベント</a></li>
+        <li><a href="items.html#digital">デジタルイベント</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>会社情報</h4><ul>
+        <li><a href="why.html">ワックとは・選ばれる理由</a></li>
+        <li><a href="cases.html">イベント事例</a></li>
+        <li><a href="flow.html">ご利用の流れ</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>お問い合わせ</h4><ul>
+        <li><a href="contact.html">お問い合わせ・見積り相談</a></li>
+        <li><a href="documents.html">資料請求</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
+      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const selectedDocs = new Set();
+
+function toggleDoc(card) {
+  const doc = card.dataset.doc;
+  const check = card.querySelector('.doc-check');
+  if (selectedDocs.has(doc)) {
+    selectedDocs.delete(doc);
+    card.classList.remove('selected');
+    check.style.background = '';
+    check.style.borderColor = '';
+    check.style.color = '';
+  } else {
+    selectedDocs.add(doc);
+    card.classList.add('selected');
+  }
+  updatePreview();
+  checkSubmitReady();
+}
+
+const docNames = {
+  catalog:  'サービス総合カタログ',
+  items:    'アイテム別仕様書',
+  casebook: 'イベント事例集 2025',
+  price:    '料金・プラン一覧表'
+};
+
+function updatePreview() {
+  const preview = document.getElementById('selectedPreview');
+  if (selectedDocs.size === 0) {
+    preview.innerHTML = '<span class="no-selection">資料が選択されていません。上の資料カードをクリックして選択してください。</span>';
+  } else {
+    preview.innerHTML = '選択中：' + [...selectedDocs].map(d => `<span class="selected-doc-tag">${docNames[d]}</span>`).join('');
+  }
+}
+
+function checkSubmitReady() {
+  const agreed = document.getElementById('privacyCheck').checked;
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = !(selectedDocs.size > 0 && agreed);
+}
+
+// Submit handler (WP実装時はここをフォーム送信に差し替え)
+document.getElementById('docRequestForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('【デモ】送信が完了しました。\n実際のWordPress環境では、選択した資料のダウンロードリンクがメールで自動送信されます。');
+});
+</script>
+</body>
+</html>

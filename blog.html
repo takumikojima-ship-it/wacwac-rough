@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブログ | 株式会社ワック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== BLOG LIST ===== */
+.blog-section { padding: 80px 0; background: var(--bg-section); }
+.blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+
+/* FILTER -->
+.cat-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+
+/* FEATURED ARTICLE -->
+.featured-card {
+  border-radius: var(--radius-card); overflow: hidden;
+  background: #fff; box-shadow: var(--shadow); margin-bottom: 36px;
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.featured-photo {
+  background: #dbeafe; min-height: 280px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; color: var(--gray); text-align: center; padding: 20px;
+  position: relative;
+}
+/* Video embed in featured -->
+.featured-photo.video-thumb { background: #1a2c5b; color: rgba(255,255,255,.7); }
+.play-btn {
+  position: absolute; width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  box-shadow: var(--shadow);
+}
+.featured-label {
+  position: absolute; top: 16px; left: 16px;
+  background: var(--yellow); color: var(--navy);
+  font-size: .72rem; font-weight: 800; padding: 4px 12px; border-radius: 50px;
+}
+.featured-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+.featured-badge {
+  display: inline-block; background: var(--blue); color: #fff;
+  font-size: .68rem; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px;
+}
+.featured-title { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+.featured-meta { font-size: .78rem; color: var(--gray); margin-bottom: 12px; }
+.featured-excerpt { font-size: .88rem; color: var(--gray); margin-bottom: 20px; }
+
+/* ARTICLE GRID -->
+.article-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.article-card {
+  border-radius: var(--radius-card); overflow: hidden;
+  background: #fff; box-shadow: var(--shadow);
+  transition: transform .2s, box-shadow .2s; text-decoration: none; display: block;
+}
+.article-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.article-thumb {
+  height: 180px; background: #fef3c7; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .82rem; color: var(--gray); text-align: center; padding: 16px;
+}
+.article-thumb.b { background: #dbeafe; }
+.article-thumb.g { background: #dcfce7; }
+.article-thumb.p { background: #ede9fe; }
+.article-thumb.n { background: #1a2c5b; color: rgba(255,255,255,.6); }
+.article-thumb .play-icon {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.article-cat {
+  position: absolute; top: 10px; left: 10px;
+  font-size: .65rem; font-weight: 700; padding: 3px 10px; border-radius: 50px;
+  color: #fff;
+}
+.article-cat.report  { background: var(--blue); }
+.article-cat.case    { background: var(--green); }
+.article-cat.tips    { background: var(--orange); }
+.article-cat.news    { background: #8B5CF6; }
+.article-cat.video   { background: #DC2626; }
+.article-body { padding: 18px; }
+.article-date { font-size: .72rem; color: var(--gray); margin-bottom: 6px; }
+.article-title { font-size: .95rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; line-height: 1.5; }
+.article-excerpt { font-size: .8rem; color: var(--gray); }
+.article-read-more {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: .78rem; font-weight: 700; color: var(--blue);
+  margin-top: 10px;
+}
+.article-read-more::after { content: ' →'; }
+
+/* PAGINATION -->
+.pagination { display: flex; gap: 8px; justify-content: center; margin-top: 40px; }
+.page-btn {
+  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: .88rem; font-weight: 700; cursor: pointer; border: 2px solid #e2e8f0;
+  background: #fff; color: var(--gray); text-decoration: none; transition: all .2s;
+}
+.page-btn:hover, .page-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+/* SIDEBAR -->
+.sidebar { display: flex; flex-direction: column; gap: 24px; }
+.sidebar-box {
+  background: #fff; border-radius: 18px; padding: 24px; box-shadow: var(--shadow);
+}
+.sidebar-box-title {
+  font-size: .9rem; font-weight: 800; color: var(--navy);
+  padding-bottom: 10px; margin-bottom: 14px;
+  border-bottom: 3px solid var(--yellow);
+}
+.sidebar-cat-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.sidebar-cat-list li a {
+  display: flex; align-items: center; justify-content: space-between;
+  text-decoration: none; color: var(--navy); font-size: .85rem; font-weight: 600;
+  padding: 8px 10px; border-radius: 8px; transition: background .2s;
+}
+.sidebar-cat-list li a:hover { background: var(--yellow-light); }
+.sidebar-cat-list li a span { font-size: .72rem; color: var(--gray); }
+.sidebar-recent-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px dashed #e2e8f0; text-decoration: none;
+}
+.sidebar-recent-item:last-child { border-bottom: none; padding-bottom: 0; }
+.sidebar-recent-thumb {
+  width: 64px; height: 48px; border-radius: 8px; flex-shrink: 0;
+  background: #fef3c7; display: flex; align-items: center; justify-content: center;
+  font-size: .6rem; color: var(--gray); text-align: center;
+}
+.sidebar-recent-thumb.b { background: #dbeafe; }
+.sidebar-recent-title { font-size: .78rem; color: var(--navy); font-weight: 600; line-height: 1.5; }
+.sidebar-recent-date { font-size: .68rem; color: var(--gray); margin-top: 4px; }
+.sidebar-tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.sidebar-tag {
+  display: inline-block; padding: 4px 12px; border-radius: 50px;
+  background: var(--blue-light); color: var(--blue); font-size: .75rem; font-weight: 700;
+  text-decoration: none; transition: background .2s;
+}
+.sidebar-tag:hover { background: var(--blue); color: #fff; }
+
+/* ===== ARTICLE DETAIL (sample / WP single.php) ===== */
+.article-detail { max-width: 800px; margin: 0 auto; }
+.article-detail-header { margin-bottom: 32px; }
+.article-detail-cats { display: flex; gap: 8px; margin-bottom: 12px; }
+.article-detail-h1 { font-size: 1.8rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; line-height: 1.35; }
+.article-detail-meta { font-size: .8rem; color: var(--gray); display: flex; gap: 16px; }
+.article-detail-hero {
+  width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 32px;
+  background: #dbeafe; aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; color: var(--gray); text-align: center; padding: 20px;
+}
+/* Video embed wrapper (responsive) -->
+.video-wrap {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  border-radius: 16px; margin: 32px 0;
+}
+.video-wrap iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 16px;
+}
+.article-body-content { font-size: .95rem; color: var(--navy); line-height: 1.9; }
+.article-body-content h2 {
+  font-size: 1.3rem; font-weight: 800; color: var(--navy);
+  margin: 36px 0 16px;
+  padding-left: 14px; border-left: 5px solid var(--yellow);
+}
+.article-body-content h3 {
+  font-size: 1.05rem; font-weight: 800; color: var(--navy); margin: 24px 0 10px;
+}
+.article-body-content p { margin-bottom: 16px; }
+.article-body-content img { width: 100%; border-radius: 12px; margin: 20px 0; }
+.article-body-content ul, .article-body-content ol {
+  padding-left: 24px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px;
+}
+.article-share {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-top: 40px; padding-top: 24px; border-top: 2px dashed #e2e8f0;
+}
+.share-label { font-size: .85rem; font-weight: 700; color: var(--navy); }
+.share-btn {
+  padding: 8px 18px; border-radius: 50px; font-size: .82rem; font-weight: 700;
+  text-decoration: none; transition: opacity .2s;
+}
+.share-btn:hover { opacity: .8; }
+.share-x   { background: #000; color: #fff; }
+.share-fb  { background: #1877f2; color: #fff; }
+.share-line{ background: #06c755; color: #fff; }
+
+@media(max-width:1024px) {
+  .blog-layout { grid-template-columns: 1fr; }
+  .featured-card { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+}
+@media(max-width:768px) { .article-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
+    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
+    <nav>
+      <a href="items.html"     class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
+      <a href="cases.html"     class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
+      <a href="why.html"       class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
+      <a href="flow.html"      class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
+      <a href="faq.html"       class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
+      <a href="blog.html"      class="nav-link active"><span class="en">Blog</span><span>ブログ</span></a>
+    </nav>
+    <div class="nav-cta">
+      <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a>
+      <a href="contact.html"   class="btn btn-yellow btn-sm">お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<div class="float-cta">
+  <a href="documents.html" class="float-btn">資料<br>請求</a>
+  <a href="contact.html"   class="float-btn blue">相談<br>する</a>
+</div>
+
+<div class="page-hero">
+  <span class="page-hero-en">Blog</span>
+  <h1>ブログ</h1>
+  <p>イベントレポート・事例紹介・企画のヒントなどを発信しています</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a><span>/</span><span>ブログ</span>
+  </div>
+</div>
+
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-layout">
+
+      <!-- MAIN -->
+      <div>
+        <!-- CATEGORY FILTER -->
+        <div class="cat-filter">
+          <button class="filter-btn active" data-cat="all">すべて</button>
+          <button class="filter-btn" data-cat="report">🎉 イベントレポート</button>
+          <button class="filter-btn" data-cat="case">📋 事例紹介</button>
+          <button class="filter-btn" data-cat="tips">💡 企画のヒント</button>
+          <button class="filter-btn" data-cat="video">🎬 動画</button>
+          <button class="filter-btn" data-cat="news">📢 お知らせ</button>
+        </div>
+
+        <!-- FEATURED -->
+        <div class="featured-card">
+          <div class="featured-photo video-thumb">
+            <!-- WP実装時: アイキャッチ画像または動画サムネイル -->
+            【サムネイル】夏のイベントレポート動画
+            <div class="play-btn">▶</div>
+            <span class="featured-label">🎬 動画</span>
+          </div>
+          <div class="featured-body">
+            <span class="featured-badge">🎉 イベントレポート</span>
+            <div class="featured-title">【動画あり】大阪・某SCの夏イベント2025 ― トレイン＋恐竜ゾーンで来場者1.5万人達成！</div>
+            <div class="featured-meta">2025年8月10日 ｜ 担当：田中</div>
+            <div class="featured-excerpt">今年も大盛況となった夏のビッグイベント。3両編成トレイン3台と恐竜ゾーンを組み合わせた大規模設置の裏側を動画でご紹介します。</div>
+            <a href="blog-single.html" class="btn btn-blue btn-sm">記事を読む →</a>
+          </div>
+        </div>
+
+        <!-- ARTICLE GRID -->
+        <div class="article-grid" id="articleGrid">
+
+          <a href="blog-single.html" class="article-card" data-cat="report">
+            <div class="article-thumb b">
+              <span class="article-cat report">イベントレポート</span>
+              【写真】スケートリンク設置レポート
+            </div>
+            <div class="article-body">
+              <div class="article-date">2025.07.20</div>
+              <div class="article-title">冬の百貨店にスケートリンクを設置！設営から初日オープンまでの2日間に密着</div>
+              <div class="article-excerpt">搬入開始から設営完了まで、スタッフが舞台裏をレポート。意外と知られていない設置工程を大公開。</div>
+              <span class="article-read-more">続きを読む</span>
+            </div>
+          </a>
+
+          <a href="blog-single.html" class="article-card" data-cat="video">
+            <div class="article-thumb n">
+              <span class="article-cat video">動画</span>
+              【動画サムネイル】恐竜ゾーン設置タイムラプス
+              <div class="play-icon">▶</div>
+            </div>
+            <div class="article-body">
+              <div class="article-date">2025.07.05</div>
+              <div class="article-title">【タイムラプス動画】恐竜ゾーンの設営が8時間でどう変わる？圧巻の早送り映像</div>
+              <div class="article-excerpt">空のフロアが恐竜だらけに。設営過程をタイムラプスで撮影しました。ぜひご覧ください。</div>
+              <span class="article-read-more">続きを読む</span>
+            </div>
+          </a>
+
+          <a href="blog-single.html" class="article-card" data-cat="tips">
+            <div class="article-thumb g">
+              <span class="article-cat tips">企画のヒント</span>
+              【写真】イベント企画打ち合わせのシーン
+            </div>
+            <div class="article-body">
+              <div class="article-date">2025.06.18</div>
+              <div class="article-title">夏休みイベントを成功させる5つのポイント ― 商業施設担当者向けチェックリスト</div>
+              <div class="article-excerpt">集客・安全・コスト・SNS拡散…担当者が押さえるべき5つのポイントを解説します。</div>
+              <span class="article-read-more">続きを読む</span>
+            </div>
+          </a>
+
+          <a href="blog-single.html" class="article-card" data-cat="case">
+            <div class="article-thumb p">
+              <span class="article-cat case">事例紹介</span>
+              【写真】自治体イベント事例の写真
+            </div>
+            <div class="article-body">
+              <div class="article-date">2025.06.01</div>
+              <div class="article-title">自治体の夏まつりにエア遊具を導入。予算100万円で来場者8,000人を達成した事例</div>
+              <div class="article-excerpt">「予算が限られている」という自治体担当者様向けに、費用対効果の高い構成をご紹介します。</div>
+              <span class="article-read-more">続きを読む</span>
+            </div>
+          </a>
+
+          <a href="blog-single.html" class="article-card" data-cat="tips">
+            <div class="article-thumb">
+              <span class="article-cat tips">企画のヒント</span>
+              【写真】SNSに映えるフォトスポット
+            </div>
+            <div class="article-body">
+              <div class="article-date">2025.05.20</div>
+              <div class="article-title">SNS拡散でイベントを盛り上げるフォトスポットの作り方3選</div>
+              <div class="article-excerpt">インスタやXでシェアされやすいフォトスポットのレイアウトと演出のコツを伝授します。</div>
+              <span class="article-read-more">続きを読む</span>
+            </div>
+          </a>
+
+          <a href="blog-single.html" class="article-card" data-cat="video">
+            <div class="article-thumb n">
+              <span class="article-cat video">動画</span>
+              【動画】子どもたちがトレインに乗る様子
+              <div class="play-icon">▶</div>
+            </div>
+            <div class="article-body">
+              <div class="article-date">2025.05.10</div>
+              <div class="article-title">【現場動画】GWのトレインイベント、子どもたちの笑顔がすごかった件</div>
+              <div class="article-excerpt">GW期間中に開催したトレインイベントの現場動画をお届け。子どもたちの反応が最高でした。</div>
+              <span class="article-read-more">続きを読む</span>
+            </div>
+          </a>
+
+          <a href="blog-single.html" class="article-card" data-cat="news">
+            <div class="article-thumb b">
+              <span class="article-cat news">お知らせ</span>
+              【写真】新サービス・デジタルイベント
+            </div>
+            <div class="article-body">
+              <div class="article-date">2025.04.01</div>
+              <div class="article-title">新サービス「ARスタンプラリー」の提供を開始しました</div>
+              <div class="article-excerpt">スマートフォンで館内を巡るAR体験型スタンプラリーをリリース。商業施設の回遊性向上に。</div>
+              <span class="article-read-more">続きを読む</span>
+            </div>
+          </a>
+
+          <a href="blog-single.html" class="article-card" data-cat="report">
+            <div class="article-thumb g">
+              <span class="article-cat report">イベントレポート</span>
+              【写真】春まつりアクティビティ
+            </div>
+            <div class="article-body">
+              <div class="article-date">2025.03.25</div>
+              <div class="article-title">春まつりに縁日コーナー5種類を設置。3日間で4,500名が来場した賑わいレポート</div>
+              <div class="article-excerpt">射的・輪投げ・ヨーヨー釣りなど懐かしの縁日を現代のイベントに融合。大人も子どもも大興奮。</div>
+              <span class="article-read-more">続きを読む</span>
+            </div>
+          </a>
+
+        </div><!-- /article-grid -->
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+          <a href="#" class="page-btn active">1</a>
+          <a href="#" class="page-btn">2</a>
+          <a href="#" class="page-btn">3</a>
+          <a href="#" class="page-btn" style="width:auto;padding:0 16px;border-radius:50px;">次へ →</a>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <!-- 検索 -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-title">🔍 記事を検索</div>
+          <div style="display:flex;gap:8px;">
+            <input type="text" style="flex:1;padding:10px 14px;border-radius:10px;border:2px solid #e2e8f0;font-family:inherit;font-size:.85rem;" placeholder="キーワード">
+            <button style="padding:10px 14px;border-radius:10px;background:var(--blue);color:#fff;border:none;cursor:pointer;font-weight:700;">検索</button>
+          </div>
+        </div>
+
+        <!-- カテゴリ -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-title">📂 カテゴリ</div>
+          <ul class="sidebar-cat-list">
+            <li><a href="#">🎉 イベントレポート <span>12件</span></a></li>
+            <li><a href="#">📋 事例紹介 <span>8件</span></a></li>
+            <li><a href="#">💡 企画のヒント <span>15件</span></a></li>
+            <li><a href="#">🎬 動画 <span>6件</span></a></li>
+            <li><a href="#">📢 お知らせ <span>10件</span></a></li>
+          </ul>
+        </div>
+
+        <!-- 最近の記事 -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-title">🕐 最近の記事</div>
+          <a href="blog-single.html" class="sidebar-recent-item">
+            <div class="sidebar-recent-thumb">【写真】</div>
+            <div>
+              <div class="sidebar-recent-title">夏の大阪イベントで来場者1.5万人達成</div>
+              <div class="sidebar-recent-date">2025.08.10</div>
+            </div>
+          </a>
+          <a href="blog-single.html" class="sidebar-recent-item">
+            <div class="sidebar-recent-thumb b">【写真】</div>
+            <div>
+              <div class="sidebar-recent-title">スケートリンク設置レポート</div>
+              <div class="sidebar-recent-date">2025.07.20</div>
+            </div>
+          </a>
+          <a href="blog-single.html" class="sidebar-recent-item">
+            <div class="sidebar-recent-thumb">【動画】</div>
+            <div>
+              <div class="sidebar-recent-title">恐竜ゾーン設営タイムラプス動画</div>
+              <div class="sidebar-recent-date">2025.07.05</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- タグ -->
+        <div class="sidebar-box">
+          <div class="sidebar-box-title">🏷️ タグ</div>
+          <div class="sidebar-tag-cloud">
+            <a href="#" class="sidebar-tag">トレイン</a>
+            <a href="#" class="sidebar-tag">エア遊具</a>
+            <a href="#" class="sidebar-tag">恐竜</a>
+            <a href="#" class="sidebar-tag">スケート</a>
+            <a href="#" class="sidebar-tag">夏祭り</a>
+            <a href="#" class="sidebar-tag">商業施設</a>
+            <a href="#" class="sidebar-tag">自治体</a>
+            <a href="#" class="sidebar-tag">設営レポート</a>
+            <a href="#" class="sidebar-tag">動画</a>
+            <a href="#" class="sidebar-tag">SNS</a>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="sidebar-box" style="background:var(--navy);text-align:center;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">📣</div>
+          <div style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:8px;">イベントのご相談は<br>お気軽に</div>
+          <a href="contact.html" class="btn btn-yellow btn-sm" style="width:100%;margin-bottom:8px;">✉ お問い合わせ</a>
+          <a href="documents.html" class="btn btn-sm" style="width:100%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);">📄 資料請求</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG SINGLE ARTICLE SAMPLE (WP single.php のイメージ) ===== -->
+<!--
+※ WordPressでは blog-single.html の内容は single.php テンプレートに移植します。
+   以下は「記事詳細ページ」のデザインラフです。
+-->
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <span class="cta-label">📣 まずはお気軽に</span>
+    <h2 class="cta-h2">企画から設置・運営・撤去まで<br>すべてワックにお任せください</h2>
+    <p class="cta-desc">記事を読んで気になった方は、お気軽にご相談ください。</p>
+    <div class="cta-btns">
+      <a href="contact.html"   class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">✉ お問い合わせする</a>
+      <a href="documents.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">📄 資料を請求する</a>
+    </div>
+    <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo-mark">WAC</div>
+        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
+        <span class="footer-tel-num">0120-18-7801</span>
+        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
+      </div>
+      <div class="footer-col"><h4>サービス</h4><ul>
+        <li><a href="items.html#train">トレイン</a></li>
+        <li><a href="items.html#air">エア遊具</a></li>
+        <li><a href="items.html#dino">わくわく恐竜王国</a></li>
+        <li><a href="items.html#skate">スケートイベント</a></li>
+        <li><a href="items.html#activity">アクティビティイベント</a></li>
+        <li><a href="items.html#attract">アトラクションイベント</a></li>
+        <li><a href="items.html#digital">デジタルイベント</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>会社情報</h4><ul>
+        <li><a href="why.html">ワックとは・選ばれる理由</a></li>
+        <li><a href="cases.html">イベント事例</a></li>
+        <li><a href="flow.html">ご利用の流れ</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>お問い合わせ</h4><ul>
+        <li><a href="contact.html">お問い合わせ・見積り相談</a></li>
+        <li><a href="documents.html">資料請求</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
+      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// カテゴリフィルター
+document.querySelectorAll('.cat-filter .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-filter .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#articleGrid .article-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
