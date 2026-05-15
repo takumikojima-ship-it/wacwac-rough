@@ -15,39 +15,7 @@
 /* FILTER */
 .cat-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 
-/* ===== FEATURED CARD (最新注目記事) ===== */
-.featured-card {
-  border-radius: var(--radius-card); overflow: hidden;
-  background: #fff; box-shadow: var(--shadow); margin-bottom: 28px;
-  display: grid; grid-template-columns: 1fr 1fr;
-}
-.featured-photo {
-  background: #dbeafe; min-height: 260px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .9rem; color: var(--gray); text-align: center; padding: 20px;
-  position: relative;
-}
-.featured-photo.video-thumb { background: #1a2c5b; color: rgba(255,255,255,.7); }
-.play-btn {
-  position: absolute; width: 60px; height: 60px; border-radius: 50%;
-  background: rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  box-shadow: var(--shadow);
-}
-.featured-label {
-  position: absolute; top: 16px; left: 16px;
-  background: var(--yellow); color: var(--navy);
-  font-size: .72rem; font-weight: 800; padding: 4px 12px; border-radius: 50px;
-}
-.featured-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
-.featured-badge {
-  display: inline-block; background: var(--blue); color: #fff;
-  font-size: .68rem; font-weight: 700; padding: 3px 10px; border-radius: 4px;
-  align-self: flex-start;
-}
-.featured-title { font-size: 1.25rem; font-weight: 800; color: var(--navy); line-height: 1.5; }
-.featured-meta { font-size: .78rem; color: var(--gray); }
-.featured-excerpt { font-size: .88rem; color: var(--gray); line-height: 1.8; }
+/* featured-card は廃止 — 全記事を article-card で統一 */
 
 /* ===== ARTICLE LIST (横並びカード) ===== */
 .article-grid { display: flex; flex-direction: column; gap: 16px; }
@@ -196,7 +164,7 @@
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px) {
   .blog-layout { grid-template-columns: 1fr; }
-  .featured-card { grid-template-columns: 1fr; }
+  /* featured-card 廃止済み */
   .sidebar { display: none; }
 }
 @media(max-width:768px) {
@@ -264,24 +232,28 @@
           <button class="filter-btn" data-cat="news">お知らせ</button>
         </div>
 
-        <!-- 注目記事 -->
-        <div class="featured-card">
-          <div class="featured-photo video-thumb">
-            【サムネイル】夏のイベントレポート動画
-            <div class="play-btn">▶</div>
-            <span class="featured-label">動画</span>
-          </div>
-          <div class="featured-body">
-            <span class="featured-badge">イベントレポート</span>
-            <div class="featured-title">【動画あり】大阪・某SCの夏イベント2025 ― トレイン＋恐竜ゾーンで来場者1.5万人達成！</div>
-            <div class="featured-meta">2025年8月10日 ｜ 担当：田中</div>
-            <div class="featured-excerpt">今年も大盛況となった夏のビッグイベント。3両編成トレイン3台と恐竜ゾーンを組み合わせた大規模設置の裏側を動画でご紹介します。</div>
-            <a href="blog-single.html" class="btn btn-blue btn-sm" style="align-self:flex-start;">記事を読む →</a>
-          </div>
-        </div>
-
-        <!-- 記事一覧 -->
+        <!-- 記事一覧（全カード統一サイズ・フィルター対応） -->
         <div class="article-grid" id="articleGrid">
+
+          <a href="blog-single.html" class="article-card" data-cat="report">
+            <div class="article-thumb-wrap">
+              <div class="article-thumb n">
+                <span class="article-cat report">イベントレポート</span>
+                【サムネイル】夏のイベントレポート動画
+                <div class="play-icon">▶</div>
+              </div>
+            </div>
+            <div class="article-body">
+              <div class="article-body-top">
+                <div class="article-title">【動画あり】大阪・某SCの夏イベント2025 ― トレイン＋恐竜ゾーンで来場者1.5万人達成！</div>
+                <div class="article-excerpt">今年も大盛況となった夏のビッグイベント。3両編成トレイン3台と恐竜ゾーンを組み合わせた大規模設置の裏側を動画でご紹介します。</div>
+              </div>
+              <div class="article-body-bottom">
+                <span class="article-date">2025.08.10</span>
+                <span class="article-read-more">続きを読む</span>
+              </div>
+            </div>
+          </a>
 
           <a href="blog-single.html" class="article-card" data-cat="report">
             <div class="article-thumb-wrap">
