@@ -7,15 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-.items-section { padding: 80px 0; }
+<style>.items-section { padding: 80px 0; }
 .items-section.alt { background: var(--bg-section); }
 
 .category-block { margin-bottom: 80px; scroll-margin-top: 80px; }
 .category-header {
-  display: flex; align-items: center; gap: 16px;
-  margin-bottom: 32px; padding-bottom: 16px;
-  border-bottom: 3px solid var(--yellow);
+ display: flex; align-items: center; gap: 16px;
+ margin-bottom: 32px; padding-bottom: 16px;
+ border-bottom: 3px solid var(--yellow);
 }
 .category-icon-big { font-size: 2.5rem; }
 .category-header h2 { font-size: 1.6rem; font-weight: 800; color: var(--navy); }
@@ -23,15 +22,15 @@
 
 .item-detail-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
 .item-detail-card {
-  border-radius: var(--radius-card); overflow: hidden;
-  box-shadow: var(--shadow); background: #fff;
-  transition: transform .2s, box-shadow .2s;
+ border-radius: var(--radius-card); overflow: hidden;
+ box-shadow: var(--shadow); background: #fff;
+ transition: transform .2s, box-shadow .2s;
 }
 .item-detail-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
 .item-detail-photo {
-  height: 180px; background: #fef3c7;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .82rem; color: var(--gray); text-align: center; padding: 16px;
+ height: 180px; background: #fef3c7;
+ display: flex; align-items: center; justify-content: center;
+ font-size: .82rem; color: var(--gray); text-align: center; padding: 16px;
 }
 .item-detail-photo.b { background: #dbeafe; }
 .item-detail-photo.g { background: #dcfce7; }
@@ -40,397 +39,31 @@
 .item-detail-body { padding: 18px; }
 .item-detail-name { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
 .item-detail-scene {
-  font-size: .78rem; color: var(--blue); font-weight: 700;
-  margin-bottom: 8px; display: flex; align-items: center; gap: 4px;
+ font-size: .78rem; color: var(--blue); font-weight: 700;
+ margin-bottom: 8px; display: flex; align-items: center; gap: 4px;
 }
 .item-detail-desc { font-size: .82rem; color: var(--gray); }
 .item-spec {
-  margin-top: 12px; padding-top: 12px; border-top: 1px dashed #e2e8f0;
-  display: flex; gap: 16px; flex-wrap: wrap;
+ margin-top: 12px; padding-top: 12px; border-top: 1px dashed #e2e8f0;
+ display: flex; gap: 16px; flex-wrap: wrap;
 }
 .item-spec-item { font-size: .72rem; color: var(--gray); }
 .item-spec-item span { font-weight: 700; color: var(--navy); }
 
 @media(max-width:1024px) { .item-detail-grid { grid-template-columns: repeat(2,1fr); } }
-@media(max-width:768px)  { .item-detail-grid { grid-template-columns: 1fr; } .category-desc { display:none; } }
+@media(max-width:768px) { .item-detail-grid { grid-template-columns: 1fr; } .category-desc { display:none; } }
 </style>
 </head>
-<body>
-
-<div class="topbar">
-  <div class="container">
-    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
-    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
-  </div>
-</div>
-
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
-    <nav>
-      <a href="items.html"   class="nav-link active"><span class="en">Item</span><span>アイテム一覧</span></a>
-      <a href="cases.html"   class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
-      <a href="why.html"     class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
-      <a href="flow.html"    class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
-      <a href="faq.html"      class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
-      <a href="blog.html"      class="nav-link"><span class="en">Blog</span><span>ブログ</span></a>
-      <a href="news.html"      class="nav-link"><span class="en">News</span><span>お知らせ</span></a>
-    </nav>
-    <div class="nav-cta">
-      <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a>
-      <a href="contact.html" class="btn btn-yellow btn-sm">お問い合わせ</a>
-    </div>
-  </div>
-</header>
-
-<div class="float-cta">
-  <a href="documents.html" class="float-btn">資料<br>請求</a>
-  <a href="contact.html" class="float-btn blue">相談<br>する</a>
-</div>
-
-<div class="page-hero">
-  <span class="page-hero-en">Items</span>
-  <h1>アイテム一覧</h1>
-  <p>7カテゴリ・豊富なラインナップでイベントを盛り上げます</p>
-  <div class="breadcrumb">
-    <a href="index.html">TOP</a><span>/</span><span>アイテム一覧</span>
-  </div>
-</div>
-
-<!-- JUMP NAV -->
-<div style="background:var(--navy);padding:20px 0;">
-  <div style="max-width:1160px;margin:0 auto;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
-    <a href="#train"    style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);transition:background .2s;" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">🚂 トレイン</a>
-    <a href="#air"      style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);transition:background .2s;" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">🎈 エア遊具</a>
-    <a href="#dino"     style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">🦕 恐竜イベント</a>
-    <a href="#skate"    style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">⛸️ スケート</a>
-    <a href="#activity" style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">🎯 アクティビティ</a>
-    <a href="#attract"  style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">🎡 アトラクション</a>
-    <a href="#digital"  style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">📱 デジタル</a>
-  </div>
-</div>
-
-<section class="items-section">
-  <div class="container">
-
-    <!-- トレイン -->
-    <div class="category-block" id="train">
-      <div class="category-header">
-        <span class="category-icon-big">🚂</span>
-        <h2>トレイン</h2>
-        <p class="category-desc">商業施設や地域イベントで人気No.1。老若男女に愛されるロングセラーアイテム。</p>
-      </div>
-      <div class="item-detail-grid">
-        <div class="item-detail-card">
-          <div class="item-detail-photo">【写真】カラフルな子ども用電車</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">ミニトレイン（2両編成）</div>
-            <div class="item-detail-scene">🏬 商業施設・催事スペース向け</div>
-            <div class="item-detail-desc">コンパクトで扱いやすい2両編成タイプ。小スペースでも大活躍。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約50㎡〜</span></span><span class="item-spec-item">定員 <span>6名/回</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo">【写真】大型トレイン3両編成</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">大型トレイン（3両編成）</div>
-            <div class="item-detail-scene">🏛️ 大型商業施設・屋外イベント向け</div>
-            <div class="item-detail-desc">存在感抜群の3両編成。行列必至の人気アイテム。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約100㎡〜</span></span><span class="item-spec-item">定員 <span>12名/回</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo">【写真】キャラクタートレイン</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">キャラクタートレイン</div>
-            <div class="item-detail-scene">🎪 テーマイベント・季節催事向け</div>
-            <div class="item-detail-desc">季節やテーマに合わせたキャラクターデザインで特別感を演出。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約80㎡〜</span></span><span class="item-spec-item">定員 <span>8名/回</span></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- エア遊具 -->
-    <div class="category-block" id="air" style="padding-top:60px;border-top:1px dashed #e2e8f0;">
-      <div class="category-header">
-        <span class="category-icon-big">🎈</span>
-        <h2>エア遊具</h2>
-        <p class="category-desc">屋内外どちらでも設置可能。子どもたちが夢中になるバルーンアトラクション。</p>
-      </div>
-      <div class="item-detail-grid">
-        <div class="item-detail-card">
-          <div class="item-detail-photo b">【写真】大型バルーンスライダー</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">バルーンスライダー（大型）</div>
-            <div class="item-detail-scene">🏛️ 地域祭り・野外イベント向け</div>
-            <div class="item-detail-desc">子どもたちが夢中になる大型スライダー。行列ができること間違いなし。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約80㎡〜</span></span><span class="item-spec-item">対象年齢 <span>3〜12歳</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo b">【写真】エアアスレチック</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">エアアスレチック</div>
-            <div class="item-detail-scene">🏫 学校行事・ファミリーデー向け</div>
-            <div class="item-detail-desc">体を動かしながら楽しめるアスレチック型エア遊具。体育祭・運動会にも最適。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約120㎡〜</span></span><span class="item-spec-item">対象年齢 <span>5〜15歳</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo b">【写真】コンパクトバルーン</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">コンパクトバルーン</div>
-            <div class="item-detail-scene">🏬 室内催事・小規模イベント向け</div>
-            <div class="item-detail-desc">室内のイベントスペースにも設置可能なコンパクトタイプ。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約40㎡〜</span></span><span class="item-spec-item">対象年齢 <span>2〜8歳</span></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 恐竜 -->
-    <div class="category-block" id="dino" style="padding-top:60px;border-top:1px dashed #e2e8f0;">
-      <div class="category-header">
-        <span class="category-icon-big">🦕</span>
-        <h2>わくわく恐竜王国</h2>
-        <p class="category-desc">リアルな恐竜モデルが圧巻。SNS映え◎で集客力バツグンの人気コンテンツ。</p>
-      </div>
-      <div class="item-detail-grid">
-        <div class="item-detail-card">
-          <div class="item-detail-photo g">【写真】リアル恐竜ゾーン設置例</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">恐竜ゾーン（スタンダード）</div>
-            <div class="item-detail-scene">🏬 商業施設・学校行事向け</div>
-            <div class="item-detail-desc">等身大の恐竜モデルを複数配置。写真撮影スポットとして大人気。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約100㎡〜</span></span><span class="item-spec-item">モデル数 <span>5〜8体</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo g">【写真】動く恐竜・アニマトロニクス</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">動く恐竜（アニマトロニクス）</div>
-            <div class="item-detail-scene">🏛️ 大型催事・屋外イベント向け</div>
-            <div class="item-detail-desc">動きと鳴き声でリアルな恐竜体験を提供。来場者を釘付けにする圧巻の演出。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約150㎡〜</span></span><span class="item-spec-item">電源 <span>100V必要</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo g">【写真】恐竜化石発掘体験</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">化石発掘体験コーナー</div>
-            <div class="item-detail-scene">🏫 学校行事・体験型イベント向け</div>
-            <div class="item-detail-desc">砂の中から化石を発掘できる体験型コンテンツ。教育要素もあり学校行事に最適。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約30㎡〜</span></span><span class="item-spec-item">所要時間 <span>10〜15分/人</span></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- スケート -->
-    <div class="category-block" id="skate" style="padding-top:60px;border-top:1px dashed #e2e8f0;">
-      <div class="category-header">
-        <span class="category-icon-big">⛸️</span>
-        <h2>スケートイベント</h2>
-        <p class="category-desc">冬の集客に圧倒的な効果。室内に本格的なスケートリンクを設営します。</p>
-      </div>
-      <div class="item-detail-grid">
-        <div class="item-detail-card">
-          <div class="item-detail-photo p">【写真】本格人工氷スケートリンク</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">人工氷スケートリンク</div>
-            <div class="item-detail-scene">🏬 商業施設・百貨店の冬催事向け</div>
-            <div class="item-detail-desc">本格的な人工氷リンクを室内に設営。クリスマス・冬の集客に絶大な効果。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約200㎡〜</span></span><span class="item-spec-item">設営期間 <span>1ヶ月〜</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo p">【写真】合成樹脂スケートリンク</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">合成樹脂スケートリンク</div>
-            <div class="item-detail-scene">🏛️ 屋外イベント・通年利用向け</div>
-            <div class="item-detail-desc">冷凍設備不要の合成樹脂リンク。季節を問わず設置でき、コストを抑えられます。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約100㎡〜</span></span><span class="item-spec-item">設営期間 <span>数日〜</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo p">【写真】スケートリンク＋ライト演出</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">スケートリンク（ライトアップ演出付き）</div>
-            <div class="item-detail-scene">🎄 クリスマス・年末年始向け</div>
-            <div class="item-detail-desc">LEDやプロジェクションマッピングでリンクを幻想的に演出。SNS映えも抜群。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約300㎡〜</span></span><span class="item-spec-item">電源 <span>200V推奨</span></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- アクティビティ -->
-    <div class="category-block" id="activity" style="padding-top:60px;border-top:1px dashed #e2e8f0;">
-      <div class="category-header">
-        <span class="category-icon-big">🎯</span>
-        <h2>アクティビティイベント</h2>
-        <p class="category-desc">体験・参加型のアクティビティで、子どもも大人も夢中になるイベントを。</p>
-      </div>
-      <div class="item-detail-grid">
-        <div class="item-detail-card">
-          <div class="item-detail-photo o">【写真】水上ボートアクティビティ</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">水上ボートアトラクション</div>
-            <div class="item-detail-scene">☀️ 夏祭り・野外イベント向け</div>
-            <div class="item-detail-desc">特設プールでボートに乗れる夏限定の大人気コンテンツ。老若男女が楽しめます。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約200㎡〜</span></span><span class="item-spec-item">季節 <span>春〜夏</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo o">【写真】ミニ四駆・ラジコン体験</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">ラジコン体験コーナー</div>
-            <div class="item-detail-scene">🏬 商業施設・屋内催事向け</div>
-            <div class="item-detail-desc">ラジコンカーやドローン（安全仕様）を体験できる人気コーナー。子どもだけでなく大人も熱中。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約50㎡〜</span></span><span class="item-spec-item">対象年齢 <span>5歳〜</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo o">【写真】縁日・射的コーナー</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">縁日コーナーセット</div>
-            <div class="item-detail-scene">🏛️ お祭り・地域イベント向け</div>
-            <div class="item-detail-desc">射的・輪投げ・ヨーヨー釣りなど懐かしの縁日をセットで提供。お祭り気分を満喫。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約60㎡〜</span></span><span class="item-spec-item">コンテンツ数 <span>5種類〜</span></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- アトラクション -->
-    <div class="category-block" id="attract" style="padding-top:60px;border-top:1px dashed #e2e8f0;">
-      <div class="category-header">
-        <span class="category-icon-big">🎡</span>
-        <h2>アトラクションイベント</h2>
-        <p class="category-desc">大規模イベントを彩る迫力のアトラクション。会場全体を盛り上げます。</p>
-      </div>
-      <div class="item-detail-grid">
-        <div class="item-detail-card">
-          <div class="item-detail-photo">【写真】メリーゴーランド設置例</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">メリーゴーランド</div>
-            <div class="item-detail-scene">🏬 百貨店・大型SC向け</div>
-            <div class="item-detail-desc">本格的なメリーゴーランドを設置。存在感があり、遠くからでも目を引きます。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約150㎡〜</span></span><span class="item-spec-item">定員 <span>8名/回</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo">【写真】大型滑り台・ジャングルジム</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">大型遊具セット</div>
-            <div class="item-detail-scene">🏛️ 公共施設・屋外広場向け</div>
-            <div class="item-detail-desc">滑り台・ジャングルジムなどを組み合わせた大型遊具セット。子どもたちの遊び場に。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約200㎡〜</span></span><span class="item-spec-item">対象年齢 <span>2〜12歳</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo">【写真】バンジートランポリン</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">バンジートランポリン</div>
-            <div class="item-detail-scene">🎪 アウトドア・大型催事向け</div>
-            <div class="item-detail-desc">ハーネスをつけて高く跳べるバンジートランポリン。スリルと楽しさが大人気。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約50㎡〜</span></span><span class="item-spec-item">対象年齢 <span>6〜16歳</span></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- デジタル -->
-    <div class="category-block" id="digital" style="padding-top:60px;border-top:1px dashed #e2e8f0;">
-      <div class="category-header">
-        <span class="category-icon-big">📱</span>
-        <h2>デジタルイベント</h2>
-        <p class="category-desc">最新テクノロジーで他社と差をつける。館内回遊・SNS拡散にも効果的。</p>
-      </div>
-      <div class="item-detail-grid">
-        <div class="item-detail-card">
-          <div class="item-detail-photo p">【写真】ARスタンプラリー</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">ARスタンプラリー</div>
-            <div class="item-detail-scene">🏬 商業施設・館内回遊向け</div>
-            <div class="item-detail-desc">スマホをかざすと恐竜やキャラクターが現れるAR体験型スタンプラリー。館内を自然に回遊させる仕掛けが好評。</div>
-            <div class="item-spec"><span class="item-spec-item">必要機器 <span>スマートフォン</span></span><span class="item-spec-item">専用アプリ <span>あり</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo p">【写真】プロジェクションマッピング</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">プロジェクションマッピング</div>
-            <div class="item-detail-scene">🎄 季節催事・夜間イベント向け</div>
-            <div class="item-detail-desc">建物や特設スクリーンに映像を投影するプロジェクションマッピング。SNS映えで集客力アップ。</div>
-            <div class="item-spec"><span class="item-spec-item">電源 <span>200V推奨</span></span><span class="item-spec-item">暗所 <span>必要</span></span></div>
-          </div>
-        </div>
-        <div class="item-detail-card">
-          <div class="item-detail-photo p">【写真】デジタルフォトスポット</div>
-          <div class="item-detail-body">
-            <div class="item-detail-name">デジタルフォトスポット</div>
-            <div class="item-detail-scene">🏬 商業施設・集客施設向け</div>
-            <div class="item-detail-desc">インタラクティブなデジタル背景で記念写真が撮れるフォトスポット。SNSシェアを促進し拡散効果を生みます。</div>
-            <div class="item-spec"><span class="item-spec-item">必要面積 <span>約20㎡〜</span></span><span class="item-spec-item">電源 <span>100V</span></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-banner">
-  <div class="cta-inner">
-    <span class="cta-label">📣 気になるアイテムがありましたか？</span>
-    <h2 class="cta-h2">ご予算・スペースに合わせて<br>最適なプランをご提案します</h2>
-    <p class="cta-desc">「このアイテムを使いたい」「こういうイベントがしたい」など、<br>まずはお気軽にご相談ください。</p>
-    <div class="cta-btns">
-      <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">✉ 無料で相談・見積り</a>
-      <a href="cases.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">📋 利用事例を見る</a>
-    </div>
-    <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo-mark">WAC</div>
-        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
-        <span class="footer-tel-num">0120-18-7801</span>
-        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
-      </div>
-      <div class="footer-col"><h4>サービス</h4><ul>
-        <li><a href="#train">トレイン</a></li>
-        <li><a href="#air">エア遊具</a></li>
-        <li><a href="#dino">わくわく恐竜王国</a></li>
-        <li><a href="#skate">スケートイベント</a></li>
-        <li><a href="#activity">アクティビティイベント</a></li>
-        <li><a href="#attract">アトラクションイベント</a></li>
-        <li><a href="#digital">デジタルイベント</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>会社情報</h4><ul>
-        <li><a href="why.html">ワックとは・選ばれる理由</a></li>
-        <li><a href="cases.html">イベント事例</a></li>
-        <li><a href="flow.html">ご利用の流れ</a></li>
-        <li><a href="faq.html">よくある質問</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>お問い合わせ</h4><ul>
-        <li><a href="contact.html">お問い合わせ・ご相談</a></li>
-        <li><a href="documents.html">資料請求</a></li>
-        <li><a href="contact.html">無料見積り</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
-      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
-    </div>
-  </div>
+<body> <div class="topbar"> <div class="container"> <span class="topbar-left">親子・子供のためのイベント企画運営会社</span> <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span> </div>
+</div> <header> <div class="header-inner"> <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a> <nav> <a href="items.html" class="nav-link active"><span class="en">Item</span><span>アイテム一覧</span></a> <a href="cases.html" class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a> <a href="why.html" class="nav-link"><span class="en">About</span><span>ワックとは</span></a> <a href="flow.html" class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a> <a href="faq.html" class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a> <a href="blog.html" class="nav-link"><span class="en">Blog</span><span>ブログ</span></a> <a href="news.html" class="nav-link"><span class="en">News</span><span>お知らせ</span></a> </nav> <div class="nav-cta"> <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a> <a href="contact.html" class="btn btn-yellow btn-sm">お問い合わせ</a> </div> </div>
+</header> <div class="float-cta"> <a href="documents.html" class="float-btn">資料<br>請求</a> <a href="contact.html" class="float-btn blue">相談<br>する</a>
+</div> <div class="page-hero"> <span class="page-hero-en">Items</span> <h1>アイテム一覧</h1> <p>7カテゴリ・豊富なラインナップでイベントを盛り上げます</p> <div class="breadcrumb"> <a href="index.html">TOP</a><span>/</span><span>アイテム一覧</span> </div>
+</div> <!-- JUMP NAV -->
+<div style="background:var(--navy);padding:20px 0;"> <div style="max-width:1160px;margin:0 auto;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;"> <a href="#train" style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);transition:background .2s;" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">トレイン</a> <a href="#air" style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);transition:background .2s;" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">エア遊具</a> <a href="#dino" style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">恐竜イベント</a> <a href="#skate" style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">スケート</a> <a href="#activity" style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">アクティビティ</a> <a href="#attract" style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">アトラクション</a> <a href="#digital" style="background:rgba(255,255,255,.1);color:#fff;border-radius:50px;padding:8px 18px;text-decoration:none;font-size:.82rem;font-weight:700;border:1.5px solid rgba(255,255,255,.2);" onmouseover="this.style.background='#FFD700';this.style.color='#1a2c5b'" onmouseout="this.style.background='rgba(255,255,255,.1)';this.style.color='#fff'">デジタル</a> </div>
+</div> <section class="items-section"> <div class="container"> <!-- トレイン --> <div class="category-block" id="train"> <div class="category-header"> <span class="category-icon-big"></span> <h2>トレイン</h2> <p class="category-desc">商業施設や地域イベントで人気No.1。老若男女に愛されるロングセラーアイテム。</p> </div> <div class="item-detail-grid"> <div class="item-detail-card"> <div class="item-detail-photo">【写真】カラフルな子ども用電車</div> <div class="item-detail-body"> <div class="item-detail-name">ミニトレイン（2両編成）</div> <div class="item-detail-scene">商業施設・催事スペース向け</div> <div class="item-detail-desc">コンパクトで扱いやすい2両編成タイプ。小スペースでも大活躍。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約50㎡〜</span></span><span class="item-spec-item">定員 <span>6名/回</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo">【写真】大型トレイン3両編成</div> <div class="item-detail-body"> <div class="item-detail-name">大型トレイン（3両編成）</div> <div class="item-detail-scene">大型商業施設・屋外イベント向け</div> <div class="item-detail-desc">存在感抜群の3両編成。行列必至の人気アイテム。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約100㎡〜</span></span><span class="item-spec-item">定員 <span>12名/回</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo">【写真】キャラクタートレイン</div> <div class="item-detail-body"> <div class="item-detail-name">キャラクタートレイン</div> <div class="item-detail-scene">テーマイベント・季節催事向け</div> <div class="item-detail-desc">季節やテーマに合わせたキャラクターデザインで特別感を演出。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約80㎡〜</span></span><span class="item-spec-item">定員 <span>8名/回</span></span></div> </div> </div> </div> </div> <!-- エア遊具 --> <div class="category-block" id="air" style="padding-top:60px;border-top:1px dashed #e2e8f0;"> <div class="category-header"> <span class="category-icon-big"></span> <h2>エア遊具</h2> <p class="category-desc">屋内外どちらでも設置可能。子どもたちが夢中になるバルーンアトラクション。</p> </div> <div class="item-detail-grid"> <div class="item-detail-card"> <div class="item-detail-photo b">【写真】大型バルーンスライダー</div> <div class="item-detail-body"> <div class="item-detail-name">バルーンスライダー（大型）</div> <div class="item-detail-scene">地域祭り・野外イベント向け</div> <div class="item-detail-desc">子どもたちが夢中になる大型スライダー。行列ができること間違いなし。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約80㎡〜</span></span><span class="item-spec-item">対象年齢 <span>3〜12歳</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo b">【写真】エアアスレチック</div> <div class="item-detail-body"> <div class="item-detail-name">エアアスレチック</div> <div class="item-detail-scene">学校行事・ファミリーデー向け</div> <div class="item-detail-desc">体を動かしながら楽しめるアスレチック型エア遊具。体育祭・運動会にも最適。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約120㎡〜</span></span><span class="item-spec-item">対象年齢 <span>5〜15歳</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo b">【写真】コンパクトバルーン</div> <div class="item-detail-body"> <div class="item-detail-name">コンパクトバルーン</div> <div class="item-detail-scene">室内催事・小規模イベント向け</div> <div class="item-detail-desc">室内のイベントスペースにも設置可能なコンパクトタイプ。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約40㎡〜</span></span><span class="item-spec-item">対象年齢 <span>2〜8歳</span></span></div> </div> </div> </div> </div> <!-- 恐竜 --> <div class="category-block" id="dino" style="padding-top:60px;border-top:1px dashed #e2e8f0;"> <div class="category-header"> <span class="category-icon-big"></span> <h2>わくわく恐竜王国</h2> <p class="category-desc">リアルな恐竜モデルが圧巻。SNS映え◎で集客力バツグンの人気コンテンツ。</p> </div> <div class="item-detail-grid"> <div class="item-detail-card"> <div class="item-detail-photo g">【写真】リアル恐竜ゾーン設置例</div> <div class="item-detail-body"> <div class="item-detail-name">恐竜ゾーン（スタンダード）</div> <div class="item-detail-scene">商業施設・学校行事向け</div> <div class="item-detail-desc">等身大の恐竜モデルを複数配置。写真撮影スポットとして大人気。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約100㎡〜</span></span><span class="item-spec-item">モデル数 <span>5〜8体</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo g">【写真】動く恐竜・アニマトロニクス</div> <div class="item-detail-body"> <div class="item-detail-name">動く恐竜（アニマトロニクス）</div> <div class="item-detail-scene">大型催事・屋外イベント向け</div> <div class="item-detail-desc">動きと鳴き声でリアルな恐竜体験を提供。来場者を釘付けにする圧巻の演出。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約150㎡〜</span></span><span class="item-spec-item">電源 <span>100V必要</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo g">【写真】恐竜化石発掘体験</div> <div class="item-detail-body"> <div class="item-detail-name">化石発掘体験コーナー</div> <div class="item-detail-scene">学校行事・体験型イベント向け</div> <div class="item-detail-desc">砂の中から化石を発掘できる体験型コンテンツ。教育要素もあり学校行事に最適。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約30㎡〜</span></span><span class="item-spec-item">所要時間 <span>10〜15分/人</span></span></div> </div> </div> </div> </div> <!-- スケート --> <div class="category-block" id="skate" style="padding-top:60px;border-top:1px dashed #e2e8f0;"> <div class="category-header"> <span class="category-icon-big"></span> <h2>スケートイベント</h2> <p class="category-desc">冬の集客に圧倒的な効果。室内に本格的なスケートリンクを設営します。</p> </div> <div class="item-detail-grid"> <div class="item-detail-card"> <div class="item-detail-photo p">【写真】本格人工氷スケートリンク</div> <div class="item-detail-body"> <div class="item-detail-name">人工氷スケートリンク</div> <div class="item-detail-scene">商業施設・百貨店の冬催事向け</div> <div class="item-detail-desc">本格的な人工氷リンクを室内に設営。クリスマス・冬の集客に絶大な効果。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約200㎡〜</span></span><span class="item-spec-item">設営期間 <span>1ヶ月〜</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo p">【写真】合成樹脂スケートリンク</div> <div class="item-detail-body"> <div class="item-detail-name">合成樹脂スケートリンク</div> <div class="item-detail-scene">屋外イベント・通年利用向け</div> <div class="item-detail-desc">冷凍設備不要の合成樹脂リンク。季節を問わず設置でき、コストを抑えられます。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約100㎡〜</span></span><span class="item-spec-item">設営期間 <span>数日〜</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo p">【写真】スケートリンク＋ライト演出</div> <div class="item-detail-body"> <div class="item-detail-name">スケートリンク（ライトアップ演出付き）</div> <div class="item-detail-scene">クリスマス・年末年始向け</div> <div class="item-detail-desc">LEDやプロジェクションマッピングでリンクを幻想的に演出。SNS映えも抜群。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約300㎡〜</span></span><span class="item-spec-item">電源 <span>200V推奨</span></span></div> </div> </div> </div> </div> <!-- アクティビティ --> <div class="category-block" id="activity" style="padding-top:60px;border-top:1px dashed #e2e8f0;"> <div class="category-header"> <span class="category-icon-big"></span> <h2>アクティビティイベント</h2> <p class="category-desc">体験・参加型のアクティビティで、子どもも大人も夢中になるイベントを。</p> </div> <div class="item-detail-grid"> <div class="item-detail-card"> <div class="item-detail-photo o">【写真】水上ボートアクティビティ</div> <div class="item-detail-body"> <div class="item-detail-name">水上ボートアトラクション</div> <div class="item-detail-scene">夏祭り・野外イベント向け</div> <div class="item-detail-desc">特設プールでボートに乗れる夏限定の大人気コンテンツ。老若男女が楽しめます。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約200㎡〜</span></span><span class="item-spec-item">季節 <span>春〜夏</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo o">【写真】ミニ四駆・ラジコン体験</div> <div class="item-detail-body"> <div class="item-detail-name">ラジコン体験コーナー</div> <div class="item-detail-scene">商業施設・屋内催事向け</div> <div class="item-detail-desc">ラジコンカーやドローン（安全仕様）を体験できる人気コーナー。子どもだけでなく大人も熱中。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約50㎡〜</span></span><span class="item-spec-item">対象年齢 <span>5歳〜</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo o">【写真】縁日・射的コーナー</div> <div class="item-detail-body"> <div class="item-detail-name">縁日コーナーセット</div> <div class="item-detail-scene">お祭り・地域イベント向け</div> <div class="item-detail-desc">射的・輪投げ・ヨーヨー釣りなど懐かしの縁日をセットで提供。お祭り気分を満喫。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約60㎡〜</span></span><span class="item-spec-item">コンテンツ数 <span>5種類〜</span></span></div> </div> </div> </div> </div> <!-- アトラクション --> <div class="category-block" id="attract" style="padding-top:60px;border-top:1px dashed #e2e8f0;"> <div class="category-header"> <span class="category-icon-big"></span> <h2>アトラクションイベント</h2> <p class="category-desc">大規模イベントを彩る迫力のアトラクション。会場全体を盛り上げます。</p> </div> <div class="item-detail-grid"> <div class="item-detail-card"> <div class="item-detail-photo">【写真】メリーゴーランド設置例</div> <div class="item-detail-body"> <div class="item-detail-name">メリーゴーランド</div> <div class="item-detail-scene">百貨店・大型SC向け</div> <div class="item-detail-desc">本格的なメリーゴーランドを設置。存在感があり、遠くからでも目を引きます。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約150㎡〜</span></span><span class="item-spec-item">定員 <span>8名/回</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo">【写真】大型滑り台・ジャングルジム</div> <div class="item-detail-body"> <div class="item-detail-name">大型遊具セット</div> <div class="item-detail-scene">公共施設・屋外広場向け</div> <div class="item-detail-desc">滑り台・ジャングルジムなどを組み合わせた大型遊具セット。子どもたちの遊び場に。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約200㎡〜</span></span><span class="item-spec-item">対象年齢 <span>2〜12歳</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo">【写真】バンジートランポリン</div> <div class="item-detail-body"> <div class="item-detail-name">バンジートランポリン</div> <div class="item-detail-scene">アウトドア・大型催事向け</div> <div class="item-detail-desc">ハーネスをつけて高く跳べるバンジートランポリン。スリルと楽しさが大人気。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約50㎡〜</span></span><span class="item-spec-item">対象年齢 <span>6〜16歳</span></span></div> </div> </div> </div> </div> <!-- デジタル --> <div class="category-block" id="digital" style="padding-top:60px;border-top:1px dashed #e2e8f0;"> <div class="category-header"> <span class="category-icon-big"></span> <h2>デジタルイベント</h2> <p class="category-desc">最新テクノロジーで他社と差をつける。館内回遊・SNS拡散にも効果的。</p> </div> <div class="item-detail-grid"> <div class="item-detail-card"> <div class="item-detail-photo p">【写真】ARスタンプラリー</div> <div class="item-detail-body"> <div class="item-detail-name">ARスタンプラリー</div> <div class="item-detail-scene">商業施設・館内回遊向け</div> <div class="item-detail-desc">スマホをかざすと恐竜やキャラクターが現れるAR体験型スタンプラリー。館内を自然に回遊させる仕掛けが好評。</div> <div class="item-spec"><span class="item-spec-item">必要機器 <span>スマートフォン</span></span><span class="item-spec-item">専用アプリ <span>あり</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo p">【写真】プロジェクションマッピング</div> <div class="item-detail-body"> <div class="item-detail-name">プロジェクションマッピング</div> <div class="item-detail-scene">季節催事・夜間イベント向け</div> <div class="item-detail-desc">建物や特設スクリーンに映像を投影するプロジェクションマッピング。SNS映えで集客力アップ。</div> <div class="item-spec"><span class="item-spec-item">電源 <span>200V推奨</span></span><span class="item-spec-item">暗所 <span>必要</span></span></div> </div> </div> <div class="item-detail-card"> <div class="item-detail-photo p">【写真】デジタルフォトスポット</div> <div class="item-detail-body"> <div class="item-detail-name">デジタルフォトスポット</div> <div class="item-detail-scene">商業施設・集客施設向け</div> <div class="item-detail-desc">インタラクティブなデジタル背景で記念写真が撮れるフォトスポット。SNSシェアを促進し拡散効果を生みます。</div> <div class="item-spec"><span class="item-spec-item">必要面積 <span>約20㎡〜</span></span><span class="item-spec-item">電源 <span>100V</span></span></div> </div> </div> </div> </div> </div>
+</section> <!-- CTA -->
+<section class="cta-banner"> <div class="cta-inner"> <span class="cta-label">気になるアイテムがありましたか？</span> <h2 class="cta-h2">ご予算・スペースに合わせて<br>最適なプランをご提案します</h2> <p class="cta-desc">「このアイテムを使いたい」「こういうイベントがしたい」など、<br>まずはお気軽にご相談ください。</p> <div class="cta-btns"> <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">無料で相談・見積り</a> <a href="cases.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">利用事例を見る</a> </div> <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div> </div>
+</section> <footer> <div class="container"> <div class="footer-top"> <div> <div class="footer-logo-mark">WAC</div> <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p> <span class="footer-tel-num">0120-18-7801</span> <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span> </div> <div class="footer-col"><h4>サービス</h4><ul> <li><a href="#train">トレイン</a></li> <li><a href="#air">エア遊具</a></li> <li><a href="#dino">わくわく恐竜王国</a></li> <li><a href="#skate">スケートイベント</a></li> <li><a href="#activity">アクティビティイベント</a></li> <li><a href="#attract">アトラクションイベント</a></li> <li><a href="#digital">デジタルイベント</a></li> </ul></div> <div class="footer-col"><h4>会社情報</h4><ul> <li><a href="why.html">ワックとは・選ばれる理由</a></li> <li><a href="cases.html">イベント事例</a></li> <li><a href="flow.html">ご利用の流れ</a></li> <li><a href="faq.html">よくある質問</a></li> </ul></div> <div class="footer-col"><h4>お問い合わせ</h4><ul> <li><a href="contact.html">お問い合わせ・ご相談</a></li> <li><a href="documents.html">資料請求</a></li> <li><a href="contact.html">無料見積り</a></li> </ul></div> </div> <div class="footer-bottom"> <div>© 2025 WAC Corporation. All Rights Reserved.</div> <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div> </div> </div>
 </footer>
 </body>
 </html>

@@ -7,145 +7,134 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-/* ===== SINGLE ARTICLE ===== */
+<style>/* ===== SINGLE ARTICLE ===== */
 .single-section { padding: 80px 0; background: var(--bg-section); }
 .single-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
 
-/* ARTICLE CONTENT -->
-.article-wrap { background: #fff; border-radius: 24px; padding: 48px; box-shadow: var(--shadow); }
+/* ARTICLE CONTENT -->.article-wrap { background: #fff; border-radius: 24px; padding: 48px; box-shadow: var(--shadow); }
 .article-cats { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
 .article-cat-badge {
-  font-size: .72rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; color: #fff;
+ font-size: .72rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; color: #fff;
 }
 .article-cat-badge.report { background: var(--blue); }
-.article-cat-badge.video  { background: #DC2626; }
-.article-cat-badge.tips   { background: var(--orange); }
-.article-cat-badge.case   { background: var(--green); }
+.article-cat-badge.video { background: #DC2626; }
+.article-cat-badge.tips { background: var(--orange); }
+.article-cat-badge.case { background: var(--green); }
 .article-h1 { font-size: 1.8rem; font-weight: 800; color: var(--navy); margin-bottom: 14px; line-height: 1.4; }
 .article-meta {
-  display: flex; gap: 20px; align-items: center;
-  font-size: .78rem; color: var(--gray); margin-bottom: 28px;
-  padding-bottom: 20px; border-bottom: 2px dashed #e2e8f0;
+ display: flex; gap: 20px; align-items: center;
+ font-size: .78rem; color: var(--gray); margin-bottom: 28px;
+ padding-bottom: 20px; border-bottom: 2px dashed #e2e8f0;
 }
 .article-meta-author { display: flex; align-items: center; gap: 6px; }
 .author-avatar {
-  width: 28px; height: 28px; border-radius: 50%; background: var(--yellow);
-  display: flex; align-items: center; justify-content: center; font-size: .8rem;
+ width: 28px; height: 28px; border-radius: 50%; background: var(--yellow);
+ display: flex; align-items: center; justify-content: center; font-size: .8rem;
 }
 
-/* HERO IMAGE -->
-.article-hero-img {
-  width: 100%; border-radius: 16px; overflow: hidden; margin-bottom: 32px;
-  background: #dbeafe; aspect-ratio: 16/9;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .9rem; color: var(--gray); text-align: center; padding: 20px;
+/* HERO IMAGE -->.article-hero-img {
+ width: 100%; border-radius: 16px; overflow: hidden; margin-bottom: 32px;
+ background: #dbeafe; aspect-ratio: 16/9;
+ display: flex; align-items: center; justify-content: center;
+ font-size: .9rem; color: var(--gray); text-align: center; padding: 20px;
 }
 
-/* VIDEO EMBED (レスポンシブ) -->
-.video-embed-wrap {
-  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-  border-radius: 16px; margin: 32px 0; background: #000;
+/* VIDEO EMBED (レスポンシブ) -->.video-embed-wrap {
+ position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+ border-radius: 16px; margin: 32px 0; background: #000;
 }
 .video-embed-wrap iframe {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  border: none; border-radius: 16px;
+ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+ border: none; border-radius: 16px;
 }
-/* プレースホルダー (実際はiframeに差し替え) -->
-.video-placeholder {
-  width: 100%; aspect-ratio: 16/9; border-radius: 16px; background: #1a1a2e;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  margin: 32px 0; color: rgba(255,255,255,.7); font-size: .9rem; gap: 12px;
+/* プレースホルダー (実際はiframeに差し替え) -->.video-placeholder {
+ width: 100%; aspect-ratio: 16/9; border-radius: 16px; background: #1a1a2e;
+ display: flex; flex-direction: column; align-items: center; justify-content: center;
+ margin: 32px 0; color: rgba(255,255,255,.7); font-size: .9rem; gap: 12px;
 }
 .video-placeholder .vp-icon {
-  width: 64px; height: 64px; border-radius: 50%; background: var(--yellow);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem; color: var(--navy);
+ width: 64px; height: 64px; border-radius: 50%; background: var(--yellow);
+ display: flex; align-items: center; justify-content: center;
+ font-size: 1.8rem; color: var(--navy);
 }
 .video-caption { font-size: .78rem; color: var(--gray); text-align: center; margin-top: -20px; margin-bottom: 20px; }
 
-/* INLINE IMAGE -->
-.article-img {
-  width: 100%; border-radius: 14px; overflow: hidden; margin: 24px 0;
-  background: #fef3c7; aspect-ratio: 16/9;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .85rem; color: var(--gray); text-align: center; padding: 16px;
+/* INLINE IMAGE -->.article-img {
+ width: 100%; border-radius: 14px; overflow: hidden; margin: 24px 0;
+ background: #fef3c7; aspect-ratio: 16/9;
+ display: flex; align-items: center; justify-content: center;
+ font-size: .85rem; color: var(--gray); text-align: center; padding: 16px;
 }
 .article-img.g { background: #dcfce7; }
 .article-img.b { background: #dbeafe; }
 .article-img-caption { font-size: .78rem; color: var(--gray); text-align: center; margin-top: -16px; margin-bottom: 20px; }
 
-/* IMAGE GRID -->
-.img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+/* IMAGE GRID -->.img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
 .img-grid-item {
-  border-radius: 12px; overflow: hidden; background: #fef3c7; aspect-ratio: 4/3;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .75rem; color: var(--gray); text-align: center; padding: 12px;
+ border-radius: 12px; overflow: hidden; background: #fef3c7; aspect-ratio: 4/3;
+ display: flex; align-items: center; justify-content: center;
+ font-size: .75rem; color: var(--gray); text-align: center; padding: 12px;
 }
 .img-grid-item.b { background: #dbeafe; }
 .img-grid-item.g { background: #dcfce7; }
 
-/* BODY TEXT -->
-.article-content { font-size: .97rem; color: var(--navy); line-height: 1.95; }
+/* BODY TEXT -->.article-content { font-size: .97rem; color: var(--navy); line-height: 1.95; }
 .article-content h2 {
-  font-size: 1.25rem; font-weight: 800; color: var(--navy);
-  margin: 36px 0 14px; padding: 12px 16px;
-  background: var(--yellow-light); border-left: 5px solid var(--yellow); border-radius: 0 8px 8px 0;
+ font-size: 1.25rem; font-weight: 800; color: var(--navy);
+ margin: 36px 0 14px; padding: 12px 16px;
+ background: var(--yellow-light); border-left: 5px solid var(--yellow); border-radius: 0 8px 8px 0;
 }
 .article-content h3 {
-  font-size: 1.05rem; font-weight: 800; color: var(--navy);
-  margin: 28px 0 10px; padding-left: 12px; border-left: 3px solid var(--blue);
+ font-size: 1.05rem; font-weight: 800; color: var(--navy);
+ margin: 28px 0 10px; padding-left: 12px; border-left: 3px solid var(--blue);
 }
 .article-content p { margin-bottom: 16px; }
 .article-content ul, .article-content ol {
-  padding-left: 20px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px;
+ padding-left: 20px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px;
 }
 .article-content .note-box {
-  background: var(--blue-light); border-radius: 12px; padding: 16px 20px;
-  margin: 20px 0; font-size: .9rem; border-left: 4px solid var(--blue);
+ background: var(--blue-light); border-radius: 12px; padding: 16px 20px;
+ margin: 20px 0; font-size: .9rem; border-left: 4px solid var(--blue);
 }
 .article-content .point-box {
-  background: var(--yellow-light); border-radius: 12px; padding: 16px 20px;
-  margin: 20px 0; font-size: .9rem; border-left: 4px solid var(--yellow);
+ background: var(--yellow-light); border-radius: 12px; padding: 16px 20px;
+ margin: 20px 0; font-size: .9rem; border-left: 4px solid var(--yellow);
 }
 
-/* SHARE -->
-.article-share {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  margin-top: 40px; padding-top: 24px; border-top: 2px dashed #e2e8f0;
+/* SHARE -->.article-share {
+ display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+ margin-top: 40px; padding-top: 24px; border-top: 2px dashed #e2e8f0;
 }
 .share-label { font-size: .85rem; font-weight: 700; color: var(--navy); }
 .share-btn {
-  padding: 8px 18px; border-radius: 50px; font-size: .82rem; font-weight: 700;
-  text-decoration: none; transition: opacity .2s; cursor: pointer;
+ padding: 8px 18px; border-radius: 50px; font-size: .82rem; font-weight: 700;
+ text-decoration: none; transition: opacity .2s; cursor: pointer;
 }
 .share-btn:hover { opacity: .8; }
-.share-x    { background: #000; color: #fff; }
+.share-x { background: #000; color: #fff; }
 .share-line { background: #06c755; color: #fff; }
-.share-fb   { background: #1877f2; color: #fff; }
+.share-fb { background: #1877f2; color: #fff; }
 
-/* RELATED ARTICLES -->
-.related-section { margin-top: 48px; }
+/* RELATED ARTICLES -->.related-section { margin-top: 48px; }
 .related-title { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 20px; padding-left: 12px; border-left: 4px solid var(--yellow); }
 .related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
 .related-card {
-  border-radius: 14px; overflow: hidden; background: #fff;
-  box-shadow: 0 2px 12px rgba(0,0,0,.07); text-decoration: none;
-  transition: transform .2s;
+ border-radius: 14px; overflow: hidden; background: #fff;
+ box-shadow: 0 2px 12px rgba(0,0,0,.07); text-decoration: none;
+ transition: transform .2s;
 }
 .related-card:hover { transform: translateY(-3px); }
 .related-thumb {
-  height: 110px; background: #fef3c7;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .72rem; color: var(--gray); text-align: center; padding: 10px;
+ height: 110px; background: #fef3c7;
+ display: flex; align-items: center; justify-content: center;
+ font-size: .72rem; color: var(--gray); text-align: center; padding: 10px;
 }
 .related-thumb.b { background: #dbeafe; }
 .related-thumb.g { background: #dcfce7; }
 .related-body { padding: 12px; }
 .related-name { font-size: .82rem; font-weight: 700; color: var(--navy); line-height: 1.5; }
 
-/* SIDEBAR (same as blog.html) -->
-.sidebar { display: flex; flex-direction: column; gap: 24px; }
+/* SIDEBAR (same as blog.html) -->.sidebar { display: flex; flex-direction: column; gap: 24px; }
 .sidebar-box { background: #fff; border-radius: 18px; padding: 24px; box-shadow: var(--shadow); }
 .sidebar-box-title { font-size: .9rem; font-weight: 800; color: var(--navy); padding-bottom: 10px; margin-bottom: 14px; border-bottom: 3px solid var(--yellow); }
 .sidebar-recent-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed #e2e8f0; text-decoration: none; }
@@ -159,281 +148,26 @@
 .sidebar-tag:hover { background: var(--blue); color: #fff; }
 
 @media(max-width:1024px) {
-  .single-layout { grid-template-columns: 1fr; }
-  .sidebar { display: none; }
-  .related-grid { grid-template-columns: 1fr 1fr; }
+ .single-layout { grid-template-columns: 1fr; }
+ .sidebar { display: none; }
+ .related-grid { grid-template-columns: 1fr 1fr; }
 }
 @media(max-width:768px) { .img-grid { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
-<body>
-
-<div class="topbar">
-  <div class="container">
-    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
-    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
-  </div>
-</div>
-
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
-    <nav>
-      <a href="items.html"     class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
-      <a href="cases.html"     class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
-      <a href="why.html"       class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
-      <a href="flow.html"      class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
-      <a href="faq.html"       class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
-      <a href="blog.html"      class="nav-link active"><span class="en">Blog</span><span>ブログ</span></a>
-      <a href="news.html"      class="nav-link"><span class="en">News</span><span>お知らせ</span></a>
-    </nav>
-    <div class="nav-cta">
-      <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a>
-      <a href="contact.html"   class="btn btn-yellow btn-sm">お問い合わせ</a>
-    </div>
-  </div>
-</header>
-
-<div class="float-cta">
-  <a href="documents.html" class="float-btn">資料<br>請求</a>
-  <a href="contact.html"   class="float-btn blue">相談<br>する</a>
-</div>
-
-<!-- BREADCRUMB HERO -->
-<div class="page-hero" style="padding:36px 0 28px;">
-  <div class="breadcrumb">
-    <a href="index.html">TOP</a><span>/</span>
-    <a href="blog.html">ブログ</a><span>/</span>
-    <span>記事タイトル</span>
-  </div>
-</div>
-
-<section class="single-section">
-  <div class="container">
-    <div class="single-layout">
-
-      <!-- ARTICLE -->
-      <div>
-        <div class="article-wrap">
-
-          <!-- HEADER -->
-          <div class="article-cats">
-            <span class="article-cat-badge report">🎉 イベントレポート</span>
-            <span class="article-cat-badge video">🎬 動画あり</span>
-          </div>
-          <h1 class="article-h1">大阪・某SCの夏イベント2025 ― トレイン＋恐竜ゾーンで来場者1.5万人達成！現場の舞台裏をすべて公開</h1>
-          <div class="article-meta">
-            <div class="article-meta-author">
-              <div class="author-avatar">田</div>
-              <span>担当：田中 義明</span>
-            </div>
-            <span>📅 2025年8月10日</span>
-            <span>📂 イベントレポート</span>
-            <span>👁 1,284 views</span>
-          </div>
-
-          <!-- HERO IMAGE -->
-          <div class="article-hero-img">
-            【アイキャッチ写真】<br>夏のイベント会場全景・子どもたちが集まる様子<br>※実写真に差し替え
-          </div>
-
-          <!-- ARTICLE BODY -->
-          <div class="article-content">
-            <p>
-              2025年7月20日〜8月15日の27日間、大阪・某ショッピングセンターにてワック史上最大規模の夏イベントを開催しました。3両編成トレイン3台＋わくわく恐竜王国の大型コラボレーション企画で、期間中の来場者数は延べ<strong>15,200名</strong>を記録。ご担当者様から「過去最高の集客イベントになった」とのお言葉をいただきました。
-            </p>
-
-            <h2>今回のイベント概要</h2>
-            <div class="note-box">
-              📍 <strong>開催場所：</strong>大阪府・某ショッピングセンター（催事スペース約400㎡）<br>
-              📅 <strong>開催期間：</strong>2025年7月20日〜8月15日（27日間）<br>
-              🚂 <strong>導入アイテム：</strong>大型トレイン×3台、わくわく恐竜王国（動く恐竜5体）<br>
-              👥 <strong>来場者数：</strong>延べ15,200名（期間中合計）
-            </div>
-
-            <!-- VIDEO EMBED -->
-            <h3>🎬 設営タイムラプス動画（YouTube）</h3>
-            <p>空のフロアが1日でイベント会場に変貌する様子を動画でご覧ください。</p>
-
-            <!--
-              ===== WORDPRESS実装時のメモ =====
-              以下のiframeをwp-block-embed等で挿入します。
-              - Gutenbergエディタ: 「埋め込み」ブロック → YouTubeのURL貼り付けで自動変換
-              - Classic Editor: YouTube URLをそのまま貼り付け or oEmbed対応
-              ================================
-            -->
-            <!-- [実際のYouTube埋め込みコード] -->
-            <div class="video-placeholder">
-              <div class="vp-icon">▶</div>
-              <span>【YouTube埋め込み動画】<br>設営タイムラプス映像（約3分）</span>
-              <span style="font-size:.75rem;opacity:.6;">※ WP実装時はここにYouTube iframeまたはoEmbedブロックを挿入</span>
-            </div>
-            <p class="video-caption">↑ 設営開始から完成まで8時間分を3分に圧縮した映像です。</p>
-
-            <h2>イベントの様子（写真ギャラリー）</h2>
-            <p>当日の会場の様子をお届けします。子どもたちの笑顔があふれる最高の3週間でした。</p>
-
-            <!-- SINGLE IMAGE -->
-            <div class="article-img">
-              【写真】トレインに乗り込む子どもたちの行列<br>※実写真に差し替え
-            </div>
-            <p class="article-img-caption">週末は常に行列ができていたトレインコーナー</p>
-
-            <!-- IMAGE GRID (2列) -->
-            <div class="img-grid">
-              <div class="img-grid-item">【写真】恐竜ゾーン全景</div>
-              <div class="img-grid-item b">【写真】動く恐竜と子ども</div>
-              <div class="img-grid-item g">【写真】記念撮影スポット</div>
-              <div class="img-grid-item">【写真】会場を楽しむ家族</div>
-            </div>
-
-            <h2>設営で苦労した点・工夫した点</h2>
-            <p>
-              今回の最大の課題は、<strong>催事スペースが3つのフロアに分散している</strong>こと。トレインのルートが複数フロアにまたがるため、エレベーターを通らずに走行できるルート設計が必要でした。
-            </p>
-
-            <h3>工夫したポイント3つ</h3>
-            <ul>
-              <li>フロアをまたぐルートを事前に3Dシミュレーションで検証</li>
-              <li>恐竜ゾーンは「インスタ映えスポット」を中央に配置し、自然な人の流れを設計</li>
-              <li>混雑ピーク時の誘導スタッフを週末は+3名増員</li>
-            </ul>
-
-            <div class="point-box">
-              💡 <strong>ポイント：</strong>大型イベントは「人の流れ」の設計が集客の鍵。フォトスポットを中央に置くことで、来場者が自然に会場全体を回遊するようになります。
-            </div>
-
-            <h2>担当者コメント</h2>
-            <p>
-              ご担当者の〇〇様より、「毎年お祭りイベントをやっていますが、今年は過去最高の集客でした。設営から撤去まで完全にお任せできたので、私たちはお客様対応に集中できました」とのお言葉をいただきました。
-            </p>
-
-            <!-- VIDEO 2本目 -->
-            <h3>🎬 イベント当日の様子（ショート動画）</h3>
-            <div class="video-placeholder">
-              <div class="vp-icon">▶</div>
-              <span>【YouTube埋め込み動画】<br>イベント当日の様子ダイジェスト（約1分）</span>
-            </div>
-
-          </div>
-          <!-- /article-content -->
-
-          <!-- SHARE -->
-          <div class="article-share">
-            <span class="share-label">この記事をシェア：</span>
-            <a href="#" class="share-btn share-x">𝕏 でシェア</a>
-            <a href="#" class="share-btn share-line">LINE でシェア</a>
-            <a href="#" class="share-btn share-fb">Facebook でシェア</a>
-          </div>
-
-        </div><!-- /article-wrap -->
-
-        <!-- CTA INLINE -->
-        <div style="background:var(--navy);border-radius:20px;padding:36px;text-align:center;margin-top:32px;">
-          <div style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:16px;">この事例に近いイベントを検討している方へ</div>
-          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-            <a href="contact.html" class="btn btn-yellow">✉ 無料で相談する</a>
-            <a href="documents.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);">📄 資料を請求する</a>
-          </div>
-        </div>
-
-        <!-- RELATED -->
-        <div class="related-section">
-          <div class="related-title">関連記事</div>
-          <div class="related-grid">
-            <a href="blog-single.html" class="related-card">
-              <div class="related-thumb">【写真】スケートリンク</div>
-              <div class="related-body"><div class="related-name">冬の百貨店にスケートリンクを設置した2日間の記録</div></div>
-            </a>
-            <a href="blog-single.html" class="related-card">
-              <div class="related-thumb b">【写真】企画のヒント</div>
-              <div class="related-body"><div class="related-name">夏休みイベントを成功させる5つのポイント</div></div>
-            </a>
-            <a href="blog-single.html" class="related-card">
-              <div class="related-thumb g">【写真】自治体事例</div>
-              <div class="related-body"><div class="related-name">自治体の夏まつりに予算100万円で8,000人を集客した事例</div></div>
-            </a>
-          </div>
-        </div>
-
-        <div style="text-align:center;margin-top:32px;">
-          <a href="blog.html" class="btn btn-outline-blue">← ブログ一覧に戻る</a>
-        </div>
-
-      </div><!-- /main -->
-
-      <!-- SIDEBAR -->
-      <aside class="sidebar">
-        <div class="sidebar-box">
-          <div class="sidebar-box-title">🕐 最近の記事</div>
-          <a href="blog-single.html" class="sidebar-recent-item">
-            <div class="sidebar-recent-thumb">【写真】</div>
-            <div><div class="sidebar-recent-title">大阪SCで来場者1.5万人達成</div><div class="sidebar-recent-date">2025.08.10</div></div>
-          </a>
-          <a href="blog-single.html" class="sidebar-recent-item">
-            <div class="sidebar-recent-thumb b">【写真】</div>
-            <div><div class="sidebar-recent-title">スケートリンク設置レポート</div><div class="sidebar-recent-date">2025.07.20</div></div>
-          </a>
-          <a href="blog-single.html" class="sidebar-recent-item">
-            <div class="sidebar-recent-thumb">【動画】</div>
-            <div><div class="sidebar-recent-title">恐竜ゾーン設営タイムラプス</div><div class="sidebar-recent-date">2025.07.05</div></div>
-          </a>
-        </div>
-        <div class="sidebar-box">
-          <div class="sidebar-box-title">🏷️ タグ</div>
-          <div class="sidebar-tag-cloud">
-            <a href="#" class="sidebar-tag">トレイン</a>
-            <a href="#" class="sidebar-tag">恐竜</a>
-            <a href="#" class="sidebar-tag">夏祭り</a>
-            <a href="#" class="sidebar-tag">商業施設</a>
-            <a href="#" class="sidebar-tag">動画</a>
-            <a href="#" class="sidebar-tag">設営レポート</a>
-          </div>
-        </div>
-        <div class="sidebar-box" style="background:var(--navy);text-align:center;">
-          <div style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:12px;">イベントのご相談は<br>お気軽に</div>
-          <a href="contact.html"   class="btn btn-yellow btn-sm" style="width:100%;margin-bottom:8px;">✉ お問い合わせ</a>
-          <a href="documents.html" class="btn btn-sm" style="width:100%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);">📄 資料請求</a>
-        </div>
-      </aside>
-
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo-mark">WAC</div>
-        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
-        <span class="footer-tel-num">0120-18-7801</span>
-        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
-      </div>
-      <div class="footer-col"><h4>サービス</h4><ul>
-        <li><a href="items.html#train">トレイン</a></li>
-        <li><a href="items.html#dino">わくわく恐竜王国</a></li>
-        <li><a href="items.html#skate">スケートイベント</a></li>
-        <li><a href="items.html#digital">デジタルイベント</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>会社情報</h4><ul>
-        <li><a href="why.html">ワックとは</a></li>
-        <li><a href="cases.html">イベント事例</a></li>
-        <li><a href="flow.html">ご利用の流れ</a></li>
-        <li><a href="faq.html">よくある質問</a></li>
-        <li><a href="blog.html">ブログ</a></li>
-        <li><a href="news.html">お知らせ</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>お問い合わせ</h4><ul>
-        <li><a href="contact.html">お問い合わせ</a></li>
-        <li><a href="documents.html">資料請求</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
-      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
-    </div>
-  </div>
+<body> <div class="topbar"> <div class="container"> <span class="topbar-left">親子・子供のためのイベント企画運営会社</span> <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span> </div>
+</div> <header> <div class="header-inner"> <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a> <nav> <a href="items.html" class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a> <a href="cases.html" class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a> <a href="why.html" class="nav-link"><span class="en">About</span><span>ワックとは</span></a> <a href="flow.html" class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a> <a href="faq.html" class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a> <a href="blog.html" class="nav-link active"><span class="en">Blog</span><span>ブログ</span></a> <a href="news.html" class="nav-link"><span class="en">News</span><span>お知らせ</span></a> </nav> <div class="nav-cta"> <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a> <a href="contact.html" class="btn btn-yellow btn-sm">お問い合わせ</a> </div> </div>
+</header> <div class="float-cta"> <a href="documents.html" class="float-btn">資料<br>請求</a> <a href="contact.html" class="float-btn blue">相談<br>する</a>
+</div> <!-- BREADCRUMB HERO -->
+<div class="page-hero" style="padding:36px 0 28px;"> <div class="breadcrumb"> <a href="index.html">TOP</a><span>/</span> <a href="blog.html">ブログ</a><span>/</span> <span>記事タイトル</span> </div>
+</div> <section class="single-section"> <div class="container"> <div class="single-layout"> <!-- ARTICLE --> <div> <div class="article-wrap"> <!-- HEADER --> <div class="article-cats"> <span class="article-cat-badge report">イベントレポート</span> <span class="article-cat-badge video">動画あり</span> </div> <h1 class="article-h1">大阪・某SCの夏イベント2025 ― トレイン＋恐竜ゾーンで来場者1.5万人達成！現場の舞台裏をすべて公開</h1> <div class="article-meta"> <div class="article-meta-author"> <div class="author-avatar">田</div> <span>担当：田中 義明</span> </div> <span>2025年8月10日</span> <span>イベントレポート</span> <span>1,284 views</span> </div> <!-- HERO IMAGE --> <div class="article-hero-img">【アイキャッチ写真】<br>夏のイベント会場全景・子どもたちが集まる様子<br>※実写真に差し替え </div> <!-- ARTICLE BODY --> <div class="article-content"> <p>2025年7月20日〜8月15日の27日間、大阪・某ショッピングセンターにてワック史上最大規模の夏イベントを開催しました。3両編成トレイン3台＋わくわく恐竜王国の大型コラボレーション企画で、期間中の来場者数は延べ<strong>15,200名</strong>を記録。ご担当者様から「過去最高の集客イベントになった」とのお言葉をいただきました。 </p> <h2>今回のイベント概要</h2> <div class="note-box"> <strong>開催場所：</strong>大阪府・某ショッピングセンター（催事スペース約400㎡）<br> <strong>開催期間：</strong>2025年7月20日〜8月15日（27日間）<br> <strong>導入アイテム：</strong>大型トレイン×3台、わくわく恐竜王国（動く恐竜5体）<br> <strong>来場者数：</strong>延べ15,200名（期間中合計） </div> <!-- VIDEO EMBED --> <h3>設営タイムラプス動画（YouTube）</h3> <p>空のフロアが1日でイベント会場に変貌する様子を動画でご覧ください。</p> <!--
+ ===== WORDPRESS実装時のメモ =====
+ 以下のiframeをwp-block-embed等で挿入します。
+ - Gutenbergエディタ: 「埋め込み」ブロック → YouTubeのURL貼り付けで自動変換
+ - Classic Editor: YouTube URLをそのまま貼り付け or oEmbed対応
+ ================================
+ --> <!-- [実際のYouTube埋め込みコード] --> <div class="video-placeholder"> <div class="vp-icon">▶</div> <span>【YouTube埋め込み動画】<br>設営タイムラプス映像（約3分）</span> <span style="font-size:.75rem;opacity:.6;">※ WP実装時はここにYouTube iframeまたはoEmbedブロックを挿入</span> </div> <p class="video-caption">↑ 設営開始から完成まで8時間分を3分に圧縮した映像です。</p> <h2>イベントの様子（写真ギャラリー）</h2> <p>当日の会場の様子をお届けします。子どもたちの笑顔があふれる最高の3週間でした。</p> <!-- SINGLE IMAGE --> <div class="article-img">【写真】トレインに乗り込む子どもたちの行列<br>※実写真に差し替え </div> <p class="article-img-caption">週末は常に行列ができていたトレインコーナー</p> <!-- IMAGE GRID (2列) --> <div class="img-grid"> <div class="img-grid-item">【写真】恐竜ゾーン全景</div> <div class="img-grid-item b">【写真】動く恐竜と子ども</div> <div class="img-grid-item g">【写真】記念撮影スポット</div> <div class="img-grid-item">【写真】会場を楽しむ家族</div> </div> <h2>設営で苦労した点・工夫した点</h2> <p>今回の最大の課題は、<strong>催事スペースが3つのフロアに分散している</strong>こと。トレインのルートが複数フロアにまたがるため、エレベーターを通らずに走行できるルート設計が必要でした。 </p> <h3>工夫したポイント3つ</h3> <ul> <li>フロアをまたぐルートを事前に3Dシミュレーションで検証</li> <li>恐竜ゾーンは「インスタ映えスポット」を中央に配置し、自然な人の流れを設計</li> <li>混雑ピーク時の誘導スタッフを週末は+3名増員</li> </ul> <div class="point-box"> <strong>ポイント：</strong>大型イベントは「人の流れ」の設計が集客の鍵。フォトスポットを中央に置くことで、来場者が自然に会場全体を回遊するようになります。 </div> <h2>担当者コメント</h2> <p>ご担当者の〇〇様より、「毎年お祭りイベントをやっていますが、今年は過去最高の集客でした。設営から撤去まで完全にお任せできたので、私たちはお客様対応に集中できました」とのお言葉をいただきました。 </p> <!-- VIDEO 2本目 --> <h3>イベント当日の様子（ショート動画）</h3> <div class="video-placeholder"> <div class="vp-icon">▶</div> <span>【YouTube埋め込み動画】<br>イベント当日の様子ダイジェスト（約1分）</span> </div> </div> <!-- /article-content --> <!-- SHARE --> <div class="article-share"> <span class="share-label">この記事をシェア：</span> <a href="#" class="share-btn share-x">𝕏 でシェア</a> <a href="#" class="share-btn share-line">LINE でシェア</a> <a href="#" class="share-btn share-fb">Facebook でシェア</a> </div> </div><!-- /article-wrap --> <!-- CTA INLINE --> <div style="background:var(--navy);border-radius:20px;padding:36px;text-align:center;margin-top:32px;"> <div style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:16px;">この事例に近いイベントを検討している方へ</div> <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"> <a href="contact.html" class="btn btn-yellow">無料で相談する</a> <a href="documents.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);">資料を請求する</a> </div> </div> <!-- RELATED --> <div class="related-section"> <div class="related-title">関連記事</div> <div class="related-grid"> <a href="blog-single.html" class="related-card"> <div class="related-thumb">【写真】スケートリンク</div> <div class="related-body"><div class="related-name">冬の百貨店にスケートリンクを設置した2日間の記録</div></div> </a> <a href="blog-single.html" class="related-card"> <div class="related-thumb b">【写真】企画のヒント</div> <div class="related-body"><div class="related-name">夏休みイベントを成功させる5つのポイント</div></div> </a> <a href="blog-single.html" class="related-card"> <div class="related-thumb g">【写真】自治体事例</div> <div class="related-body"><div class="related-name">自治体の夏まつりに予算100万円で8,000人を集客した事例</div></div> </a> </div> </div> <div style="text-align:center;margin-top:32px;"> <a href="blog.html" class="btn btn-outline-blue">← ブログ一覧に戻る</a> </div> </div><!-- /main --> <!-- SIDEBAR --> <aside class="sidebar"> <div class="sidebar-box"> <div class="sidebar-box-title">最近の記事</div> <a href="blog-single.html" class="sidebar-recent-item"> <div class="sidebar-recent-thumb">【写真】</div> <div><div class="sidebar-recent-title">大阪SCで来場者1.5万人達成</div><div class="sidebar-recent-date">2025.08.10</div></div> </a> <a href="blog-single.html" class="sidebar-recent-item"> <div class="sidebar-recent-thumb b">【写真】</div> <div><div class="sidebar-recent-title">スケートリンク設置レポート</div><div class="sidebar-recent-date">2025.07.20</div></div> </a> <a href="blog-single.html" class="sidebar-recent-item"> <div class="sidebar-recent-thumb">【動画】</div> <div><div class="sidebar-recent-title">恐竜ゾーン設営タイムラプス</div><div class="sidebar-recent-date">2025.07.05</div></div> </a> </div> <div class="sidebar-box"> <div class="sidebar-box-title">タグ</div> <div class="sidebar-tag-cloud"> <a href="#" class="sidebar-tag">トレイン</a> <a href="#" class="sidebar-tag">恐竜</a> <a href="#" class="sidebar-tag">夏祭り</a> <a href="#" class="sidebar-tag">商業施設</a> <a href="#" class="sidebar-tag">動画</a> <a href="#" class="sidebar-tag">設営レポート</a> </div> </div> <div class="sidebar-box" style="background:var(--navy);text-align:center;"> <div style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:12px;">イベントのご相談は<br>お気軽に</div> <a href="contact.html" class="btn btn-yellow btn-sm" style="width:100%;margin-bottom:8px;">お問い合わせ</a> <a href="documents.html" class="btn btn-sm" style="width:100%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);">資料請求</a> </div> </aside> </div> </div>
+</section> <footer> <div class="container"> <div class="footer-top"> <div> <div class="footer-logo-mark">WAC</div> <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p> <span class="footer-tel-num">0120-18-7801</span> <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span> </div> <div class="footer-col"><h4>サービス</h4><ul> <li><a href="items.html#train">トレイン</a></li> <li><a href="items.html#dino">わくわく恐竜王国</a></li> <li><a href="items.html#skate">スケートイベント</a></li> <li><a href="items.html#digital">デジタルイベント</a></li> </ul></div> <div class="footer-col"><h4>会社情報</h4><ul> <li><a href="why.html">ワックとは</a></li> <li><a href="cases.html">イベント事例</a></li> <li><a href="flow.html">ご利用の流れ</a></li> <li><a href="faq.html">よくある質問</a></li> <li><a href="blog.html">ブログ</a></li> <li><a href="news.html">お知らせ</a></li> </ul></div> <div class="footer-col"><h4>お問い合わせ</h4><ul> <li><a href="contact.html">お問い合わせ</a></li> <li><a href="documents.html">資料請求</a></li> </ul></div> </div> <div class="footer-bottom"> <div>© 2025 WAC Corporation. All Rights Reserved.</div> <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div> </div> </div>
 </footer>
 </body>
 </html>

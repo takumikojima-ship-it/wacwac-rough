@@ -7,285 +7,35 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-.cases-section { padding: 80px 0; background: #fff; }
+<style>.cases-section { padding: 80px 0; background: #fff; }
 .case-detail-box {
-  background: var(--blue-light); border-radius: 14px; padding: 20px 24px;
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 14px;
+ background: var(--blue-light); border-radius: 14px; padding: 20px 24px;
+ display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 14px;
 }
 .case-detail-item { font-size: .82rem; }
 .case-detail-item dt { color: var(--gray); font-weight: 700; margin-bottom: 2px; }
 .case-detail-item dd { color: var(--navy); font-weight: 800; }
 </style>
 </head>
-<body>
-
-<div class="topbar">
-  <div class="container">
-    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
-    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
-  </div>
-</div>
-
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
-    <nav>
-      <a href="items.html"   class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
-      <a href="cases.html"   class="nav-link active"><span class="en">Cases</span><span>イベント事例</span></a>
-      <a href="why.html"     class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
-      <a href="flow.html"    class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
-      <a href="faq.html"      class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
-      <a href="blog.html"      class="nav-link"><span class="en">Blog</span><span>ブログ</span></a>
-      <a href="news.html"      class="nav-link"><span class="en">News</span><span>お知らせ</span></a>
-    </nav>
-    <div class="nav-cta">
-      <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a>
-      <a href="contact.html" class="btn btn-yellow btn-sm">お問い合わせ</a>
-    </div>
-  </div>
-</header>
-
-<div class="float-cta">
-  <a href="documents.html" class="float-btn">資料<br>請求</a>
-  <a href="contact.html" class="float-btn blue">相談<br>する</a>
-</div>
-
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <span class="page-hero-en">Case Studies</span>
-  <h1>イベント事例</h1>
-  <p>全国で開催されたワックのイベント実績をご紹介します</p>
-  <div class="breadcrumb">
-    <a href="index.html">TOP</a><span>/</span><span>イベント事例</span>
-  </div>
-</div>
-
-<!-- CASES SECTION -->
-<section class="cases-section">
-  <div class="container">
-
-    <!-- FILTER -->
-    <div class="filter-row">
-      <button class="filter-btn active" data-cat="all">すべて</button>
-      <button class="filter-btn" data-cat="commercial">商業施設</button>
-      <button class="filter-btn" data-cat="local">自治体・地域</button>
-      <button class="filter-btn" data-cat="school">学校・幼稚園</button>
-      <button class="filter-btn" data-cat="corporate">企業イベント</button>
-    </div>
-
-    <!-- GRID -->
-    <div class="cases-grid" id="casesGrid">
-
-      <!-- Case 1 -->
-      <div class="case-card" data-cat="commercial">
-        <div class="case-photo"><span class="case-ribbon">トレイン</span>【写真】SCトレインイベント</div>
-        <div class="case-body">
-          <div class="case-category">🚂 トレインイベント</div>
-          <div class="case-title">大型SCの夏の催事でトレインを3台導入、週末来場者数120%達成</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>関東・某ショッピングセンター</dd></dl>
-            <dl class="case-detail-item"><dt>来場者数</dt><dd>8,000名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>14日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">週末集客</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-      <!-- Case 2 -->
-      <div class="case-card" data-cat="local">
-        <div class="case-photo dino"><span class="case-ribbon">恐竜</span>【写真】恐竜王国イベント</div>
-        <div class="case-body">
-          <div class="case-category">🦕 わくわく恐竜王国</div>
-          <div class="case-title">市民まつりに恐竜ゾーンを設置、SNS拡散でメディア取材も実現</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>中部・某市民まつり</dd></dl>
-            <dl class="case-detail-item"><dt>来場者数</dt><dd>15,000名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>2日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">自治体</span><span class="tag tag-green">屋外</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-      <!-- Case 3 -->
-      <div class="case-card" data-cat="commercial">
-        <div class="case-photo skate"><span class="case-ribbon">スケート</span>【写真】スケートリンク設置</div>
-        <div class="case-body">
-          <div class="case-category">⛸️ スケートイベント</div>
-          <div class="case-title">冬の商業施設にスケートリンクを設営、クリスマス集客を大幅強化</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>近畿・某百貨店</dd></dl>
-            <dl class="case-detail-item"><dt>来場者数</dt><dd>12,000名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>30日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">冬季</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-      <!-- Case 4 -->
-      <div class="case-card" data-cat="local">
-        <div class="case-photo activity"><span class="case-ribbon">アクティビティ</span>【写真】水上アクティビティ</div>
-        <div class="case-body">
-          <div class="case-category">🎯 アクティビティイベント</div>
-          <div class="case-title">夏祭りに水上アトラクション導入、子どもから大人まで大好評</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>九州・某地域イベント</dd></dl>
-            <dl class="case-detail-item"><dt>来場者数</dt><dd>5,000名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>3日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">地域</span><span class="tag tag-green">夏祭り</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-      <!-- Case 5 -->
-      <div class="case-card" data-cat="commercial">
-        <div class="case-photo digital"><span class="case-ribbon">デジタル</span>【写真】ARスタンプラリー</div>
-        <div class="case-body">
-          <div class="case-category">📱 デジタルイベント</div>
-          <div class="case-title">AR恐竜探索スタンプラリーで館内回遊率が2倍に向上</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>関東・某複合施設</dd></dl>
-            <dl class="case-detail-item"><dt>参加者数</dt><dd>3,200名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>7日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">デジタル</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-      <!-- Case 6 -->
-      <div class="case-card" data-cat="corporate">
-        <div class="case-photo attract"><span class="case-ribbon">アトラクション</span>【写真】企業ファミリーデー</div>
-        <div class="case-body">
-          <div class="case-category">🎡 アトラクションイベント</div>
-          <div class="case-title">企業ファミリーデーにエア遊具5台を設置、社員から大絶賛</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>東海・某大手企業</dd></dl>
-            <dl class="case-detail-item"><dt>参加者数</dt><dd>1,800名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>1日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">企業</span><span class="tag tag-green">ファミリー</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-      <!-- Case 7 -->
-      <div class="case-card" data-cat="school">
-        <div class="case-photo"><span class="case-ribbon">トレイン</span>【写真】学校イベント</div>
-        <div class="case-body">
-          <div class="case-category">🚂 トレインイベント</div>
-          <div class="case-title">小学校のバザーにミニトレインを導入、子どもたちが大行列</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>北海道・某小学校</dd></dl>
-            <dl class="case-detail-item"><dt>参加者数</dt><dd>600名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>1日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">学校</span><span class="tag tag-blue">バザー</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-      <!-- Case 8 -->
-      <div class="case-card" data-cat="local">
-        <div class="case-photo g"><span class="case-ribbon">エア遊具</span>【写真】屋外エア遊具</div>
-        <div class="case-body">
-          <div class="case-category">🎈 エア遊具</div>
-          <div class="case-title">商店街の春まつりにエア遊具4台、来場者数が前年比150%に</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>関西・某商店街</dd></dl>
-            <dl class="case-detail-item"><dt>来場者数</dt><dd>6,500名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>2日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">地域</span><span class="tag tag-green">春まつり</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-      <!-- Case 9 -->
-      <div class="case-card" data-cat="corporate">
-        <div class="case-photo dino"><span class="case-ribbon">恐竜</span>【写真】ショッピングモール恐竜</div>
-        <div class="case-body">
-          <div class="case-category">🦕 わくわく恐竜王国</div>
-          <div class="case-title">顧客感謝祭に恐竜ゾーンを設置、SNSでバズり新規顧客を獲得</div>
-          <div class="case-detail-box">
-            <dl class="case-detail-item"><dt>開催場所</dt><dd>中国・某企業イベント</dd></dl>
-            <dl class="case-detail-item"><dt>参加者数</dt><dd>2,400名</dd></dl>
-            <dl class="case-detail-item"><dt>開催期間</dt><dd>2日間</dd></dl>
-          </div>
-          <div><span class="tag tag-yellow">企業</span><span class="tag tag-blue">顧客感謝</span></div>
-          <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-banner">
-  <div class="cta-inner">
-    <span class="cta-label">📣 この事例に近い内容を依頼したい</span>
-    <h2 class="cta-h2">ご予算・スペースに合わせて<br>最適なプランをご提案します</h2>
-    <p class="cta-desc">まずはお気軽にご相談ください。担当者が丁寧にヒアリングします。</p>
-    <div class="cta-btns">
-      <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">✉ 無料で相談する</a>
-      <a href="contact.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">📄 資料を請求する</a>
-    </div>
-    <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo-mark">WAC</div>
-        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
-        <span class="footer-tel-num">0120-18-7801</span>
-        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
-      </div>
-      <div class="footer-col"><h4>サービス</h4><ul>
-        <li><a href="items.html#train">トレイン</a></li>
-        <li><a href="items.html#air">エア遊具</a></li>
-        <li><a href="items.html#dino">わくわく恐竜王国</a></li>
-        <li><a href="items.html#skate">スケートイベント</a></li>
-        <li><a href="items.html#activity">アクティビティイベント</a></li>
-        <li><a href="items.html#attract">アトラクションイベント</a></li>
-        <li><a href="items.html#digital">デジタルイベント</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>会社情報</h4><ul>
-        <li><a href="why.html">ワックとは・選ばれる理由</a></li>
-        <li><a href="cases.html">イベント事例</a></li>
-        <li><a href="flow.html">ご利用の流れ</a></li>
-        <li><a href="faq.html">よくある質問</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>お問い合わせ</h4><ul>
-        <li><a href="contact.html">お問い合わせ・ご相談</a></li>
-        <li><a href="documents.html">資料請求</a></li>
-        <li><a href="contact.html">無料見積り</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
-      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
-    </div>
-  </div>
-</footer>
-
-<script>
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cat = btn.dataset.cat;
-    document.querySelectorAll('#casesGrid .case-card').forEach(card => {
-      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
-    });
-  });
+<body> <div class="topbar"> <div class="container"> <span class="topbar-left">親子・子供のためのイベント企画運営会社</span> <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span> </div>
+</div> <header> <div class="header-inner"> <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a> <nav> <a href="items.html" class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a> <a href="cases.html" class="nav-link active"><span class="en">Cases</span><span>イベント事例</span></a> <a href="why.html" class="nav-link"><span class="en">About</span><span>ワックとは</span></a> <a href="flow.html" class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a> <a href="faq.html" class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a> <a href="blog.html" class="nav-link"><span class="en">Blog</span><span>ブログ</span></a> <a href="news.html" class="nav-link"><span class="en">News</span><span>お知らせ</span></a> </nav> <div class="nav-cta"> <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a> <a href="contact.html" class="btn btn-yellow btn-sm">お問い合わせ</a> </div> </div>
+</header> <div class="float-cta"> <a href="documents.html" class="float-btn">資料<br>請求</a> <a href="contact.html" class="float-btn blue">相談<br>する</a>
+</div> <!-- PAGE HERO -->
+<div class="page-hero"> <span class="page-hero-en">Case Studies</span> <h1>イベント事例</h1> <p>全国で開催されたワックのイベント実績をご紹介します</p> <div class="breadcrumb"> <a href="index.html">TOP</a><span>/</span><span>イベント事例</span> </div>
+</div> <!-- CASES SECTION -->
+<section class="cases-section"> <div class="container"> <!-- FILTER --> <div class="filter-row"> <button class="filter-btn active" data-cat="all">すべて</button> <button class="filter-btn" data-cat="commercial">商業施設</button> <button class="filter-btn" data-cat="local">自治体・地域</button> <button class="filter-btn" data-cat="school">学校・幼稚園</button> <button class="filter-btn" data-cat="corporate">企業イベント</button> </div> <!-- GRID --> <div class="cases-grid" id="casesGrid"> <!-- Case 1 --> <div class="case-card" data-cat="commercial"> <div class="case-photo"><span class="case-ribbon">トレイン</span>【写真】SCトレインイベント</div> <div class="case-body"> <div class="case-category">トレインイベント</div> <div class="case-title">大型SCの夏の催事でトレインを3台導入、週末来場者数120%達成</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>関東・某ショッピングセンター</dd></dl> <dl class="case-detail-item"><dt>来場者数</dt><dd>8,000名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>14日間</dd></dl> </div> <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">週末集客</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> <!-- Case 2 --> <div class="case-card" data-cat="local"> <div class="case-photo dino"><span class="case-ribbon">恐竜</span>【写真】恐竜王国イベント</div> <div class="case-body"> <div class="case-category">わくわく恐竜王国</div> <div class="case-title">市民まつりに恐竜ゾーンを設置、SNS拡散でメディア取材も実現</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>中部・某市民まつり</dd></dl> <dl class="case-detail-item"><dt>来場者数</dt><dd>15,000名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>2日間</dd></dl> </div> <div><span class="tag tag-yellow">自治体</span><span class="tag tag-green">屋外</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> <!-- Case 3 --> <div class="case-card" data-cat="commercial"> <div class="case-photo skate"><span class="case-ribbon">スケート</span>【写真】スケートリンク設置</div> <div class="case-body"> <div class="case-category">スケートイベント</div> <div class="case-title">冬の商業施設にスケートリンクを設営、クリスマス集客を大幅強化</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>近畿・某百貨店</dd></dl> <dl class="case-detail-item"><dt>来場者数</dt><dd>12,000名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>30日間</dd></dl> </div> <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">冬季</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> <!-- Case 4 --> <div class="case-card" data-cat="local"> <div class="case-photo activity"><span class="case-ribbon">アクティビティ</span>【写真】水上アクティビティ</div> <div class="case-body"> <div class="case-category">アクティビティイベント</div> <div class="case-title">夏祭りに水上アトラクション導入、子どもから大人まで大好評</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>九州・某地域イベント</dd></dl> <dl class="case-detail-item"><dt>来場者数</dt><dd>5,000名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>3日間</dd></dl> </div> <div><span class="tag tag-yellow">地域</span><span class="tag tag-green">夏祭り</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> <!-- Case 5 --> <div class="case-card" data-cat="commercial"> <div class="case-photo digital"><span class="case-ribbon">デジタル</span>【写真】ARスタンプラリー</div> <div class="case-body"> <div class="case-category">デジタルイベント</div> <div class="case-title">AR恐竜探索スタンプラリーで館内回遊率が2倍に向上</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>関東・某複合施設</dd></dl> <dl class="case-detail-item"><dt>参加者数</dt><dd>3,200名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>7日間</dd></dl> </div> <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">デジタル</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> <!-- Case 6 --> <div class="case-card" data-cat="corporate"> <div class="case-photo attract"><span class="case-ribbon">アトラクション</span>【写真】企業ファミリーデー</div> <div class="case-body"> <div class="case-category">アトラクションイベント</div> <div class="case-title">企業ファミリーデーにエア遊具5台を設置、社員から大絶賛</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>東海・某大手企業</dd></dl> <dl class="case-detail-item"><dt>参加者数</dt><dd>1,800名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>1日間</dd></dl> </div> <div><span class="tag tag-yellow">企業</span><span class="tag tag-green">ファミリー</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> <!-- Case 7 --> <div class="case-card" data-cat="school"> <div class="case-photo"><span class="case-ribbon">トレイン</span>【写真】学校イベント</div> <div class="case-body"> <div class="case-category">トレインイベント</div> <div class="case-title">小学校のバザーにミニトレインを導入、子どもたちが大行列</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>北海道・某小学校</dd></dl> <dl class="case-detail-item"><dt>参加者数</dt><dd>600名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>1日間</dd></dl> </div> <div><span class="tag tag-yellow">学校</span><span class="tag tag-blue">バザー</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> <!-- Case 8 --> <div class="case-card" data-cat="local"> <div class="case-photo g"><span class="case-ribbon">エア遊具</span>【写真】屋外エア遊具</div> <div class="case-body"> <div class="case-category">エア遊具</div> <div class="case-title">商店街の春まつりにエア遊具4台、来場者数が前年比150%に</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>関西・某商店街</dd></dl> <dl class="case-detail-item"><dt>来場者数</dt><dd>6,500名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>2日間</dd></dl> </div> <div><span class="tag tag-yellow">地域</span><span class="tag tag-green">春まつり</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> <!-- Case 9 --> <div class="case-card" data-cat="corporate"> <div class="case-photo dino"><span class="case-ribbon">恐竜</span>【写真】ショッピングモール恐竜</div> <div class="case-body"> <div class="case-category">わくわく恐竜王国</div> <div class="case-title">顧客感謝祭に恐竜ゾーンを設置、SNSでバズり新規顧客を獲得</div> <div class="case-detail-box"> <dl class="case-detail-item"><dt>開催場所</dt><dd>中国・某企業イベント</dd></dl> <dl class="case-detail-item"><dt>参加者数</dt><dd>2,400名</dd></dl> <dl class="case-detail-item"><dt>開催期間</dt><dd>2日間</dd></dl> </div> <div><span class="tag tag-yellow">企業</span><span class="tag tag-blue">顧客感謝</span></div> <br><a href="contact.html" class="case-link">この事例に近い内容で相談する</a> </div> </div> </div> </div>
+</section> <!-- CTA -->
+<section class="cta-banner"> <div class="cta-inner"> <span class="cta-label">この事例に近い内容を依頼したい</span> <h2 class="cta-h2">ご予算・スペースに合わせて<br>最適なプランをご提案します</h2> <p class="cta-desc">まずはお気軽にご相談ください。担当者が丁寧にヒアリングします。</p> <div class="cta-btns"> <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">無料で相談する</a> <a href="contact.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">資料を請求する</a> </div> <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div> </div>
+</section> <footer> <div class="container"> <div class="footer-top"> <div> <div class="footer-logo-mark">WAC</div> <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p> <span class="footer-tel-num">0120-18-7801</span> <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span> </div> <div class="footer-col"><h4>サービス</h4><ul> <li><a href="items.html#train">トレイン</a></li> <li><a href="items.html#air">エア遊具</a></li> <li><a href="items.html#dino">わくわく恐竜王国</a></li> <li><a href="items.html#skate">スケートイベント</a></li> <li><a href="items.html#activity">アクティビティイベント</a></li> <li><a href="items.html#attract">アトラクションイベント</a></li> <li><a href="items.html#digital">デジタルイベント</a></li> </ul></div> <div class="footer-col"><h4>会社情報</h4><ul> <li><a href="why.html">ワックとは・選ばれる理由</a></li> <li><a href="cases.html">イベント事例</a></li> <li><a href="flow.html">ご利用の流れ</a></li> <li><a href="faq.html">よくある質問</a></li> </ul></div> <div class="footer-col"><h4>お問い合わせ</h4><ul> <li><a href="contact.html">お問い合わせ・ご相談</a></li> <li><a href="documents.html">資料請求</a></li> <li><a href="contact.html">無料見積り</a></li> </ul></div> </div> <div class="footer-bottom"> <div>© 2025 WAC Corporation. All Rights Reserved.</div> <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div> </div> </div>
+</footer> <script>document.querySelectorAll('.filter-btn').forEach(btn =>{
+ btn.addEventListener('click', () =>{
+ document.querySelectorAll('.filter-btn').forEach(b =>b.classList.remove('active'));
+ btn.classList.add('active');
+ const cat = btn.dataset.cat;
+ document.querySelectorAll('#casesGrid .case-card').forEach(card =>{
+ card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+ });
+ });
 });
 </script>
 </body>

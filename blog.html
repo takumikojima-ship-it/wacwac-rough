@@ -8,26 +8,25 @@
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ===== BLOG LIST ===== */
+/* ===== BLOG PAGE ===== */
 .blog-section { padding: 80px 0; background: var(--bg-section); }
 .blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
 
-/* FILTER -->
-.cat-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+/* FILTER */
+.cat-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 
-/* FEATURED ARTICLE -->
+/* ===== FEATURED CARD (最新注目記事) ===== */
 .featured-card {
   border-radius: var(--radius-card); overflow: hidden;
-  background: #fff; box-shadow: var(--shadow); margin-bottom: 36px;
+  background: #fff; box-shadow: var(--shadow); margin-bottom: 28px;
   display: grid; grid-template-columns: 1fr 1fr;
 }
 .featured-photo {
-  background: #dbeafe; min-height: 280px;
+  background: #dbeafe; min-height: 260px;
   display: flex; align-items: center; justify-content: center;
   font-size: .9rem; color: var(--gray); text-align: center; padding: 20px;
   position: relative;
 }
-/* Video embed in featured -->
 .featured-photo.video-thumb { background: #1a2c5b; color: rgba(255,255,255,.7); }
 .play-btn {
   position: absolute; width: 60px; height: 60px; border-radius: 50%;
@@ -40,16 +39,17 @@
   background: var(--yellow); color: var(--navy);
   font-size: .72rem; font-weight: 800; padding: 4px 12px; border-radius: 50px;
 }
-.featured-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+.featured-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
 .featured-badge {
   display: inline-block; background: var(--blue); color: #fff;
-  font-size: .68rem; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px;
+  font-size: .68rem; font-weight: 700; padding: 3px 10px; border-radius: 4px;
+  align-self: flex-start;
 }
-.featured-title { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
-.featured-meta { font-size: .78rem; color: var(--gray); margin-bottom: 12px; }
-.featured-excerpt { font-size: .88rem; color: var(--gray); margin-bottom: 20px; }
+.featured-title { font-size: 1.25rem; font-weight: 800; color: var(--navy); line-height: 1.5; }
+.featured-meta { font-size: .78rem; color: var(--gray); }
+.featured-excerpt { font-size: .88rem; color: var(--gray); line-height: 1.8; }
 
-/* ARTICLE LIST (横並びカード) */
+/* ===== ARTICLE LIST (横並びカード) ===== */
 .article-grid { display: flex; flex-direction: column; gap: 16px; }
 
 .article-card {
@@ -57,18 +57,16 @@
   background: #fff; box-shadow: var(--shadow);
   transition: transform .2s, box-shadow .2s;
   text-decoration: none;
-  display: flex; flex-direction: row;
-  align-items: stretch;
+  display: flex; flex-direction: row; align-items: stretch;
 }
 .article-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
 
 /* 左：アイキャッチ 16:9 固定幅 */
 .article-thumb-wrap {
-  width: 260px; flex-shrink: 0; position: relative;
-  overflow: hidden;
+  width: 260px; flex-shrink: 0; position: relative; overflow: hidden;
 }
 .article-thumb-wrap::before {
-  content: ''; display: block; padding-top: 56.25%; /* 16:9 */
+  content: ''; display: block; padding-top: 56.25%;
 }
 .article-thumb {
   position: absolute; inset: 0;
@@ -88,7 +86,6 @@
   position: absolute; top: 10px; left: 10px; z-index: 1;
   font-size: .63rem; font-weight: 800; padding: 3px 10px; border-radius: 50px;
   color: #fff; letter-spacing: .04em;
-  backdrop-filter: blur(4px);
 }
 .article-cat.report  { background: var(--blue); }
 .article-cat.case    { background: var(--green); }
@@ -108,7 +105,7 @@
 .article-body {
   flex: 1; padding: 20px 24px;
   display: flex; flex-direction: column; justify-content: space-between;
-  min-width: 0; /* テキスト折り返し保証 */
+  min-width: 0;
 }
 .article-body-top { flex: 1; }
 .article-title {
@@ -122,7 +119,7 @@
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 
-/* 下：日付 右寄せ */
+/* 下：日付・続きを読む */
 .article-body-bottom {
   display: flex; align-items: center; justify-content: space-between;
   margin-top: 14px; padding-top: 12px;
@@ -138,33 +135,40 @@
 }
 .article-read-more::after { content: ' →'; }
 
-/* PAGINATION -->
+/* ===== PAGINATION ===== */
 .pagination { display: flex; gap: 8px; justify-content: center; margin-top: 40px; }
 .page-btn {
-  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: .88rem; font-weight: 700; cursor: pointer; border: 2px solid #e2e8f0;
-  background: #fff; color: var(--gray); text-decoration: none; transition: all .2s;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .88rem; font-weight: 700; cursor: pointer;
+  border: 2px solid #e2e8f0; background: #fff; color: var(--gray);
+  text-decoration: none; transition: all .2s;
 }
 .page-btn:hover, .page-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
 
-/* SIDEBAR -->
+/* ===== SIDEBAR ===== */
 .sidebar { display: flex; flex-direction: column; gap: 24px; }
-.sidebar-box {
-  background: #fff; border-radius: 18px; padding: 24px; box-shadow: var(--shadow);
-}
+.sidebar-box { background: #fff; border-radius: 18px; padding: 24px; box-shadow: var(--shadow); }
 .sidebar-box-title {
   font-size: .9rem; font-weight: 800; color: var(--navy);
-  padding-bottom: 10px; margin-bottom: 14px;
+  padding-bottom: 10px; margin-bottom: 16px;
   border-bottom: 3px solid var(--yellow);
 }
-.sidebar-cat-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.sidebar-cat-list li a {
+
+/* カテゴリリスト（シンプル・行区切り） */
+.sidebar-cat-list { list-style: none; display: flex; flex-direction: column; }
+.sidebar-cat-list li {
   display: flex; align-items: center; justify-content: space-between;
-  text-decoration: none; color: var(--navy); font-size: .85rem; font-weight: 600;
-  padding: 8px 10px; border-radius: 8px; transition: background .2s;
+  padding: 12px 4px; border-bottom: 1px solid #f0f4f8;
+  font-size: .88rem; color: var(--navy); font-weight: 600;
 }
-.sidebar-cat-list li a:hover { background: var(--yellow-light); }
-.sidebar-cat-list li a span { font-size: .72rem; color: var(--gray); }
+.sidebar-cat-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.sidebar-cat-count {
+  font-family: 'Nunito', sans-serif; font-size: .78rem;
+  color: var(--gray); font-weight: 700;
+}
+
+/* 最近の記事 */
 .sidebar-recent-item {
   display: flex; gap: 12px; align-items: flex-start;
   padding: 10px 0; border-bottom: 1px dashed #e2e8f0; text-decoration: none;
@@ -178,62 +182,18 @@
 .sidebar-recent-thumb.b { background: #dbeafe; }
 .sidebar-recent-title { font-size: .78rem; color: var(--navy); font-weight: 600; line-height: 1.5; }
 .sidebar-recent-date { font-size: .68rem; color: var(--gray); margin-top: 4px; }
+
+/* タグクラウド */
 .sidebar-tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
 .sidebar-tag {
   display: inline-block; padding: 4px 12px; border-radius: 50px;
-  background: var(--blue-light); color: var(--blue); font-size: .75rem; font-weight: 700;
+  background: var(--blue-light); color: var(--blue);
+  font-size: .75rem; font-weight: 700;
   text-decoration: none; transition: background .2s;
 }
 .sidebar-tag:hover { background: var(--blue); color: #fff; }
 
-/* ===== ARTICLE DETAIL (sample / WP single.php) ===== */
-.article-detail { max-width: 800px; margin: 0 auto; }
-.article-detail-header { margin-bottom: 32px; }
-.article-detail-cats { display: flex; gap: 8px; margin-bottom: 12px; }
-.article-detail-h1 { font-size: 1.8rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; line-height: 1.35; }
-.article-detail-meta { font-size: .8rem; color: var(--gray); display: flex; gap: 16px; }
-.article-detail-hero {
-  width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 32px;
-  background: #dbeafe; aspect-ratio: 16/9;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .9rem; color: var(--gray); text-align: center; padding: 20px;
-}
-/* Video embed wrapper (responsive) -->
-.video-wrap {
-  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-  border-radius: 16px; margin: 32px 0;
-}
-.video-wrap iframe {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 16px;
-}
-.article-body-content { font-size: .95rem; color: var(--navy); line-height: 1.9; }
-.article-body-content h2 {
-  font-size: 1.3rem; font-weight: 800; color: var(--navy);
-  margin: 36px 0 16px;
-  padding-left: 14px; border-left: 5px solid var(--yellow);
-}
-.article-body-content h3 {
-  font-size: 1.05rem; font-weight: 800; color: var(--navy); margin: 24px 0 10px;
-}
-.article-body-content p { margin-bottom: 16px; }
-.article-body-content img { width: 100%; border-radius: 12px; margin: 20px 0; }
-.article-body-content ul, .article-body-content ol {
-  padding-left: 24px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px;
-}
-.article-share {
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  margin-top: 40px; padding-top: 24px; border-top: 2px dashed #e2e8f0;
-}
-.share-label { font-size: .85rem; font-weight: 700; color: var(--navy); }
-.share-btn {
-  padding: 8px 18px; border-radius: 50px; font-size: .82rem; font-weight: 700;
-  text-decoration: none; transition: opacity .2s;
-}
-.share-btn:hover { opacity: .8; }
-.share-x   { background: #000; color: #fff; }
-.share-fb  { background: #1877f2; color: #fff; }
-.share-line{ background: #06c755; color: #fff; }
-
+/* ===== RESPONSIVE ===== */
 @media(max-width:1024px) {
   .blog-layout { grid-template-columns: 1fr; }
   .featured-card { grid-template-columns: 1fr; }
@@ -242,7 +202,6 @@
 @media(max-width:768px) {
   .article-card { flex-direction: column; }
   .article-thumb-wrap { width: 100%; }
-  .article-thumb-wrap::before { padding-top: 56.25%; }
 }
 </style>
 </head>
@@ -259,13 +218,13 @@
   <div class="header-inner">
     <a href="index.html" class="logo"><span class="logo-mark">WAC</span><span class="logo-sub">CORPORATION</span></a>
     <nav>
-      <a href="items.html"     class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
-      <a href="cases.html"     class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
-      <a href="why.html"       class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
-      <a href="flow.html"      class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
-      <a href="faq.html"       class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
-      <a href="blog.html"      class="nav-link active"><span class="en">Blog</span><span>ブログ</span></a>
-      <a href="news.html"      class="nav-link"><span class="en">News</span><span>お知らせ</span></a>
+      <a href="items.html"   class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
+      <a href="cases.html"   class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
+      <a href="why.html"     class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
+      <a href="flow.html"    class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
+      <a href="faq.html"     class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
+      <a href="blog.html"    class="nav-link active"><span class="en">Blog</span><span>ブログ</span></a>
+      <a href="news.html"    class="nav-link"><span class="en">News</span><span>お知らせ</span></a>
     </nav>
     <div class="nav-cta">
       <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a>
@@ -294,40 +253,40 @@
 
       <!-- MAIN -->
       <div>
-        <!-- CATEGORY FILTER -->
+
+        <!-- カテゴリフィルター -->
         <div class="cat-filter">
           <button class="filter-btn active" data-cat="all">すべて</button>
-          <button class="filter-btn" data-cat="report">🎉 イベントレポート</button>
-          <button class="filter-btn" data-cat="case">📋 事例紹介</button>
-          <button class="filter-btn" data-cat="tips">💡 企画のヒント</button>
-          <button class="filter-btn" data-cat="video">🎬 動画</button>
-          <button class="filter-btn" data-cat="news">📢 お知らせ</button>
+          <button class="filter-btn" data-cat="report">イベントレポート</button>
+          <button class="filter-btn" data-cat="case">事例紹介</button>
+          <button class="filter-btn" data-cat="tips">企画のヒント</button>
+          <button class="filter-btn" data-cat="video">動画</button>
+          <button class="filter-btn" data-cat="news">お知らせ</button>
         </div>
 
-        <!-- FEATURED -->
+        <!-- 注目記事 -->
         <div class="featured-card">
           <div class="featured-photo video-thumb">
-            <!-- WP実装時: アイキャッチ画像または動画サムネイル -->
             【サムネイル】夏のイベントレポート動画
             <div class="play-btn">▶</div>
-            <span class="featured-label">🎬 動画</span>
+            <span class="featured-label">動画</span>
           </div>
           <div class="featured-body">
-            <span class="featured-badge">🎉 イベントレポート</span>
+            <span class="featured-badge">イベントレポート</span>
             <div class="featured-title">【動画あり】大阪・某SCの夏イベント2025 ― トレイン＋恐竜ゾーンで来場者1.5万人達成！</div>
             <div class="featured-meta">2025年8月10日 ｜ 担当：田中</div>
             <div class="featured-excerpt">今年も大盛況となった夏のビッグイベント。3両編成トレイン3台と恐竜ゾーンを組み合わせた大規模設置の裏側を動画でご紹介します。</div>
-            <a href="blog-single.html" class="btn btn-blue btn-sm">記事を読む →</a>
+            <a href="blog-single.html" class="btn btn-blue btn-sm" style="align-self:flex-start;">記事を読む →</a>
           </div>
         </div>
 
-        <!-- ARTICLE LIST (横並びカード) -->
+        <!-- 記事一覧 -->
         <div class="article-grid" id="articleGrid">
 
           <a href="blog-single.html" class="article-card" data-cat="report">
             <div class="article-thumb-wrap">
               <div class="article-thumb b">
-                <span class="article-cat report">🎉 イベントレポート</span>
+                <span class="article-cat report">イベントレポート</span>
                 【写真】スケートリンク設置レポート
               </div>
             </div>
@@ -346,7 +305,7 @@
           <a href="blog-single.html" class="article-card" data-cat="video">
             <div class="article-thumb-wrap">
               <div class="article-thumb n">
-                <span class="article-cat video">🎬 動画</span>
+                <span class="article-cat video">動画</span>
                 【動画サムネイル】恐竜ゾーン設置タイムラプス
                 <div class="play-icon">▶</div>
               </div>
@@ -366,7 +325,7 @@
           <a href="blog-single.html" class="article-card" data-cat="tips">
             <div class="article-thumb-wrap">
               <div class="article-thumb g">
-                <span class="article-cat tips">💡 企画のヒント</span>
+                <span class="article-cat tips">企画のヒント</span>
                 【写真】イベント企画打ち合わせのシーン
               </div>
             </div>
@@ -385,7 +344,7 @@
           <a href="blog-single.html" class="article-card" data-cat="case">
             <div class="article-thumb-wrap">
               <div class="article-thumb p">
-                <span class="article-cat case">📋 事例紹介</span>
+                <span class="article-cat case">事例紹介</span>
                 【写真】自治体イベント事例の写真
               </div>
             </div>
@@ -404,7 +363,7 @@
           <a href="blog-single.html" class="article-card" data-cat="tips">
             <div class="article-thumb-wrap">
               <div class="article-thumb">
-                <span class="article-cat tips">💡 企画のヒント</span>
+                <span class="article-cat tips">企画のヒント</span>
                 【写真】SNSに映えるフォトスポット
               </div>
             </div>
@@ -423,7 +382,7 @@
           <a href="blog-single.html" class="article-card" data-cat="video">
             <div class="article-thumb-wrap">
               <div class="article-thumb n">
-                <span class="article-cat video">🎬 動画</span>
+                <span class="article-cat video">動画</span>
                 【動画】子どもたちがトレインに乗る様子
                 <div class="play-icon">▶</div>
               </div>
@@ -443,7 +402,7 @@
           <a href="blog-single.html" class="article-card" data-cat="news">
             <div class="article-thumb-wrap">
               <div class="article-thumb b">
-                <span class="article-cat news">📢 お知らせ</span>
+                <span class="article-cat news">お知らせ</span>
                 【写真】新サービス・デジタルイベント
               </div>
             </div>
@@ -462,7 +421,7 @@
           <a href="blog-single.html" class="article-card" data-cat="report">
             <div class="article-thumb-wrap">
               <div class="article-thumb g">
-                <span class="article-cat report">🎉 イベントレポート</span>
+                <span class="article-cat report">イベントレポート</span>
                 【写真】春まつりアクティビティ
               </div>
             </div>
@@ -480,21 +439,22 @@
 
         </div><!-- /article-grid -->
 
-        <!-- PAGINATION -->
+        <!-- ページネーション -->
         <div class="pagination">
           <a href="#" class="page-btn active">1</a>
           <a href="#" class="page-btn">2</a>
           <a href="#" class="page-btn">3</a>
           <a href="#" class="page-btn" style="width:auto;padding:0 16px;border-radius:50px;">次へ →</a>
         </div>
-      </div>
+
+      </div><!-- /main -->
 
       <!-- SIDEBAR -->
       <aside class="sidebar">
 
         <!-- 検索 -->
         <div class="sidebar-box">
-          <div class="sidebar-box-title">🔍 記事を検索</div>
+          <div class="sidebar-box-title">記事を検索</div>
           <div style="display:flex;gap:8px;">
             <input type="text" style="flex:1;padding:10px 14px;border-radius:10px;border:2px solid #e2e8f0;font-family:inherit;font-size:.85rem;" placeholder="キーワード">
             <button style="padding:10px 14px;border-radius:10px;background:var(--blue);color:#fff;border:none;cursor:pointer;font-weight:700;">検索</button>
@@ -503,19 +463,19 @@
 
         <!-- カテゴリ -->
         <div class="sidebar-box">
-          <div class="sidebar-box-title">📂 カテゴリ</div>
+          <div class="sidebar-box-title">カテゴリ</div>
           <ul class="sidebar-cat-list">
-            <li><a href="#">🎉 イベントレポート <span>12件</span></a></li>
-            <li><a href="#">📋 事例紹介 <span>8件</span></a></li>
-            <li><a href="#">💡 企画のヒント <span>15件</span></a></li>
-            <li><a href="#">🎬 動画 <span>6件</span></a></li>
-            <li><a href="#">📢 お知らせ <span>10件</span></a></li>
+            <li>イベントレポート <span class="sidebar-cat-count">12件</span></li>
+            <li>事例紹介 <span class="sidebar-cat-count">8件</span></li>
+            <li>企画のヒント <span class="sidebar-cat-count">15件</span></li>
+            <li>動画 <span class="sidebar-cat-count">6件</span></li>
+            <li>お知らせ <span class="sidebar-cat-count">10件</span></li>
           </ul>
         </div>
 
         <!-- 最近の記事 -->
         <div class="sidebar-box">
-          <div class="sidebar-box-title">🕐 最近の記事</div>
+          <div class="sidebar-box-title">最近の記事</div>
           <a href="blog-single.html" class="sidebar-recent-item">
             <div class="sidebar-recent-thumb">【写真】</div>
             <div>
@@ -541,49 +501,43 @@
 
         <!-- タグ -->
         <div class="sidebar-box">
-          <div class="sidebar-box-title">🏷️ タグ</div>
+          <div class="sidebar-box-title">タグ</div>
           <div class="sidebar-tag-cloud">
-            <a href="#" class="sidebar-tag">トレイン</a>
-            <a href="#" class="sidebar-tag">エア遊具</a>
-            <a href="#" class="sidebar-tag">恐竜</a>
-            <a href="#" class="sidebar-tag">スケート</a>
-            <a href="#" class="sidebar-tag">夏祭り</a>
-            <a href="#" class="sidebar-tag">商業施設</a>
-            <a href="#" class="sidebar-tag">自治体</a>
-            <a href="#" class="sidebar-tag">設営レポート</a>
-            <a href="#" class="sidebar-tag">動画</a>
-            <a href="#" class="sidebar-tag">SNS</a>
+            <span class="sidebar-tag">トレイン</span>
+            <span class="sidebar-tag">エア遊具</span>
+            <span class="sidebar-tag">恐竜</span>
+            <span class="sidebar-tag">スケート</span>
+            <span class="sidebar-tag">夏祭り</span>
+            <span class="sidebar-tag">商業施設</span>
+            <span class="sidebar-tag">自治体</span>
+            <span class="sidebar-tag">設営レポート</span>
+            <span class="sidebar-tag">動画</span>
+            <span class="sidebar-tag">SNS</span>
           </div>
         </div>
 
         <!-- CTA -->
         <div class="sidebar-box" style="background:var(--navy);text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:8px;">📣</div>
-          <div style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:8px;">イベントのご相談は<br>お気軽に</div>
-          <a href="contact.html" class="btn btn-yellow btn-sm" style="width:100%;margin-bottom:8px;">✉ お問い合わせ</a>
-          <a href="documents.html" class="btn btn-sm" style="width:100%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);">📄 資料請求</a>
+          <div style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:16px;">イベントのご相談は<br>お気軽に</div>
+          <a href="contact.html" class="btn btn-yellow btn-sm" style="width:100%;margin-bottom:8px;">お問い合わせ</a>
+          <a href="documents.html" class="btn btn-sm" style="width:100%;background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);">資料請求</a>
         </div>
 
       </aside>
+
     </div>
   </div>
 </section>
 
-<!-- ===== BLOG SINGLE ARTICLE SAMPLE (WP single.php のイメージ) ===== -->
-<!--
-※ WordPressでは blog-single.html の内容は single.php テンプレートに移植します。
-   以下は「記事詳細ページ」のデザインラフです。
--->
-
 <!-- CTA -->
 <section class="cta-banner">
   <div class="cta-inner">
-    <span class="cta-label">📣 まずはお気軽に</span>
+    <span class="cta-label">まずはお気軽に</span>
     <h2 class="cta-h2">企画から設置・運営・撤去まで<br>すべてワックにお任せください</h2>
     <p class="cta-desc">記事を読んで気になった方は、お気軽にご相談ください。</p>
     <div class="cta-btns">
-      <a href="contact.html"   class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">✉ お問い合わせする</a>
-      <a href="documents.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">📄 資料を請求する</a>
+      <a href="contact.html"   class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">お問い合わせする</a>
+      <a href="documents.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">資料を請求する</a>
     </div>
     <div class="cta-tel">お電話でのご相談<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
   </div>
@@ -628,7 +582,6 @@
 </footer>
 
 <script>
-// カテゴリフィルター
 document.querySelectorAll('.cat-filter .filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.cat-filter .filter-btn').forEach(b => b.classList.remove('active'));

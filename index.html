@@ -7,80 +7,79 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-/* ===== HERO ===== */
+<style>/* ===== HERO ===== */
 .hero {
-  position: relative;
-  background: linear-gradient(135deg, #FFF8D0 0%, #EFF6FF 60%, #F0FDF4 100%);
-  overflow: hidden; padding: 64px 0 0;
+ position: relative;
+ background: linear-gradient(135deg, #FFF8D0 0%, #EFF6FF 60%, #F0FDF4 100%);
+ overflow: hidden; padding: 64px 0 0;
 }
 .hero-bg-circle { position: absolute; border-radius: 50%; opacity: .25; }
 .hero-bg-circle.c1 { width:500px;height:500px;background:#FFD700;top:-150px;right:-100px; }
 .hero-bg-circle.c2 { width:300px;height:300px;background:#60A5FA;bottom:-80px;left:-60px; }
 .hero-bg-circle.c3 { width:200px;height:200px;background:#86EFAC;top:60px;left:30%; }
 .hero-inner {
-  max-width:1160px;margin:0 auto;padding:0 24px;
-  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+ max-width:1160px;margin:0 auto;padding:0 24px;
+ display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
 }
 .hero-eyebrow {
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--yellow);color:var(--navy);border-radius:50px;
-  padding:6px 16px;font-size:.82rem;font-weight:800;margin-bottom:20px;
+ display:inline-flex;align-items:center;gap:8px;
+ background:var(--yellow);color:var(--navy);border-radius:50px;
+ padding:6px 16px;font-size:.82rem;font-weight:800;margin-bottom:20px;
 }
-.hero-eyebrow::before { content:'★'; }
+.hero-eyebrow::before { content:''; }
 .hero-h1 {
-  font-size:2.8rem;font-weight:800;line-height:1.25;color:var(--navy);
-  margin-bottom:20px;letter-spacing:-.03em;
+ font-size:2.8rem;font-weight:800;line-height:1.25;color:var(--navy);
+ margin-bottom:20px;letter-spacing:-.03em;
 }
-.hero-h1 .accent  { color:var(--blue); }
+.hero-h1 .accent { color:var(--blue); }
 .hero-h1 .accent-y{ color:var(--orange); }
 .hero-desc { font-size:1rem;color:var(--gray);margin-bottom:32px; }
 .hero-btns { display:flex;gap:12px;flex-wrap:wrap; }
 .hero-stats {
-  display:flex;gap:24px;margin-top:36px;padding-top:24px;
-  border-top:2px dashed rgba(26,44,91,.12);
+ display:flex;gap:24px;margin-top:36px;padding-top:24px;
+ border-top:2px dashed rgba(26,44,91,.12);
 }
 .hero-stat { text-align:center; }
 .hero-stat-num {
-  font-family:'Nunito',sans-serif;font-size:2rem;font-weight:900;
-  color:var(--blue);line-height:1;
+ font-family:'Nunito',sans-serif;font-size:2rem;font-weight:900;
+ color:var(--blue);line-height:1;
 }
 .hero-stat-label { font-size:.72rem;color:var(--gray);margin-top:4px; }
 .hero-visual { position:relative;z-index:2; }
 .hero-photo-main {
-  width:100%;aspect-ratio:4/3;border-radius:24px;overflow:hidden;
-  box-shadow:var(--shadow);background:#d4e8ff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.9rem;color:var(--gray);text-align:center;padding:20px;
+ width:100%;aspect-ratio:4/3;border-radius:24px;overflow:hidden;
+ box-shadow:var(--shadow);background:#d4e8ff;
+ display:flex;align-items:center;justify-content:center;
+ font-size:.9rem;color:var(--gray);text-align:center;padding:20px;
 }
 .hero-thumb-row { display:flex;gap:10px;margin-top:12px; }
 .hero-thumb {
-  flex:1;aspect-ratio:4/3;border-radius:12px;
-  background:#fef3c7;display:flex;align-items:center;justify-content:center;
-  font-size:.72rem;color:var(--gray);text-align:center;padding:8px;
-  cursor:pointer;border:2px solid transparent;transition:border-color .2s;
+ flex:1;aspect-ratio:4/3;border-radius:12px;
+ background:#fef3c7;display:flex;align-items:center;justify-content:center;
+ font-size:.72rem;color:var(--gray);text-align:center;padding:8px;
+ cursor:pointer;border:2px solid transparent;transition:border-color .2s;
 }
 .hero-thumb:hover,.hero-thumb.active { border-color:var(--yellow); }
 .hero-scroll { text-align:center;padding:32px 0 0;font-size:.78rem;color:var(--gray);letter-spacing:.1em; }
 .hero-scroll-arrow {
-  display:block;margin:8px auto 0;width:24px;height:24px;
-  border-right:3px solid var(--yellow);border-bottom:3px solid var(--yellow);
-  transform:rotate(45deg);animation:bounce .8s infinite alternate;
+ display:block;margin:8px auto 0;width:24px;height:24px;
+ border-right:3px solid var(--yellow);border-bottom:3px solid var(--yellow);
+ transform:rotate(45deg);animation:bounce .8s infinite alternate;
 }
 @keyframes bounce { to { transform:rotate(45deg) translateY(6px); } }
 
 /* ===== CATEGORY NAV ===== */
 .cat-nav { background:var(--navy);padding:28px 0; }
 .cat-nav-inner {
-  max-width:1160px;margin:0 auto;padding:0 24px;
-  display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+ max-width:1160px;margin:0 auto;padding:0 24px;
+ display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
 }
 .cat-item {
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  background:rgba(255,255,255,.08);border-radius:16px;
-  padding:16px 20px;min-width:120px;cursor:pointer;
-  text-decoration:none;transition:background .2s,transform .2s;
-  border:1.5px solid rgba(255,255,255,.15);
+ display:flex;flex-direction:column;align-items:center;gap:6px;
+ background:rgba(255,255,255,.08);border-radius:16px;
+ padding:16px 20px;min-width:120px;cursor:pointer;
+ text-decoration:none;transition:background .2s,transform .2s;
+ border:1.5px solid rgba(255,255,255,.15);
 }
 .cat-item:hover { background:var(--yellow);transform:translateY(-3px); }
 .cat-item:hover .cat-label { color:var(--navy); }
@@ -91,15 +90,15 @@
 .audience-nav { background:var(--bg-section);padding:72px 0; }
 .audience-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:16px; }
 .audience-card {
-  border-radius:var(--radius-card);overflow:hidden;
-  box-shadow:var(--shadow);background:#fff;
-  cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none;
+ border-radius:var(--radius-card);overflow:hidden;
+ box-shadow:var(--shadow);background:#fff;
+ cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none;
 }
 .audience-card:hover { transform:translateY(-4px);box-shadow:var(--shadow-hover); }
 .audience-photo {
-  height:140px;background:#dbeafe;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.82rem;color:var(--gray);text-align:center;padding:12px;
+ height:140px;background:#dbeafe;
+ display:flex;align-items:center;justify-content:center;
+ font-size:.82rem;color:var(--gray);text-align:center;padding:12px;
 }
 .audience-photo.g { background:#dcfce7; }
 .audience-photo.y { background:#fef9c3; }
@@ -116,9 +115,9 @@
 .why-preview { background:var(--bg-section);padding:72px 0; }
 .why-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
 .why-card {
-  background:#fff;border-radius:var(--radius-card);
-  padding:32px 24px;box-shadow:var(--shadow);text-align:center;
-  position:relative;overflow:hidden;
+ background:#fff;border-radius:var(--radius-card);
+ padding:32px 24px;box-shadow:var(--shadow);text-align:center;
+ position:relative;overflow:hidden;
 }
 .why-card::after { content:'';position:absolute;bottom:0;left:0;right:0;height:5px; }
 .why-card.w1::after { background:var(--yellow); }
@@ -136,24 +135,24 @@
 .items-preview { padding:72px 0;background:#fff; }
 .items-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:32px; }
 .item-card {
-  border-radius:var(--radius-card);overflow:hidden;
-  box-shadow:var(--shadow);background:#fff;
-  transition:transform .2s,box-shadow .2s;text-decoration:none;
+ border-radius:var(--radius-card);overflow:hidden;
+ box-shadow:var(--shadow);background:#fff;
+ transition:transform .2s,box-shadow .2s;text-decoration:none;
 }
 .item-card:hover { transform:translateY(-4px);box-shadow:var(--shadow-hover); }
 .item-photo {
-  height:150px;background:#fef3c7;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.78rem;color:var(--gray);text-align:center;padding:12px;
+ height:150px;background:#fef3c7;
+ display:flex;align-items:center;justify-content:center;
+ font-size:.78rem;color:var(--gray);text-align:center;padding:12px;
 }
 .item-photo.b { background:#dbeafe; }
 .item-photo.g { background:#dcfce7; }
 .item-photo.p { background:#ede9fe; }
 .item-body { padding:14px; }
 .item-rank {
-  font-family:'Nunito',sans-serif;font-size:.68rem;font-weight:900;
-  background:var(--yellow);color:var(--navy);
-  padding:2px 8px;border-radius:4px;margin-bottom:6px;display:inline-block;
+ font-family:'Nunito',sans-serif;font-size:.68rem;font-weight:900;
+ background:var(--yellow);color:var(--navy);
+ padding:2px 8px;border-radius:4px;margin-bottom:6px;display:inline-block;
 }
 .item-name { font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:4px; }
 .item-scene { font-size:.75rem;color:var(--gray); }
@@ -162,345 +161,45 @@
 .news-section { padding:72px 0;background:#fff; }
 
 @media(max-width:1024px){
-  .hero-inner { grid-template-columns:1fr; }
-  .hero-visual { display:none; }
-  .audience-grid { grid-template-columns:repeat(2,1fr); }
-  .items-grid { grid-template-columns:repeat(2,1fr); }
-  .why-grid { grid-template-columns:1fr; }
+ .hero-inner { grid-template-columns:1fr; }
+ .hero-visual { display:none; }
+ .audience-grid { grid-template-columns:repeat(2,1fr); }
+ .items-grid { grid-template-columns:repeat(2,1fr); }
+ .why-grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
-<body>
-
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="container">
-    <span class="topbar-left">親子・子供のためのイベント企画運営会社</span>
-    <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span>
-  </div>
+<body> <!-- TOP BAR -->
+<div class="topbar"> <div class="container"> <span class="topbar-left">親子・子供のためのイベント企画運営会社</span> <span class="topbar-tel"><span>フリーコール</span>0120-18-7801</span> </div>
+</div> <!-- HEADER -->
+<header> <div class="header-inner"> <a href="index.html" class="logo"> <span class="logo-mark">WAC</span> <span class="logo-sub">CORPORATION</span> </a> <nav> <a href="items.html" class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a> <a href="cases.html" class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a> <a href="why.html" class="nav-link"><span class="en">About</span><span>ワックとは</span></a> <a href="flow.html" class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a> <a href="faq.html" class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a> <a href="blog.html" class="nav-link"><span class="en">Blog</span><span>ブログ</span></a> <a href="news.html" class="nav-link"><span class="en">News</span><span>お知らせ</span></a> </nav> <div class="nav-cta"> <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a> <a href="contact.html" class="btn btn-yellow btn-sm">お問い合わせ</a> </div> </div>
+</header> <!-- FLOATING CTA -->
+<div class="float-cta"> <a href="documents.html" class="float-btn">資料<br>請求</a> <a href="contact.html" class="float-btn blue">相談<br>する</a>
+</div> <!-- HERO -->
+<section class="hero"> <div class="hero-bg-circle c1"></div> <div class="hero-bg-circle c2"></div> <div class="hero-bg-circle c3"></div> <div class="dots-bg"></div> <div class="hero-inner"> <div> <span class="hero-eyebrow">企画から撤去まで、すべてワックにお任せ</span> <h1 class="hero-h1">その催事、ワックが<br> <span class="accent-y">最高の思い出</span>に<br> <span class="accent">変えます。</span> </h1> <p class="hero-desc">商業施設・自治体・学校行事のイベントを、<br>企画・設置・運営・撤去までワンストップで対応。<br>子どもたちの笑顔があふれるイベントをつくります。 </p> <div class="hero-btns"> <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:16px 36px;">無料で相談する</a> <a href="cases.html" class="btn btn-outline-blue">事例を見る →</a> </div> <div class="hero-stats"> <div class="hero-stat"><div class="hero-stat-num">1,500<span style="font-size:1.1rem;">+</span></div><div class="hero-stat-label">累計イベント実績</div></div> <div class="hero-stat"><div class="hero-stat-num">30<span style="font-size:1.1rem;">年</span></div><div class="hero-stat-label">の豊富な経験</div></div> <div class="hero-stat"><div class="hero-stat-num">85<span style="font-size:1.1rem;">%</span></div><div class="hero-stat-label">リピート率</div></div> </div> </div> <div class="hero-visual"> <div class="hero-photo-main">【メインビジュアル】<br>子どもたちが楽しむ親子イベントの写真<br>※実写真に差し替え</div> <div class="hero-thumb-row"> <div class="hero-thumb active">トレイン</div> <div class="hero-thumb">恐竜</div> <div class="hero-thumb">スケート</div> </div> </div> </div> <div class="hero-scroll">SCROLL<span class="hero-scroll-arrow"></span></div> <div class="wave-divider" style="margin-top:20px;"> <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"> <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1a2c5b"/> </svg> </div>
+</section> <!-- CATEGORY NAV -->
+<div class="cat-nav"> <div class="cat-nav-inner"> <a href="items.html#train" class="cat-item"><span class="cat-icon"></span><span class="cat-label">トレイン</span></a> <a href="items.html#air" class="cat-item"><span class="cat-icon"></span><span class="cat-label">エア遊具</span></a> <a href="items.html#dino" class="cat-item"><span class="cat-icon"></span><span class="cat-label">恐竜イベント</span></a> <a href="items.html#skate" class="cat-item"><span class="cat-icon"></span><span class="cat-label">スケート</span></a> <a href="items.html#activity" class="cat-item"><span class="cat-icon"></span><span class="cat-label">アクティビティ</span></a> <a href="items.html#attract" class="cat-item"><span class="cat-icon"></span><span class="cat-label">アトラクション</span></a> <a href="items.html#digital" class="cat-item"><span class="cat-icon"></span><span class="cat-label">デジタル</span></a> </div>
 </div>
-
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo">
-      <span class="logo-mark">WAC</span>
-      <span class="logo-sub">CORPORATION</span>
-    </a>
-    <nav>
-      <a href="items.html"   class="nav-link"><span class="en">Item</span><span>アイテム一覧</span></a>
-      <a href="cases.html"   class="nav-link"><span class="en">Cases</span><span>イベント事例</span></a>
-      <a href="why.html"     class="nav-link"><span class="en">About</span><span>ワックとは</span></a>
-      <a href="flow.html"    class="nav-link"><span class="en">Flow</span><span>ご利用の流れ</span></a>
-      <a href="faq.html"      class="nav-link"><span class="en">FAQ</span><span>よくある質問</span></a>
-      <a href="blog.html"      class="nav-link"><span class="en">Blog</span><span>ブログ</span></a>
-      <a href="news.html"      class="nav-link"><span class="en">News</span><span>お知らせ</span></a>
-    </nav>
-    <div class="nav-cta">
-      <a href="documents.html" class="btn btn-outline-blue btn-sm">資料請求</a>
-      <a href="contact.html" class="btn btn-yellow btn-sm">お問い合わせ</a>
-    </div>
-  </div>
-</header>
-
-<!-- FLOATING CTA -->
-<div class="float-cta">
-  <a href="documents.html" class="float-btn">資料<br>請求</a>
-  <a href="contact.html" class="float-btn blue">相談<br>する</a>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-circle c1"></div>
-  <div class="hero-bg-circle c2"></div>
-  <div class="hero-bg-circle c3"></div>
-  <div class="dots-bg"></div>
-  <div class="hero-inner">
-    <div>
-      <span class="hero-eyebrow">企画から撤去まで、すべてワックにお任せ</span>
-      <h1 class="hero-h1">
-        その催事、ワックが<br>
-        <span class="accent-y">最高の思い出</span>に<br>
-        <span class="accent">変えます。</span>
-      </h1>
-      <p class="hero-desc">
-        商業施設・自治体・学校行事のイベントを、<br>
-        企画・設置・運営・撤去までワンストップで対応。<br>
-        子どもたちの笑顔があふれるイベントをつくります。
-      </p>
-      <div class="hero-btns">
-        <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:16px 36px;">✉ 無料で相談する</a>
-        <a href="cases.html"   class="btn btn-outline-blue">事例を見る →</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">1,500<span style="font-size:1.1rem;">+</span></div><div class="hero-stat-label">累計イベント実績</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">30<span style="font-size:1.1rem;">年</span></div><div class="hero-stat-label">の豊富な経験</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">85<span style="font-size:1.1rem;">%</span></div><div class="hero-stat-label">リピート率</div></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-photo-main">【メインビジュアル】<br>子どもたちが楽しむ親子イベントの写真<br>※実写真に差し替え</div>
-      <div class="hero-thumb-row">
-        <div class="hero-thumb active">🚂 トレイン</div>
-        <div class="hero-thumb">🦕 恐竜</div>
-        <div class="hero-thumb">⛸️ スケート</div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-scroll">SCROLL<span class="hero-scroll-arrow"></span></div>
-  <div class="wave-divider" style="margin-top:20px;">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1a2c5b"/>
-    </svg>
-  </div>
-</section>
-
-<!-- CATEGORY NAV -->
-<div class="cat-nav">
-  <div class="cat-nav-inner">
-    <a href="items.html#train"    class="cat-item"><span class="cat-icon">🚂</span><span class="cat-label">トレイン</span></a>
-    <a href="items.html#air"      class="cat-item"><span class="cat-icon">🎈</span><span class="cat-label">エア遊具</span></a>
-    <a href="items.html#dino"     class="cat-item"><span class="cat-icon">🦕</span><span class="cat-label">恐竜イベント</span></a>
-    <a href="items.html#skate"    class="cat-item"><span class="cat-icon">⛸️</span><span class="cat-label">スケート</span></a>
-    <a href="items.html#activity" class="cat-item"><span class="cat-icon">🎯</span><span class="cat-label">アクティビティ</span></a>
-    <a href="items.html#attract"  class="cat-item"><span class="cat-icon">🎡</span><span class="cat-label">アトラクション</span></a>
-    <a href="items.html#digital"  class="cat-item"><span class="cat-icon">📱</span><span class="cat-label">デジタル</span></a>
-  </div>
-</div>
-<div class="wave-divider" style="background:#1a2c5b;">
-  <svg viewBox="0 0 1440 50" preserveAspectRatio="none" height="50">
-    <path d="M0,25 C480,50 960,0 1440,25 L1440,50 L0,50 Z" fill="#FFFDF0"/>
-  </svg>
-</div>
-
-<!-- AUDIENCE -->
-<section class="audience-nav">
-  <div class="container">
-    <span class="badge-en">For Who</span>
-    <h2 class="section-title">どんな場面でお役に立てますか？</h2>
-    <p class="section-sub">施設・目的別に最適なイベントプランをご提案します</p>
-    <div class="audience-grid">
-      <a href="cases.html?cat=commercial" class="audience-card">
-        <div class="audience-photo">【写真】商業施設の集客イベント</div>
-        <div class="audience-body">
-          <div class="audience-tag">🏬 商業施設向け</div>
-          <div class="audience-title">集客・販促イベントを<br>成功させたい</div>
-          <div class="audience-desc">週末集客アップや催事スペース活用に。大型遊具からデジタル体験まで多彩なラインナップ。</div>
-        </div>
-      </a>
-      <a href="cases.html?cat=local" class="audience-card">
-        <div class="audience-photo g">【写真】屋外お祭りイベント</div>
-        <div class="audience-body">
-          <div class="audience-tag">🏛️ 自治体・地域向け</div>
-          <div class="audience-title">地域のお祭り・行事を<br>盛り上げたい</div>
-          <div class="audience-desc">夏祭り・文化祭・市民まつりなど、企画から当日運営まで丸ごとサポート。</div>
-        </div>
-      </a>
-      <a href="cases.html?cat=school" class="audience-card">
-        <div class="audience-photo y">【写真】学校・幼稚園の体験イベント</div>
-        <div class="audience-body">
-          <div class="audience-tag">🏫 学校・幼稚園向け</div>
-          <div class="audience-title">文化祭・学校行事を<br>特別な体験に</div>
-          <div class="audience-desc">予算やスペースに合わせた安全なコンテンツ。子どもたちの記憶に残るイベントをご提案。</div>
-        </div>
-      </a>
-      <a href="cases.html?cat=corporate" class="audience-card">
-        <div class="audience-photo o">【写真】企業ファミリーデー</div>
-        <div class="audience-body">
-          <div class="audience-tag">🏢 企業向け</div>
-          <div class="audience-title">社員ファミリーデーや<br>顧客感謝祭に</div>
-          <div class="audience-desc">家族みんなが楽しめるコンテンツ。企業の特別な日をワックが演出します。</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CASES PREVIEW -->
-<section class="cases-preview">
-  <div class="container">
-    <span class="badge-en">Case Studies</span>
-    <h2 class="section-title">イベント<span>事例</span></h2>
-    <p class="section-sub">全国で開催された実績から、ぴったりのプランを見つけてください</p>
-    <div class="cases-grid">
-      <a href="cases.html" class="case-card">
-        <div class="case-photo"><span class="case-ribbon">トレイン</span>【写真】SCトレインイベント</div>
-        <div class="case-body">
-          <div class="case-category">🚂 トレインイベント</div>
-          <div class="case-title">大型SCの夏の催事でトレインを3台導入、週末来場者数120%達成</div>
-          <div class="case-meta"><span>関東・某ショッピングセンター</span><span>来場者 8,000名</span></div>
-          <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">週末集客</span></div>
-          <br><span class="case-link">事例を見る</span>
-        </div>
-      </a>
-      <a href="cases.html" class="case-card">
-        <div class="case-photo dino"><span class="case-ribbon">恐竜</span>【写真】恐竜王国イベント</div>
-        <div class="case-body">
-          <div class="case-category">🦕 わくわく恐竜王国</div>
-          <div class="case-title">市民まつりに恐竜ゾーンを設置、SNS拡散でメディア取材も実現</div>
-          <div class="case-meta"><span>中部・某市民まつり</span><span>来場者 15,000名</span></div>
-          <div><span class="tag tag-yellow">自治体</span><span class="tag tag-green">屋外</span></div>
-          <br><span class="case-link">事例を見る</span>
-        </div>
-      </a>
-      <a href="cases.html" class="case-card">
-        <div class="case-photo skate"><span class="case-ribbon">スケート</span>【写真】スケートリンク設置</div>
-        <div class="case-body">
-          <div class="case-category">⛸️ スケートイベント</div>
-          <div class="case-title">冬の商業施設にスケートリンクを設営、クリスマス集客を大幅強化</div>
-          <div class="case-meta"><span>近畿・某百貨店</span><span>期間 30日間</span></div>
-          <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">冬季</span></div>
-          <br><span class="case-link">事例を見る</span>
-        </div>
-      </a>
-    </div>
-    <div style="text-align:center;margin-top:36px;">
-      <a href="cases.html" class="btn btn-outline-blue">事例をもっと見る →</a>
-    </div>
-  </div>
-</section>
-
-<!-- WHY PREVIEW -->
-<section class="why-preview">
-  <div class="container">
-    <span class="badge-en">Why WACWAC</span>
-    <h2 class="section-title">選ばれる<span>3つ</span>の理由</h2>
-    <p class="section-sub">年間200件以上の実績をもつワックが、イベントの成功をサポートします</p>
-    <div class="why-grid">
-      <div class="why-card w1">
-        <div class="why-num">01</div><div class="why-icon">🛡️</div>
-        <div class="why-title">徹底した安全管理</div>
-        <div class="why-desc">全アイテム定期メンテナンス・保険加入。スタッフ全員が安全研修を受けた有資格者です。</div>
-      </div>
-      <div class="why-card w2">
-        <div class="why-num">02</div><div class="why-icon">🏆</div>
-        <div class="why-title">企画からのワンストップ対応</div>
-        <div class="why-desc">会場調査・企画提案・搬入設置・当日運営・撤去まですべてワックにお任せください。</div>
-      </div>
-      <div class="why-card w3">
-        <div class="why-num">03</div><div class="why-icon">🗾</div>
-        <div class="why-title">全国対応・柔軟な提案力</div>
-        <div class="why-desc">北海道から九州まで全国対応。ご予算・スペースに合わせた最適プランを複数ご提案します。</div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px;">
-      <a href="why.html" class="btn btn-outline-blue">選ばれる理由を詳しく見る →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ITEMS PREVIEW -->
-<section class="items-preview" style="background:var(--bg-section);">
-  <div class="container">
-    <span class="badge-en">Popular Items</span>
-    <h2 class="section-title">人気アイテム<span>ランキング</span></h2>
-    <p class="section-sub">ご利用シーンに合わせた豊富なラインナップをご用意しています</p>
-    <div class="items-grid">
-      <a href="items.html#train" class="item-card">
-        <div class="item-photo">【写真】トレインイベント</div>
-        <div class="item-body"><div class="item-rank">🥇 RANK 1</div><div class="item-name">トレイン</div><div class="item-scene">🏬 商業施設の週末集客</div></div>
-      </a>
-      <a href="items.html#air" class="item-card">
-        <div class="item-photo b">【写真】エア遊具</div>
-        <div class="item-body"><div class="item-rank">🥈 RANK 2</div><div class="item-name">エア遊具</div><div class="item-scene">🏛️ お祭り・野外イベント</div></div>
-      </a>
-      <a href="items.html#dino" class="item-card">
-        <div class="item-photo g">【写真】恐竜王国</div>
-        <div class="item-body"><div class="item-rank">🥉 RANK 3</div><div class="item-name">わくわく恐竜王国</div><div class="item-scene">🏫 学校行事・文化祭</div></div>
-      </a>
-      <a href="items.html#skate" class="item-card">
-        <div class="item-photo p">【写真】スケートリンク</div>
-        <div class="item-body"><div class="item-rank">⭐ RANK 4</div><div class="item-name">スケートイベント</div><div class="item-scene">🎄 冬季集客・クリスマス</div></div>
-      </a>
-    </div>
-    <div style="text-align:center;">
-      <a href="items.html" class="btn btn-blue">アイテム一覧をすべて見る</a>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section class="cta-banner">
-  <div class="cta-inner">
-    <span class="cta-label">📣 まずはお気軽に</span>
-    <h2 class="cta-h2">企画から設置・運営・撤去まで<br>すべてワックにお任せください</h2>
-    <p class="cta-desc">ご予算やスペース・開催時期に合わせて、<br>経験豊富なスタッフが最適なイベントプランをご提案します。</p>
-    <div class="cta-btns">
-      <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">✉ お問い合わせ・相談する</a>
-      <a href="contact.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">📄 資料を請求する</a>
-    </div>
-    <div class="cta-tel">お電話でのご相談はこちら<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div>
-  </div>
-</section>
-
-<!-- NEWS -->
-<section class="news-section">
-  <div class="container">
-    <span class="badge-en">News</span>
-    <h2 class="section-title">お<span>知らせ</span></h2>
-    <div style="max-width:900px;margin:0 auto;">
-      <a href="news.html" class="news-item"><span class="news-date">2025.05.01</span><span class="tag tag-yellow">お知らせ</span><span class="news-title">2025年夏シーズンのイベント受付を開始しました</span></a>
-      <a href="news.html" class="news-item"><span class="news-date">2025.04.15</span><span class="tag tag-blue">事例</span><span class="news-title">○○ショッピングセンター様のGWイベント事例を公開しました</span></a>
-      <a href="news.html" class="news-item"><span class="news-date">2025.03.20</span><span class="tag tag-green">メディア</span><span class="news-title">テレビ○○番組にてワックのイベントが紹介されました</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo-mark">WAC</div>
-        <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p>
-        <span class="footer-tel-num">0120-18-7801</span>
-        <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span>
-      </div>
-      <div class="footer-col">
-        <h4>サービス</h4>
-        <ul>
-          <li><a href="items.html#train">トレイン</a></li>
-          <li><a href="items.html#air">エア遊具</a></li>
-          <li><a href="items.html#dino">わくわく恐竜王国</a></li>
-          <li><a href="items.html#skate">スケートイベント</a></li>
-          <li><a href="items.html#activity">アクティビティイベント</a></li>
-          <li><a href="items.html#attract">アトラクションイベント</a></li>
-          <li><a href="items.html#digital">デジタルイベント</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>会社情報</h4>
-        <ul>
-          <li><a href="why.html">ワックとは・選ばれる理由</a></li>
-          <li><a href="cases.html">イベント事例</a></li>
-          <li><a href="flow.html">ご利用の流れ</a></li>
-          <li><a href="faq.html">よくある質問</a></li>
-          <li><a href="news.html">お知らせ</a></li>
-          <li><a href="#">採用情報</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>お問い合わせ</h4>
-        <ul>
-          <li><a href="contact.html">お問い合わせ・ご相談</a></li>
-          <li><a href="documents.html">資料請求</a></li>
-          <li><a href="contact.html">無料見積り</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2025 WAC Corporation. All Rights Reserved.</div>
-      <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div>
-    </div>
-  </div>
-</footer>
-
-<script>
-document.querySelectorAll('.hero-thumb').forEach(t => {
-  t.addEventListener('click', () => {
-    document.querySelectorAll('.hero-thumb').forEach(x => x.classList.remove('active'));
-    t.classList.add('active');
-  });
+<div class="wave-divider" style="background:#1a2c5b;"> <svg viewBox="0 0 1440 50" preserveAspectRatio="none" height="50"> <path d="M0,25 C480,50 960,0 1440,25 L1440,50 L0,50 Z" fill="#FFFDF0"/> </svg>
+</div> <!-- AUDIENCE -->
+<section class="audience-nav"> <div class="container"> <span class="badge-en">For Who</span> <h2 class="section-title">どんな場面でお役に立てますか？</h2> <p class="section-sub">施設・目的別に最適なイベントプランをご提案します</p> <div class="audience-grid"> <a href="cases.html?cat=commercial" class="audience-card"> <div class="audience-photo">【写真】商業施設の集客イベント</div> <div class="audience-body"> <div class="audience-tag">商業施設向け</div> <div class="audience-title">集客・販促イベントを<br>成功させたい</div> <div class="audience-desc">週末集客アップや催事スペース活用に。大型遊具からデジタル体験まで多彩なラインナップ。</div> </div> </a> <a href="cases.html?cat=local" class="audience-card"> <div class="audience-photo g">【写真】屋外お祭りイベント</div> <div class="audience-body"> <div class="audience-tag">自治体・地域向け</div> <div class="audience-title">地域のお祭り・行事を<br>盛り上げたい</div> <div class="audience-desc">夏祭り・文化祭・市民まつりなど、企画から当日運営まで丸ごとサポート。</div> </div> </a> <a href="cases.html?cat=school" class="audience-card"> <div class="audience-photo y">【写真】学校・幼稚園の体験イベント</div> <div class="audience-body"> <div class="audience-tag">学校・幼稚園向け</div> <div class="audience-title">文化祭・学校行事を<br>特別な体験に</div> <div class="audience-desc">予算やスペースに合わせた安全なコンテンツ。子どもたちの記憶に残るイベントをご提案。</div> </div> </a> <a href="cases.html?cat=corporate" class="audience-card"> <div class="audience-photo o">【写真】企業ファミリーデー</div> <div class="audience-body"> <div class="audience-tag">企業向け</div> <div class="audience-title">社員ファミリーデーや<br>顧客感謝祭に</div> <div class="audience-desc">家族みんなが楽しめるコンテンツ。企業の特別な日をワックが演出します。</div> </div> </a> </div> </div>
+</section> <!-- CASES PREVIEW -->
+<section class="cases-preview"> <div class="container"> <span class="badge-en">Case Studies</span> <h2 class="section-title">イベント<span>事例</span></h2> <p class="section-sub">全国で開催された実績から、ぴったりのプランを見つけてください</p> <div class="cases-grid"> <a href="cases.html" class="case-card"> <div class="case-photo"><span class="case-ribbon">トレイン</span>【写真】SCトレインイベント</div> <div class="case-body"> <div class="case-category">トレインイベント</div> <div class="case-title">大型SCの夏の催事でトレインを3台導入、週末来場者数120%達成</div> <div class="case-meta"><span>関東・某ショッピングセンター</span><span>来場者 8,000名</span></div> <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">週末集客</span></div> <br><span class="case-link">事例を見る</span> </div> </a> <a href="cases.html" class="case-card"> <div class="case-photo dino"><span class="case-ribbon">恐竜</span>【写真】恐竜王国イベント</div> <div class="case-body"> <div class="case-category">わくわく恐竜王国</div> <div class="case-title">市民まつりに恐竜ゾーンを設置、SNS拡散でメディア取材も実現</div> <div class="case-meta"><span>中部・某市民まつり</span><span>来場者 15,000名</span></div> <div><span class="tag tag-yellow">自治体</span><span class="tag tag-green">屋外</span></div> <br><span class="case-link">事例を見る</span> </div> </a> <a href="cases.html" class="case-card"> <div class="case-photo skate"><span class="case-ribbon">スケート</span>【写真】スケートリンク設置</div> <div class="case-body"> <div class="case-category">スケートイベント</div> <div class="case-title">冬の商業施設にスケートリンクを設営、クリスマス集客を大幅強化</div> <div class="case-meta"><span>近畿・某百貨店</span><span>期間 30日間</span></div> <div><span class="tag tag-yellow">商業施設</span><span class="tag tag-blue">冬季</span></div> <br><span class="case-link">事例を見る</span> </div> </a> </div> <div style="text-align:center;margin-top:36px;"> <a href="cases.html" class="btn btn-outline-blue">事例をもっと見る →</a> </div> </div>
+</section> <!-- WHY PREVIEW -->
+<section class="why-preview"> <div class="container"> <span class="badge-en">Why WACWAC</span> <h2 class="section-title">選ばれる<span>3つ</span>の理由</h2> <p class="section-sub">年間200件以上の実績をもつワックが、イベントの成功をサポートします</p> <div class="why-grid"> <div class="why-card w1"> <div class="why-num">01</div><div class="why-icon"></div> <div class="why-title">徹底した安全管理</div> <div class="why-desc">全アイテム定期メンテナンス・保険加入。スタッフ全員が安全研修を受けた有資格者です。</div> </div> <div class="why-card w2"> <div class="why-num">02</div><div class="why-icon"></div> <div class="why-title">企画からのワンストップ対応</div> <div class="why-desc">会場調査・企画提案・搬入設置・当日運営・撤去まですべてワックにお任せください。</div> </div> <div class="why-card w3"> <div class="why-num">03</div><div class="why-icon"></div> <div class="why-title">全国対応・柔軟な提案力</div> <div class="why-desc">北海道から九州まで全国対応。ご予算・スペースに合わせた最適プランを複数ご提案します。</div> </div> </div> <div style="text-align:center;margin-top:36px;"> <a href="why.html" class="btn btn-outline-blue">選ばれる理由を詳しく見る →</a> </div> </div>
+</section> <!-- ITEMS PREVIEW -->
+<section class="items-preview" style="background:var(--bg-section);"> <div class="container"> <span class="badge-en">Popular Items</span> <h2 class="section-title">人気アイテム<span>ランキング</span></h2> <p class="section-sub">ご利用シーンに合わせた豊富なラインナップをご用意しています</p> <div class="items-grid"> <a href="items.html#train" class="item-card"> <div class="item-photo">【写真】トレインイベント</div> <div class="item-body"><div class="item-rank">RANK 1</div><div class="item-name">トレイン</div><div class="item-scene">商業施設の週末集客</div></div> </a> <a href="items.html#air" class="item-card"> <div class="item-photo b">【写真】エア遊具</div> <div class="item-body"><div class="item-rank">RANK 2</div><div class="item-name">エア遊具</div><div class="item-scene">お祭り・野外イベント</div></div> </a> <a href="items.html#dino" class="item-card"> <div class="item-photo g">【写真】恐竜王国</div> <div class="item-body"><div class="item-rank">RANK 3</div><div class="item-name">わくわく恐竜王国</div><div class="item-scene">学校行事・文化祭</div></div> </a> <a href="items.html#skate" class="item-card"> <div class="item-photo p">【写真】スケートリンク</div> <div class="item-body"><div class="item-rank">⭐ RANK 4</div><div class="item-name">スケートイベント</div><div class="item-scene">冬季集客・クリスマス</div></div> </a> </div> <div style="text-align:center;"> <a href="items.html" class="btn btn-blue">アイテム一覧をすべて見る</a> </div> </div>
+</section> <!-- CTA BANNER -->
+<section class="cta-banner"> <div class="cta-inner"> <span class="cta-label">まずはお気軽に</span> <h2 class="cta-h2">企画から設置・運営・撤去まで<br>すべてワックにお任せください</h2> <p class="cta-desc">ご予算やスペース・開催時期に合わせて、<br>経験豊富なスタッフが最適なイベントプランをご提案します。</p> <div class="cta-btns"> <a href="contact.html" class="btn btn-yellow" style="font-size:1.05rem;padding:18px 36px;">お問い合わせ・相談する</a> <a href="contact.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">資料を請求する</a> </div> <div class="cta-tel">お電話でのご相談はこちら<strong>0120-18-7801</strong>（平日 9:00〜18:00）</div> </div>
+</section> <!-- NEWS -->
+<section class="news-section"> <div class="container"> <span class="badge-en">News</span> <h2 class="section-title">お<span>知らせ</span></h2> <div style="max-width:900px;margin:0 auto;"> <a href="news.html" class="news-item"><span class="news-date">2025.05.01</span><span class="tag tag-yellow">お知らせ</span><span class="news-title">2025年夏シーズンのイベント受付を開始しました</span></a> <a href="news.html" class="news-item"><span class="news-date">2025.04.15</span><span class="tag tag-blue">事例</span><span class="news-title">○○ショッピングセンター様のGWイベント事例を公開しました</span></a> <a href="news.html" class="news-item"><span class="news-date">2025.03.20</span><span class="tag tag-green">メディア</span><span class="news-title">テレビ○○番組にてワックのイベントが紹介されました</span></a> </div> </div>
+</section> <!-- FOOTER -->
+<footer> <div class="container"> <div class="footer-top"> <div> <div class="footer-logo-mark">WAC</div> <p class="footer-tagline">親子・子供のためのイベント企画運営会社</p> <span class="footer-tel-num">0120-18-7801</span> <span class="footer-hours">平日 9:00〜18:00（土日祝休）</span> </div> <div class="footer-col"> <h4>サービス</h4> <ul> <li><a href="items.html#train">トレイン</a></li> <li><a href="items.html#air">エア遊具</a></li> <li><a href="items.html#dino">わくわく恐竜王国</a></li> <li><a href="items.html#skate">スケートイベント</a></li> <li><a href="items.html#activity">アクティビティイベント</a></li> <li><a href="items.html#attract">アトラクションイベント</a></li> <li><a href="items.html#digital">デジタルイベント</a></li> </ul> </div> <div class="footer-col"> <h4>会社情報</h4> <ul> <li><a href="why.html">ワックとは・選ばれる理由</a></li> <li><a href="cases.html">イベント事例</a></li> <li><a href="flow.html">ご利用の流れ</a></li> <li><a href="faq.html">よくある質問</a></li> <li><a href="news.html">お知らせ</a></li> <li><a href="#">採用情報</a></li> </ul> </div> <div class="footer-col"> <h4>お問い合わせ</h4> <ul> <li><a href="contact.html">お問い合わせ・ご相談</a></li> <li><a href="documents.html">資料請求</a></li> <li><a href="contact.html">無料見積り</a></li> </ul> </div> </div> <div class="footer-bottom"> <div>© 2025 WAC Corporation. All Rights Reserved.</div> <div style="display:flex;gap:16px;"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div> </div> </div>
+</footer> <script>document.querySelectorAll('.hero-thumb').forEach(t =>{
+ t.addEventListener('click', () =>{
+ document.querySelectorAll('.hero-thumb').forEach(x =>x.classList.remove('active'));
+ t.classList.add('active');
+ });
 });
 </script>
 </body>
